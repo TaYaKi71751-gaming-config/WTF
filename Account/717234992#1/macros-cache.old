@@ -1,0 +1,88 @@
+VER 3 000000000000000B "CreateParty" "136103"
+/lfglist
+END
+VER 3 000000000000000C "Heal" "461117"
+#showtooltip Exhilaration
+/cast Exhilaration
+/cast [pet:Spirit Beast, @player] Spirit Mend
+END
+VER 3 0000000000000008 "Kill Command" "132176"
+#showtooltip 살상 명령
+/공격시작 [combat]
+/petattack [@target]
+/시전 살상 명령
+/시전 할퀴기
+/시전 물기
+/시전 날카로운 일격
+/시전 질주
+END
+VER 3 0000000000000010 "kill command cn" "134400"
+#showtooltip 杀戮命令
+/cast 杀戮命令
+/cast 爪击
+/cast 撕咬
+/cast 拍击
+/cast 急奔
+END
+VER 3 000000000000000A "LeaveParty" "132309"
+/script C_PartyInfo.LeaveParty();
+END
+VER 3 000000000000000D "Raid Info" "1545375"
+/raidinfo
+END
+VER 3 0000000000000003 "reload" "134400"
+/reload
+END
+VER 3 000000000000000F "sharp shot cn" "1376044"
+#showtooltip Barbed Shot
+/petattack [@target]
+/cast 倒刺射击
+/cast 爪击
+/cast 撕咬
+/cast 拍击
+END
+VER 3 000000000000001A "tagpoong" "134400"
+#showtooltip
+/연속시전 우르솔의 회오리, 태풍
+END
+VER 3 0000000000000018 "감사합니다" "132121"
+/s
+감사합니다
+END
+VER 3 0000000000000007 "날카로운 사격" "1376044"
+#showtooltip 날카로운 사격
+/petattack [@target]
+/시전 날카로운 사격
+/시전 할퀴기
+/시전 물기
+/시전 날카로운 일격
+END
+VER 3 0000000000000015 "달빛섬광" "134400"
+#showtooltip 달빛섬광
+/시전 [@mouseover, exists] 달빛섬광
+/시전 [@target] 달빛섬광
+END
+VER 3 0000000000000006 "리셋" "132150"
+/script ResetInstances();
+/print 리셋완료
+END
+VER 3 0000000000000012 "변신" "132144"
+#showtooltip
+/시전 [spec:1,outdoors,nostance:3,nocombat] 날쌘 동물 변신; [spec:1,nostance:4,outdoors] 표범 변신;[spec:1,indoors,stance:0/4] 표범 변신; [spec:1,indoors] 표범 변신; [spec:1,outdoors,nostance:3] 날쌘 동물 변신;
+END
+VER 3 0000000000000011 "손인사" "136078"
+/손인사
+END
+VER 3 000000000000000E "아이템 자동 비교" "132160"
+/console alwaysCompareItems 1
+END
+VER 3 000000000000001C "안녕하세요" "464343"
+/i 안녕하세요
+END
+VER 3 000000000000001D "앨랠래" "6124644"
+/s 앨랠래
+END
+VER 3 000000000000001B "죄송합니다" "132091"
+/i
+죄송합니다
+END

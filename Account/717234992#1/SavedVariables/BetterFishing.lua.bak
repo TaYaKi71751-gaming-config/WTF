@@ -1,0 +1,5 @@
+
+BetterFishingDB = {
+["doubleClickSpeed"] = 0.2,
+["enhanceSounds"] = true,
+}

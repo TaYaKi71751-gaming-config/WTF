@@ -1,0 +1,1199 @@
+
+HekiliDB = {
+["namespaces"] = {
+["LibDualSpec-1.0"] = {
+},
+},
+["profileKeys"] = {
+["Taiki - 아즈샤라"] = "Default",
+["Tayaki - 아즈샤라"] = "Default",
+},
+["profiles"] = {
+["Default"] = {
+["runOnce"] = {
+["forceReloadAllDefaultPriorities_20220228"] = true,
+["forceEnableAllClassesOnceDueToBug_20220225"] = true,
+["removeOldThrottles_20241115"] = true,
+["forceReloadClassDefaultOptions_20220306_255"] = true,
+["forceReloadClassDefaultOptions_20220306_254"] = true,
+["fixHavocPriorityVersion_20240805"] = true,
+["forceReloadClassDefaultOptions_20220306_253"] = true,
+["forceSpellFlashBrightness_20221030"] = true,
+["resetAberrantPackageDates_20190728_1"] = true,
+},
+["specs"] = {
+[255] = {
+["settings"] = {
+["use_harpoon"] = true,
+["pet_healing"] = 0,
+["allow_focus_overcap"] = false,
+["mark_any"] = false,
+},
+},
+[254] = {
+["settings"] = {
+["mark_any"] = false,
+["pet_healing"] = 0,
+["prevent_hardcasts"] = false,
+["trueshot_rapid_fire"] = true,
+},
+},
+[253] = {
+["settings"] = {
+["check_pet_range"] = false,
+["mark_any"] = false,
+["pet_healing"] = 0,
+["barbed_shot_grace_period"] = 1,
+["avoid_bw_overlap"] = false,
+},
+},
+},
+["packs"] = {
+["Marksmanship"] = {
+["source"] = "# https://github.com/simulationcraft/simc/",
+["builtIn"] = true,
+["date"] = 20241029,
+["author"] = "SimC",
+["desc"] = "2024-10-29: SimC update\n\n2024-10-23: 11.0.5\n\n2024-09-10, 09-15: SimC update\n\n2024-08-15, 22: SimC update\n\n2024-08-11: Steady Focus only if talented\n\n2024-08-09: Updates from SimC\n\n2024-08-01: Use Hunter's Mark setting\n\n2024-07-27: Minor sim update; use Hunter's Mark\n\n2024-07-23: The War Within",
+["lists"] = {
+["trickshots"] = {
+{
+["enabled"] = true,
+["criteria"] = "buff.trick_shots.remains > execute_time & buff.razor_fragments.up",
+["action"] = "black_arrow",
+},
+{
+["enabled"] = true,
+["criteria"] = "talent.steady_focus.enabled & buff.steady_focus.remains < execute_time & buff.trueshot.down",
+["action"] = "steady_shot",
+},
+{
+["action"] = "explosive_shot",
+["enabled"] = true,
+},
+{
+["action"] = "volley",
+["enabled"] = true,
+},
+{
+["enabled"] = true,
+["criteria"] = "! talent.razor_fragments.enabled & buff.trick_shots.remains > execute_time",
+["action"] = "black_arrow",
+},
+{
+["enabled"] = true,
+["criteria"] = "buff.razor_fragments.up",
+["action"] = "kill_shot",
+},
+{
+["enabled"] = true,
+["criteria"] = "variable.trueshot_ready",
+["action"] = "trueshot",
+},
+{
+["enabled"] = true,
+["criteria"] = "talent.rapid_fire_barrage.enabled & buff.trick_shots.remains > execute_time",
+["action"] = "barrage",
+},
+{
+["enabled"] = true,
+["criteria"] = "buff.trick_shots.remains > execute_time & ( ! talent.lunar_storm.enabled || ( ! cooldown.lunar_storm.remains || cooldown.lunar_storm.remains > 5 || ( action.wailing_arrow.ready & talent.readiness.enabled ) || buff.trueshot.up ) )",
+["action"] = "rapid_fire",
+["description"] = "Hold Rapid Fire for up to 5s to proc Lunar Storm. Ignore Lunar Storm if Rapid Fire's cooldown can be reset with Wailing Arrow. Ignore all of this in Trueshot or as a Dark Ranger.",
+},
+{
+["enabled"] = true,
+["action"] = "wailing_arrow",
+["description"] = "With Wailing Arrow and Aimed Shot, target enemies without Serpent Sting or the enemy with the lowest remaining Serpent Sting.",
+["cycle_targets"] = 1,
+},
+{
+["enabled"] = true,
+["action"] = "aimed_shot",
+["criteria"] = "buff.trick_shots.remains > execute_time & buff.precise_shots.down",
+["cycle_targets"] = 1,
+},
+{
+["enabled"] = true,
+["criteria"] = "buff.precise_shots.up || buff.trick_shots.down",
+["action"] = "multishot",
+},
+{
+["enabled"] = true,
+["criteria"] = "buff.trueshot.down",
+["action"] = "bag_of_tricks",
+},
+{
+["action"] = "steady_shot",
+["enabled"] = true,
+},
+},
+["default"] = {
+{
+["action"] = "counter_shot",
+["enabled"] = true,
+},
+{
+["action"] = "tranquilizing_shot",
+["enabled"] = true,
+},
+{
+["enabled"] = true,
+["op"] = "set",
+["action"] = "variable",
+["value"] = "cooldown.trueshot.ready & ( ! raid_event.adds.exists & ( ! talent.bullseye.enabled || fight_remains > cooldown.trueshot.duration_guess + buff.trueshot.duration / 2 || buff.bullseye.stack = buff.bullseye.max_stack ) & ( ! trinket.t1.has_use_buff || trinket.t1.cooldown.remains > 30 || trinket.t1.cooldown.ready ) & ( ! trinket.t2.has_use_buff || trinket.t2.cooldown.remains > 30 || trinket.t2.cooldown.ready ) || raid_event.adds.exists & ( ! raid_event.adds.up & ( raid_event.adds.duration + raid_event.adds.in < 25 || raid_event.adds.in > 60 ) || raid_event.adds.up & raid_event.adds.remains > 10 ) || boss & fight_remains < 25 )",
+["description"] = "Determine if it is a good time to use Trueshot. Raid event optimization takes priority so usage is saved for multiple targets as long as it won't delay over half its duration. Otherwise allow for small delays to line up buff effect trinkets, and when using Bullseye, delay the last usage of the fight for max stacks.",
+["var_name"] = "trueshot_ready",
+},
+{
+["enabled"] = true,
+["criteria"] = "pet.health_pct < pet_healing",
+["action"] = "mend_pet",
+},
+{
+["enabled"] = true,
+["action"] = "call_action_list",
+["list_name"] = "cds",
+},
+{
+["enabled"] = true,
+["action"] = "call_action_list",
+["list_name"] = "trinkets",
+},
+{
+["enabled"] = true,
+["criteria"] = "( settings.mark_any || target.is_boss ) & active_dot.hunters_mark = 0 & target.time_to_pct_80 > 20",
+["action"] = "hunters_mark",
+},
+{
+["enabled"] = true,
+["action"] = "call_action_list",
+["strict"] = 1,
+["criteria"] = "active_enemies < 3 || ! talent.trick_shots.enabled",
+["list_name"] = "st",
+},
+{
+["enabled"] = true,
+["action"] = "call_action_list",
+["strict"] = 1,
+["criteria"] = "active_enemies > 2",
+["list_name"] = "trickshots",
+},
+},
+["precombat"] = {
+{
+["enabled"] = true,
+["criteria"] = "! talent.lone_wolf.enabled",
+["action"] = "summon_pet",
+},
+{
+["enabled"] = true,
+["op"] = "set",
+["action"] = "variable",
+["value"] = "! trinket.t2.has_cooldown || trinket.t1.has_use_buff & ( ! trinket.t2.has_use_buff || ! trinket.t1.is.mirror_of_fractured_tomorrows & ( trinket.t2.is.mirror_of_fractured_tomorrows || trinket.t2.cooldown.duration < trinket.t1.cooldown.duration || trinket.t2.cast_time < trinket.t1.cast_time || trinket.t2.cast_time = trinket.t1.cast_time & trinket.t2.cooldown.duration = trinket.t1.cooldown.duration ) ) || ! trinket.t1.has_use_buff & ( ! trinket.t2.has_use_buff & ( trinket.t2.cooldown.duration < trinket.t1.cooldown.duration || trinket.t2.cast_time < trinket.t1.cast_time || trinket.t2.cast_time = trinket.t1.cast_time & trinket.t2.cooldown.duration = trinket.t1.cooldown.duration ) )",
+["description"] = "Determine the stronger trinket to sync with cooldowns. In descending priority: buff effects > damage effects, longer > shorter cooldowns, longer > shorter cast times. Special case to consider Mirror of Fractured Tomorrows weaker than other buff effects since its power is split between the dmg effect and the buff effect.",
+["var_name"] = "trinket_1_stronger",
+},
+{
+["enabled"] = true,
+["op"] = "set",
+["action"] = "variable",
+["value"] = "! variable.trinket_1_stronger",
+["var_name"] = "trinket_2_stronger",
+},
+{
+["enabled"] = true,
+["criteria"] = "( settings.mark_any || target.is_boss ) & active_dot.hunters_mark = 0 & target.time_to_pct_80 > 20",
+["action"] = "hunters_mark",
+},
+{
+["enabled"] = true,
+["precast_time"] = "10",
+["action"] = "salvo",
+},
+{
+["enabled"] = true,
+["criteria"] = "active_enemies < 3 & ( ! talent.volley.enabled || active_enemies < 2 )",
+["action"] = "aimed_shot",
+["description"] = "Precast Aimed Shot on one or two targets unless we could cleave it with Volley on two targets.",
+},
+{
+["enabled"] = true,
+["criteria"] = "active_enemies > 2 || talent.volley.enabled & active_enemies = 2",
+["action"] = "steady_shot",
+["description"] = "Otherwise precast Steady Shot on two targets if we are saving Aimed Shot to cleave with Volley, otherwise on three or more targets.",
+},
+},
+["trinkets"] = {
+{
+["enabled"] = true,
+["op"] = "set",
+["action"] = "variable",
+["value"] = "variable.trueshot_ready",
+["description"] = "True if effects that are desirable to sync a trinket buff with are ready.",
+["var_name"] = "sync_ready",
+},
+{
+["enabled"] = true,
+["op"] = "set",
+["action"] = "variable",
+["value"] = "buff.trueshot.up",
+["description"] = "True if effecs that are desirable to sync a trinket buff with are active.",
+["var_name"] = "sync_active",
+},
+{
+["enabled"] = true,
+["op"] = "set",
+["action"] = "variable",
+["value"] = "cooldown.trueshot.remains_guess",
+["description"] = "Time until the effects that are desirable to sync a trinket buff with will be ready.",
+["var_name"] = "sync_remains",
+},
+{
+["enabled"] = true,
+["action"] = "trinket1",
+["slot"] = "trinket1",
+["use_off_gcd"] = 1,
+["criteria"] = "trinket.t1.has_use_buff & ( variable.sync_ready & ( variable.trinket_1_stronger || trinket.t2.cooldown.remains ) || ! variable.sync_ready & ( variable.trinket_1_stronger & ( variable.sync_remains > trinket.t1.cooldown.duration / 3 & fight_remains > trinket.t1.cooldown.duration + 20 || trinket.t2.has_use_buff & trinket.t2.cooldown.remains > variable.sync_remains - 15 & trinket.t2.cooldown.remains - 5 < variable.sync_remains & variable.sync_remains + 45 > fight_remains ) || variable.trinket_2_stronger & ( trinket.t2.cooldown.remains & ( trinket.t2.cooldown.remains - 5 < variable.sync_remains & variable.sync_remains >= 20 || trinket.t2.cooldown.remains - 5 >= variable.sync_remains & ( variable.sync_remains > trinket.t1.cooldown.duration / 3 || trinket.t1.cooldown.duration < fight_remains & ( variable.sync_remains + trinket.t1.cooldown.duration > fight_remains ) ) ) || trinket.t2.cooldown.ready & variable.sync_remains > 20 & variable.sync_remains < trinket.t2.cooldown.duration / 3 ) ) ) || ! trinket.t1.has_use_buff & ( trinket.t1.cast_time = 0 || ! variable.sync_active ) & ( ! trinket.t2.has_use_buff & ( variable.trinket_1_stronger || trinket.t2.cooldown.remains ) || trinket.t2.has_use_buff & ( variable.sync_remains > 20 || trinket.t2.cooldown.remains > 20 ) ) || boss & fight_remains < 25 & ( variable.trinket_1_stronger || trinket.t2.cooldown.remains )",
+["description"] = "Uses buff effect trinkets with cooldowns and is willing to delay usage up to half the trinket cooldown if it won't lose a usage in the fight. Fills in downtime with weaker buff effects if they won't also be saved for later cooldowns (happens if it won't delay over half the trinket cooldown and a stronger trinket won't be up in time) or damage effects if they won't inferfere with any buff effect usage. Intended to be slot-agnostic so that any order of the same trinket pair should result in the same usage.",
+},
+{
+["enabled"] = true,
+["action"] = "trinket2",
+["slot"] = "trinket2",
+["use_off_gcd"] = 1,
+["criteria"] = "trinket.t2.has_use_buff & ( variable.sync_ready & ( variable.trinket_2_stronger || trinket.t1.cooldown.remains ) || ! variable.sync_ready & ( variable.trinket_2_stronger & ( variable.sync_remains > trinket.t2.cooldown.duration / 3 & fight_remains > trinket.t2.cooldown.duration + 20 || trinket.t1.has_use_buff & trinket.t1.cooldown.remains > variable.sync_remains - 15 & trinket.t1.cooldown.remains - 5 < variable.sync_remains & variable.sync_remains + 45 > fight_remains ) || variable.trinket_1_stronger & ( trinket.t1.cooldown.remains & ( trinket.t1.cooldown.remains - 5 < variable.sync_remains & variable.sync_remains >= 20 || trinket.t1.cooldown.remains - 5 >= variable.sync_remains & ( variable.sync_remains > trinket.t2.cooldown.duration / 3 || trinket.t2.cooldown.duration < fight_remains & ( variable.sync_remains + trinket.t2.cooldown.duration > fight_remains ) ) ) || trinket.t1.cooldown.ready & variable.sync_remains > 20 & variable.sync_remains < trinket.t1.cooldown.duration / 3 ) ) ) || ! trinket.t2.has_use_buff & ( trinket.t2.cast_time = 0 || ! variable.sync_active ) & ( ! trinket.t1.has_use_buff & ( variable.trinket_2_stronger || trinket.t1.cooldown.remains ) || trinket.t1.has_use_buff & ( variable.sync_remains > 20 || trinket.t1.cooldown.remains > 20 ) ) || boss & fight_remains < 25 & ( variable.trinket_2_stronger || trinket.t1.cooldown.remains )",
+},
+},
+["st"] = {
+{
+["enabled"] = true,
+["criteria"] = "buff.trueshot.down",
+["action"] = "black_arrow",
+},
+{
+["enabled"] = true,
+["criteria"] = "buff.razor_fragments.up",
+["action"] = "kill_shot",
+},
+{
+["enabled"] = true,
+["criteria"] = "talent.steady_focus.enabled & buff.steady_focus.remains < execute_time & buff.trueshot.down",
+["action"] = "steady_shot",
+},
+{
+["enabled"] = true,
+["criteria"] = "active_enemies > 1 || buff.salvo.up",
+["action"] = "volley",
+},
+{
+["enabled"] = true,
+["criteria"] = "active_enemies > 1 & buff.trick_shots.down",
+["action"] = "explosive_shot",
+},
+{
+["enabled"] = true,
+["criteria"] = "variable.trueshot_ready & talent.multishot.enabled",
+["action"] = "trueshot",
+["description"] = "TODO: figure out why this is such a big gain for aoe builds in ST",
+},
+{
+["enabled"] = true,
+["criteria"] = "buff.salvo.up & ! talent.volley.enabled",
+["action"] = "multishot",
+["description"] = "Trigger Salvo if Volley isn't being used to trigger it.",
+},
+{
+["enabled"] = true,
+["action"] = "aimed_shot",
+["cycle_targets"] = 1,
+["criteria"] = "talent.black_arrow.enabled & talent.readiness.enabled & buff.trueshot.up",
+["description"] = "As a Dark Ranger with Readiness, Aimed Shot over Rapid Fire in Trueshot to get more Deathblows.",
+},
+{
+["enabled"] = true,
+["criteria"] = "! talent.lunar_storm.enabled || ( ! cooldown.lunar_storm.remains || cooldown.lunar_storm.remains > 8 || ( action.wailing_arrow.ready & talent.readiness.enabled ) || buff.trueshot.up )",
+["action"] = "rapid_fire",
+["description"] = "Hold Rapid Fire for up to 8s to proc Lunar Storm. Ignore Lunar Storm if Rapid Fire's cooldown can be reset with Wailing Arrow. Ignore all of this in Trueshot or as a Dark Ranger.",
+},
+{
+["enabled"] = true,
+["action"] = "wailing_arrow",
+["description"] = "With Wailing Arrow and Aimed Shot, target enemies without Serpent Sting or the enemy with the lowest remaining Serpent Sting.",
+["cycle_targets"] = 1,
+},
+{
+["enabled"] = true,
+["action"] = "aimed_shot",
+["cycle_targets"] = 1,
+},
+{
+["action"] = "black_arrow",
+["enabled"] = true,
+},
+{
+["action"] = "kill_shot",
+["enabled"] = true,
+},
+{
+["enabled"] = true,
+["criteria"] = "buff.precise_shot.up & active_enemies > 1 & ( talent.symphonic_arsenal.enabled || talent.small_game_hunter.enabled )",
+["action"] = "multishot",
+},
+{
+["enabled"] = true,
+["criteria"] = "buff.precise_shot.up",
+["action"] = "arcane_shot",
+},
+{
+["enabled"] = true,
+["criteria"] = "variable.trueshot_ready",
+["action"] = "trueshot",
+},
+{
+["action"] = "volley",
+["enabled"] = true,
+},
+{
+["action"] = "explosive_shot",
+["enabled"] = true,
+},
+{
+["action"] = "steady_shot",
+["enabled"] = true,
+},
+},
+["cds"] = {
+{
+["enabled"] = true,
+["criteria"] = "buff.trueshot.up || boss & fight_remains < 13",
+["action"] = "berserking",
+},
+{
+["enabled"] = true,
+["criteria"] = "buff.trueshot.up || cooldown.trueshot.remains > 30 || boss & fight_remains < 16",
+["action"] = "blood_fury",
+},
+{
+["enabled"] = true,
+["criteria"] = "buff.trueshot.up || cooldown.trueshot.remains > 30 || boss & fight_remains < 16",
+["action"] = "ancestral_call",
+},
+{
+["enabled"] = true,
+["criteria"] = "buff.trueshot.up || cooldown.trueshot.remains > 30 || boss & fight_remains < 9",
+["action"] = "fireblood",
+},
+{
+["enabled"] = true,
+["criteria"] = "buff.trueshot.down",
+["action"] = "lights_judgment",
+},
+{
+["enabled"] = true,
+["criteria"] = "buff.trueshot.up & ( buff.bloodlust.up || target.health.pct < 20 ) || boss & fight_remains < 31",
+["action"] = "potion",
+},
+{
+["enabled"] = true,
+["criteria"] = "active_enemies > 2 || cooldown.volley.remains < 10",
+["action"] = "salvo",
+},
+},
+},
+["version"] = 20241029,
+["warnings"] = "The import for 'trickshots' required some automated changes.\nLine 2: Converted 'talent.steady_focus' to 'talent.steady_focus.enabled' (1x).\nLine 5: Converted 'talent.razor_fragments' to 'talent.razor_fragments.enabled' (1x).\nLine 8: Converted 'talent.rapid_fire_barrage' to 'talent.rapid_fire_barrage.enabled' (1x).\nLine 9: Converted 'talent.lunar_storm' to 'talent.lunar_storm.enabled' (1x).\nLine 9: Converted 'talent.readiness' to 'talent.readiness.enabled' (1x).\n\nThe import for 'default' required some automated changes.\nLine 3: Converted 'talent.bullseye' to 'talent.bullseye.enabled' (1x).\nLine 3: Converted 'trinket.1.has_use_buff' to 'trinket.t1.has_use_buff' (1x).\nLine 3: Converted 'trinket.1.cooldown.remains' to 'trinket.t1.cooldown.remains' (1x).\nLine 3: Converted 'trinket.1.cooldown.remains' to 'trinket.t1.cooldown.remains'.\nLine 3: Converted 'trinket.1.cooldown.ready' to 'trinket.t1.cooldown.ready' (1x).\nLine 3: Converted 'trinket.1.cooldown.ready' to 'trinket.t1.cooldown.ready'.\nLine 3: Converted 'trinket.2.has_use_buff' to 'trinket.t2.has_use_buff' (1x).\nLine 3: Converted 'trinket.2.cooldown.remains' to 'trinket.t2.cooldown.remains' (1x).\nLine 3: Converted 'trinket.2.cooldown.remains' to 'trinket.t2.cooldown.remains'.\nLine 3: Converted 'trinket.2.cooldown.ready' to 'trinket.t2.cooldown.ready' (1x).\nLine 3: Converted 'trinket.2.cooldown.ready' to 'trinket.t2.cooldown.ready'.\nLine 3: Converted operations in 'cooldown.trueshot.ready&(!raid_event.adds.exists&(!talent.bullseye.enabled||fight_remains>cooldown.trueshot.duration_guess+buff.trueshot.duration%2||buff.bullseye.stack=buff.bullseye.max_stack)&(!trinket.t1.has_use_buff||trinket.t1.cooldown.remains>30||trinket.t1.cooldown.ready)&(!trinket.t2.has_use_buff||trinket.t2.cooldown.remains>30||trinket.t2.cooldown.ready)||raid_event.adds.exists&(!raid_event.adds.up&(raid_event.adds.duration+raid_event.adds.in<25||raid_event.adds.in>60)||raid_event.adds.up&raid_event.adds.remains>10)||boss&fight_remains<25)' to 'cooldown.trueshot.ready&(!raid_event.adds.exists&(!talent.bullseye.enabled||fight_remains>cooldown.trueshot.duration_guess+buff.trueshot.duration/2||buff.bullseye.stack=buff.bullseye.max_stack)&(!trinket.t1.has_use_buff||trinket.t1.cooldown.remains>30||trinket.t1.cooldown.ready)&(!trinket.t2.has_use_buff||trinket.t2.cooldown.remains>30||trinket.t2.cooldown.ready)||raid_event.adds.exists&(!raid_event.adds.up&(raid_event.adds.duration+raid_event.adds.in<25||raid_event.adds.in>60)||raid_event.adds.up&raid_event.adds.remains>10)||boss&fight_remains<25)'.\nLine 8: Converted 'talent.trick_shots' to 'talent.trick_shots.enabled' (1x).\n\nThe import for 'precombat' required some automated changes.\nLine 1: Converted 'talent.lone_wolf' to 'talent.lone_wolf.enabled' (1x).\nLine 2: Converted 'trinket.2.has_cooldown' to 'trinket.t2.has_cooldown' (1x).\nLine 2: Converted 'trinket.1.has_use_buff' to 'trinket.t1.has_use_buff' (1x).\nLine 2: Converted 'trinket.2.has_use_buff' to 'trinket.t2.has_use_buff' (1x).\nLine 2: Converted 'trinket.1.is.mirror_of_fractured_tomorrows' to 'trinket.t1.is.mirror_of_fractured_tomorrows' (1x).\nLine 2: Converted 'trinket.2.is.mirror_of_fractured_tomorrows' to 'trinket.t2.is.mirror_of_fractured_tomorrows' (1x).\nLine 2: Converted 'trinket.2.cooldown.duration' to 'trinket.t2.cooldown.duration' (1x).\nLine 2: Converted 'trinket.2.cooldown.duration' to 'trinket.t2.cooldown.duration'.\nLine 2: Converted 'trinket.1.cooldown.duration' to 'trinket.t1.cooldown.duration' (1x).\nLine 2: Converted 'trinket.1.cooldown.duration' to 'trinket.t1.cooldown.duration'.\nLine 2: Converted 'trinket.2.cast_time' to 'trinket.t2.cast_time' (1x).\nLine 2: Converted 'trinket.1.cast_time' to 'trinket.t1.cast_time' (1x).\nLine 2: Converted 'trinket.2.cast_time' to 'trinket.t2.cast_time' (1x).\nLine 2: Converted 'trinket.1.cast_time' to 'trinket.t1.cast_time' (1x).\nLine 2: Converted 'trinket.2.cooldown.duration' to 'trinket.t2.cooldown.duration' (1x).\nLine 2: Converted 'trinket.2.cooldown.duration' to 'trinket.t2.cooldown.duration'.\nLine 2: Converted 'trinket.1.cooldown.duration' to 'trinket.t1.cooldown.duration' (1x).\nLine 2: Converted 'trinket.1.cooldown.duration' to 'trinket.t1.cooldown.duration'.\nLine 2: Converted 'trinket.1.has_use_buff' to 'trinket.t1.has_use_buff' (1x).\nLine 2: Converted 'trinket.2.has_use_buff' to 'trinket.t2.has_use_buff' (1x).\nLine 2: Converted 'trinket.2.cooldown.duration' to 'trinket.t2.cooldown.duration' (1x).\nLine 2: Converted 'trinket.2.cooldown.duration' to 'trinket.t2.cooldown.duration'.\nLine 2: Converted 'trinket.1.cooldown.duration' to 'trinket.t1.cooldown.duration' (1x).\nLine 2: Converted 'trinket.1.cooldown.duration' to 'trinket.t1.cooldown.duration'.\nLine 2: Converted 'trinket.2.cast_time' to 'trinket.t2.cast_time' (1x).\nLine 2: Converted 'trinket.1.cast_time' to 'trinket.t1.cast_time' (1x).\nLine 2: Converted 'trinket.2.cast_time' to 'trinket.t2.cast_time' (1x).\nLine 2: Converted 'trinket.1.cast_time' to 'trinket.t1.cast_time' (1x).\nLine 2: Converted 'trinket.2.cooldown.duration' to 'trinket.t2.cooldown.duration' (1x).\nLine 2: Converted 'trinket.2.cooldown.duration' to 'trinket.t2.cooldown.duration'.\nLine 2: Converted 'trinket.1.cooldown.duration' to 'trinket.t1.cooldown.duration' (1x).\nLine 2: Converted 'trinket.1.cooldown.duration' to 'trinket.t1.cooldown.duration'.\nLine 6: Converted 'talent.volley' to 'talent.volley.enabled' (1x).\nLine 7: Converted 'talent.volley' to 'talent.volley.enabled' (1x).\n\nThe import for 'st' required some automated changes.\nLine 3: Converted 'talent.steady_focus' to 'talent.steady_focus.enabled' (1x).\nLine 6: Converted 'talent.multishot' to 'talent.multishot.enabled' (1x).\nLine 7: Converted 'talent.volley' to 'talent.volley.enabled' (1x).\nLine 8: Converted 'talent.black_arrow' to 'talent.black_arrow.enabled' (1x).\nLine 8: Converted 'talent.readiness' to 'talent.readiness.enabled' (1x).\nLine 9: Converted 'talent.lunar_storm' to 'talent.lunar_storm.enabled' (1x).\nLine 9: Converted 'talent.readiness' to 'talent.readiness.enabled' (1x).\nLine 14: Converted 'talent.symphonic_arsenal' to 'talent.symphonic_arsenal.enabled' (1x).\nLine 14: Converted 'talent.small_game_hunter' to 'talent.small_game_hunter.enabled' (1x).\n\nThe import for 'trinkets' required some automated changes.\nLine 4: Converted 'trinket.1.has_use_buff' to 'trinket.t1.has_use_buff' (1x).\nLine 4: Converted 'trinket.2.cooldown.remains' to 'trinket.t2.cooldown.remains' (1x).\nLine 4: Converted 'trinket.2.cooldown.remains' to 'trinket.t2.cooldown.remains'.\nLine 4: Converted 'trinket.1.cooldown.duration' to 'trinket.t1.cooldown.duration' (1x).\nLine 4: Converted 'trinket.1.cooldown.duration' to 'trinket.t1.cooldown.duration'.\nLine 4: Converted 'trinket.1.cooldown.duration' to 'trinket.t1.cooldown.duration' (1x).\nLine 4: Converted 'trinket.1.cooldown.duration' to 'trinket.t1.cooldown.duration'.\nLine 4: Converted 'trinket.2.has_use_buff' to 'trinket.t2.has_use_buff' (1x).\nLine 4: Converted 'trinket.2.cooldown.remains' to 'trinket.t2.cooldown.remains' (1x).\nLine 4: Converted 'trinket.2.cooldown.remains' to 'trinket.t2.cooldown.remains'.\nLine 4: Converted 'trinket.2.cooldown.remains' to 'trinket.t2.cooldown.remains' (1x).\nLine 4: Converted 'trinket.2.cooldown.remains' to 'trinket.t2.cooldown.remains'.\nLine 4: Converted 'trinket.2.cooldown.remains' to 'trinket.t2.cooldown.remains' (1x).\nLine 4: Converted 'trinket.2.cooldown.remains' to 'trinket.t2.cooldown.remains'.\nLine 4: Converted 'trinket.2.cooldown.remains' to 'trinket.t2.cooldown.remains' (1x).\nLine 4: Converted 'trinket.2.cooldown.remains' to 'trinket.t2.cooldown.remains'.\nLine 4: Converted 'trinket.2.cooldown.remains' to 'trinket.t2.cooldown.remains' (1x).\nLine 4: Converted 'trinket.2.cooldown.remains' to 'trinket.t2.cooldown.remains'.\nLine 4: Converted 'trinket.1.cooldown.duration' to 'trinket.t1.cooldown.duration' (1x).\nLine 4: Converted 'trinket.1.cooldown.duration' to 'trinket.t1.cooldown.duration'.\nLine 4: Converted 'trinket.1.cooldown.duration' to 'trinket.t1.cooldown.duration' (1x).\nLine 4: Converted 'trinket.1.cooldown.duration' to 'trinket.t1.cooldown.duration'.\nLine 4: Converted 'trinket.1.cooldown.duration' to 'trinket.t1.cooldown.duration' (1x).\nLine 4: Converted 'trinket.1.cooldown.duration' to 'trinket.t1.cooldown.duration'.\nLine 4: Converted 'trinket.2.cooldown.ready' to 'trinket.t2.cooldown.ready' (1x).\nLine 4: Converted 'trinket.2.cooldown.ready' to 'trinket.t2.cooldown.ready'.\nLine 4: Converted 'trinket.2.cooldown.duration' to 'trinket.t2.cooldown.duration' (1x).\nLine 4: Converted 'trinket.2.cooldown.duration' to 'trinket.t2.cooldown.duration'.\nLine 4: Converted 'trinket.1.has_use_buff' to 'trinket.t1.has_use_buff' (1x).\nLine 4: Converted 'trinket.1.cast_time' to 'trinket.t1.cast_time' (1x).\nLine 4: Converted 'trinket.2.has_use_buff' to 'trinket.t2.has_use_buff' (1x).\nLine 4: Converted 'trinket.2.cooldown.remains' to 'trinket.t2.cooldown.remains' (1x).\nLine 4: Converted 'trinket.2.cooldown.remains' to 'trinket.t2.cooldown.remains'.\nLine 4: Converted 'trinket.2.has_use_buff' to 'trinket.t2.has_use_buff' (1x).\nLine 4: Converted 'trinket.2.cooldown.remains' to 'trinket.t2.cooldown.remains' (1x).\nLine 4: Converted 'trinket.2.cooldown.remains' to 'trinket.t2.cooldown.remains'.\nLine 4: Converted 'trinket.2.cooldown.remains' to 'trinket.t2.cooldown.remains' (1x).\nLine 4: Converted 'trinket.2.cooldown.remains' to 'trinket.t2.cooldown.remains'.\nLine 4: Converted operations in 'trinket.t1.has_use_buff&(variable.sync_ready&(variable.trinket_1_stronger||trinket.t2.cooldown.remains)||!variable.sync_ready&(variable.trinket_1_stronger&(variable.sync_remains>trinket.t1.cooldown.duration%3&fight_remains>trinket.t1.cooldown.duration+20||trinket.t2.has_use_buff&trinket.t2.cooldown.remains>variable.sync_remains-15&trinket.t2.cooldown.remains-5<variable.sync_remains&variable.sync_remains+45>fight_remains)||variable.trinket_2_stronger&(trinket.t2.cooldown.remains&(trinket.t2.cooldown.remains-5<variable.sync_remains&variable.sync_remains>=20||trinket.t2.cooldown.remains-5>=variable.sync_remains&(variable.sync_remains>trinket.t1.cooldown.duration%3||trinket.t1.cooldown.duration<fight_remains&(variable.sync_remains+trinket.t1.cooldown.duration>fight_remains)))||trinket.t2.cooldown.ready&variable.sync_remains>20&variable.sync_remains<trinket.t2.cooldown.duration%3)))||!trinket.t1.has_use_buff&(trinket.t1.cast_time=0||!variable.sync_active)&(!trinket.t2.has_use_buff&(variable.trinket_1_stronger||trinket.t2.cooldown.remains)||trinket.t2.has_use_buff&(variable.sync_remains>20||trinket.t2.cooldown.remains>20))||boss&fight_remains<25&(variable.trinket_1_stronger||trinket.t2.cooldown.remains)' to 'trinket.t1.has_use_buff&(variable.sync_ready&(variable.trinket_1_stronger||trinket.t2.cooldown.remains)||!variable.sync_ready&(variable.trinket_1_stronger&(variable.sync_remains>trinket.t1.cooldown.duration/3&fight_remains>trinket.t1.cooldown.duration+20||trinket.t2.has_use_buff&trinket.t2.cooldown.remains>variable.sync_remains-15&trinket.t2.cooldown.remains-5<variable.sync_remains&variable.sync_remains+45>fight_remains)||variable.trinket_2_stronger&(trinket.t2.cooldown.remains&(trinket.t2.cooldown.remains-5<variable.sync_remains&variable.sync_remains>=20||trinket.t2.cooldown.remains-5>=variable.sync_remains&(variable.sync_remains>trinket.t1.cooldown.duration/3||trinket.t1.cooldown.duration<fight_remains&(variable.sync_remains+trinket.t1.cooldown.duration>fight_remains)))||trinket.t2.cooldown.ready&variable.sync_remains>20&variable.sync_remains<trinket.t2.cooldown.duration/3)))||!trinket.t1.has_use_buff&(trinket.t1.cast_time=0||!variable.sync_active)&(!trinket.t2.has_use_buff&(variable.trinket_1_stronger||trinket.t2.cooldown.remains)||trinket.t2.has_use_buff&(variable.sync_remains>20||trinket.t2.cooldown.remains>20))||boss&fight_remains<25&(variable.trinket_1_stronger||trinket.t2.cooldown.remains)'.\nLine 5: Converted 'trinket.2.has_use_buff' to 'trinket.t2.has_use_buff' (1x).\nLine 5: Converted 'trinket.1.cooldown.remains' to 'trinket.t1.cooldown.remains' (1x).\nLine 5: Converted 'trinket.1.cooldown.remains' to 'trinket.t1.cooldown.remains'.\nLine 5: Converted 'trinket.2.cooldown.duration' to 'trinket.t2.cooldown.duration' (1x).\nLine 5: Converted 'trinket.2.cooldown.duration' to 'trinket.t2.cooldown.duration'.\nLine 5: Converted 'trinket.2.cooldown.duration' to 'trinket.t2.cooldown.duration' (1x).\nLine 5: Converted 'trinket.2.cooldown.duration' to 'trinket.t2.cooldown.duration'.\nLine 5: Converted 'trinket.1.has_use_buff' to 'trinket.t1.has_use_buff' (1x).\nLine 5: Converted 'trinket.1.cooldown.remains' to 'trinket.t1.cooldown.remains' (1x).\nLine 5: Converted 'trinket.1.cooldown.remains' to 'trinket.t1.cooldown.remains'.\nLine 5: Converted 'trinket.1.cooldown.remains' to 'trinket.t1.cooldown.remains' (1x).\nLine 5: Converted 'trinket.1.cooldown.remains' to 'trinket.t1.cooldown.remains'.\nLine 5: Converted 'trinket.1.cooldown.remains' to 'trinket.t1.cooldown.remains' (1x).\nLine 5: Converted 'trinket.1.cooldown.remains' to 'trinket.t1.cooldown.remains'.\nLine 5: Converted 'trinket.1.cooldown.remains' to 'trinket.t1.cooldown.remains' (1x).\nLine 5: Converted 'trinket.1.cooldown.remains' to 'trinket.t1.cooldown.remains'.\nLine 5: Converted 'trinket.1.cooldown.remains' to 'trinket.t1.cooldown.remains' (1x).\nLine 5: Converted 'trinket.1.cooldown.remains' to 'trinket.t1.cooldown.remains'.\nLine 5: Converted 'trinket.2.cooldown.duration' to 'trinket.t2.cooldown.duration' (1x).\nLine 5: Converted 'trinket.2.cooldown.duration' to 'trinket.t2.cooldown.duration'.\nLine 5: Converted 'trinket.2.cooldown.duration' to 'trinket.t2.cooldown.duration' (1x).\nLine 5: Converted 'trinket.2.cooldown.duration' to 'trinket.t2.cooldown.duration'.\nLine 5: Converted 'trinket.2.cooldown.duration' to 'trinket.t2.cooldown.duration' (1x).\nLine 5: Converted 'trinket.2.cooldown.duration' to 'trinket.t2.cooldown.duration'.\nLine 5: Converted 'trinket.1.cooldown.ready' to 'trinket.t1.cooldown.ready' (1x).\nLine 5: Converted 'trinket.1.cooldown.ready' to 'trinket.t1.cooldown.ready'.\nLine 5: Converted 'trinket.1.cooldown.duration' to 'trinket.t1.cooldown.duration' (1x).\nLine 5: Converted 'trinket.1.cooldown.duration' to 'trinket.t1.cooldown.duration'.\nLine 5: Converted 'trinket.2.has_use_buff' to 'trinket.t2.has_use_buff' (1x).\nLine 5: Converted 'trinket.2.cast_time' to 'trinket.t2.cast_time' (1x).\nLine 5: Converted 'trinket.1.has_use_buff' to 'trinket.t1.has_use_buff' (1x).\nLine 5: Converted 'trinket.1.cooldown.remains' to 'trinket.t1.cooldown.remains' (1x).\nLine 5: Converted 'trinket.1.cooldown.remains' to 'trinket.t1.cooldown.remains'.\nLine 5: Converted 'trinket.1.has_use_buff' to 'trinket.t1.has_use_buff' (1x).\nLine 5: Converted 'trinket.1.cooldown.remains' to 'trinket.t1.cooldown.remains' (1x).\nLine 5: Converted 'trinket.1.cooldown.remains' to 'trinket.t1.cooldown.remains'.\nLine 5: Converted 'trinket.1.cooldown.remains' to 'trinket.t1.cooldown.remains' (1x).\nLine 5: Converted 'trinket.1.cooldown.remains' to 'trinket.t1.cooldown.remains'.\nLine 5: Converted operations in 'trinket.t2.has_use_buff&(variable.sync_ready&(variable.trinket_2_stronger||trinket.t1.cooldown.remains)||!variable.sync_ready&(variable.trinket_2_stronger&(variable.sync_remains>trinket.t2.cooldown.duration%3&fight_remains>trinket.t2.cooldown.duration+20||trinket.t1.has_use_buff&trinket.t1.cooldown.remains>variable.sync_remains-15&trinket.t1.cooldown.remains-5<variable.sync_remains&variable.sync_remains+45>fight_remains)||variable.trinket_1_stronger&(trinket.t1.cooldown.remains&(trinket.t1.cooldown.remains-5<variable.sync_remains&variable.sync_remains>=20||trinket.t1.cooldown.remains-5>=variable.sync_remains&(variable.sync_remains>trinket.t2.cooldown.duration%3||trinket.t2.cooldown.duration<fight_remains&(variable.sync_remains+trinket.t2.cooldown.duration>fight_remains)))||trinket.t1.cooldown.ready&variable.sync_remains>20&variable.sync_remains<trinket.t1.cooldown.duration%3)))||!trinket.t2.has_use_buff&(trinket.t2.cast_time=0||!variable.sync_active)&(!trinket.t1.has_use_buff&(variable.trinket_2_stronger||trinket.t1.cooldown.remains)||trinket.t1.has_use_buff&(variable.sync_remains>20||trinket.t1.cooldown.remains>20))||boss&fight_remains<25&(variable.trinket_2_stronger||trinket.t1.cooldown.remains)' to 'trinket.t2.has_use_buff&(variable.sync_ready&(variable.trinket_2_stronger||trinket.t1.cooldown.remains)||!variable.sync_ready&(variable.trinket_2_stronger&(variable.sync_remains>trinket.t2.cooldown.duration/3&fight_remains>trinket.t2.cooldown.duration+20||trinket.t1.has_use_buff&trinket.t1.cooldown.remains>variable.sync_remains-15&trinket.t1.cooldown.remains-5<variable.sync_remains&variable.sync_remains+45>fight_remains)||variable.trinket_1_stronger&(trinket.t1.cooldown.remains&(trinket.t1.cooldown.remains-5<variable.sync_remains&variable.sync_remains>=20||trinket.t1.cooldown.remains-5>=variable.sync_remains&(variable.sync_remains>trinket.t2.cooldown.duration/3||trinket.t2.cooldown.duration<fight_remains&(variable.sync_remains+trinket.t2.cooldown.duration>fight_remains)))||trinket.t1.cooldown.ready&variable.sync_remains>20&variable.sync_remains<trinket.t1.cooldown.duration/3)))||!trinket.t2.has_use_buff&(trinket.t2.cast_time=0||!variable.sync_active)&(!trinket.t1.has_use_buff&(variable.trinket_2_stronger||trinket.t1.cooldown.remains)||trinket.t1.has_use_buff&(variable.sync_remains>20||trinket.t1.cooldown.remains>20))||boss&fight_remains<25&(variable.trinket_2_stronger||trinket.t1.cooldown.remains)'.\n\nImported 6 action lists.\n",
+["profile"] = "actions.precombat+=/summon_pet,if=!talent.lone_wolf\n# Determine the stronger trinket to sync with cooldowns. In descending priority: buff effects > damage effects, longer > shorter cooldowns, longer > shorter cast times. Special case to consider Mirror of Fractured Tomorrows weaker than other buff effects since its power is split between the dmg effect and the buff effect.\nactions.precombat+=/variable,name=trinket_1_stronger,value=!trinket.2.has_cooldown||trinket.1.has_use_buff&(!trinket.2.has_use_buff||!trinket.1.is.mirror_of_fractured_tomorrows&(trinket.2.is.mirror_of_fractured_tomorrows||trinket.2.cooldown.duration<trinket.1.cooldown.duration||trinket.2.cast_time<trinket.1.cast_time||trinket.2.cast_time=trinket.1.cast_time&trinket.2.cooldown.duration=trinket.1.cooldown.duration))||!trinket.1.has_use_buff&(!trinket.2.has_use_buff&(trinket.2.cooldown.duration<trinket.1.cooldown.duration||trinket.2.cast_time<trinket.1.cast_time||trinket.2.cast_time=trinket.1.cast_time&trinket.2.cooldown.duration=trinket.1.cooldown.duration))\nactions.precombat+=/variable,name=trinket_2_stronger,value=!variable.trinket_1_stronger\nactions.precombat+=/hunters_mark,if=(settings.mark_any||target.is_boss)&active_dot.hunters_mark=0&target.time_to_pct_80>20\nactions.precombat+=/salvo,precast_time=10\n# Precast Aimed Shot on one or two targets unless we could cleave it with Volley on two targets.\nactions.precombat+=/aimed_shot,if=active_enemies<3&(!talent.volley||active_enemies<2)\n# Otherwise precast Steady Shot on two targets if we are saving Aimed Shot to cleave with Volley, otherwise on three or more targets.\nactions.precombat+=/steady_shot,if=active_enemies>2||talent.volley&active_enemies=2\n\nactions+=/counter_shot\nactions+=/tranquilizing_shot\n# Determine if it is a good time to use Trueshot. Raid event optimization takes priority so usage is saved for multiple targets as long as it won't delay over half its duration. Otherwise allow for small delays to line up buff effect trinkets, and when using Bullseye, delay the last usage of the fight for max stacks.\nactions+=/variable,name=trueshot_ready,value=cooldown.trueshot.ready&(!raid_event.adds.exists&(!talent.bullseye||fight_remains>cooldown.trueshot.duration_guess+buff.trueshot.duration%2||buff.bullseye.stack=buff.bullseye.max_stack)&(!trinket.1.has_use_buff||trinket.1.cooldown.remains>30||trinket.1.cooldown.ready)&(!trinket.2.has_use_buff||trinket.2.cooldown.remains>30||trinket.2.cooldown.ready)||raid_event.adds.exists&(!raid_event.adds.up&(raid_event.adds.duration+raid_event.adds.in<25||raid_event.adds.in>60)||raid_event.adds.up&raid_event.adds.remains>10)||boss&fight_remains<25)\nactions+=/mend_pet,if=pet.health_pct<pet_healing\nactions+=/call_action_list,name=cds\nactions+=/call_action_list,name=trinkets\nactions+=/hunters_mark,if=(settings.mark_any||target.is_boss)&active_dot.hunters_mark=0&target.time_to_pct_80>20\nactions+=/call_action_list,name=st,strict=1,if=active_enemies<3||!talent.trick_shots\nactions+=/call_action_list,name=trickshots,strict=1,if=active_enemies>2\n\n## Call for Power Infusion when Trueshot is up.\n## actions.cds+=/invoke_external_buff,name=power_infusion,if=buff.trueshot.remains>12||fight_remains<13\nactions.cds+=/berserking,if=buff.trueshot.up||boss&fight_remains<13\nactions.cds+=/blood_fury,if=buff.trueshot.up||cooldown.trueshot.remains>30||boss&fight_remains<16\nactions.cds+=/ancestral_call,if=buff.trueshot.up||cooldown.trueshot.remains>30||boss&fight_remains<16\nactions.cds+=/fireblood,if=buff.trueshot.up||cooldown.trueshot.remains>30||boss&fight_remains<9\nactions.cds+=/lights_judgment,if=buff.trueshot.down\nactions.cds+=/potion,if=buff.trueshot.up&(buff.bloodlust.up||target.health.pct<20)||boss&fight_remains<31\nactions.cds+=/salvo,if=active_enemies>2||cooldown.volley.remains<10\n\nactions.st+=/black_arrow,if=buff.trueshot.down\nactions.st+=/kill_shot,if=buff.razor_fragments.up\nactions.st+=/steady_shot,if=talent.steady_focus&buff.steady_focus.remains<execute_time&buff.trueshot.down\nactions.st+=/volley,if=active_enemies>1||buff.salvo.up\nactions.st+=/explosive_shot,if=active_enemies>1&buff.trick_shots.down\n# TODO: figure out why this is such a big gain for aoe builds in ST\nactions.st+=/trueshot,if=variable.trueshot_ready&talent.multishot\n# Trigger Salvo if Volley isn't being used to trigger it.\nactions.st+=/multishot,if=buff.salvo.up&!talent.volley\n# As a Dark Ranger with Readiness, Aimed Shot over Rapid Fire in Trueshot to get more Deathblows.\nactions.st+=/aimed_shot,cycle_targets=1,if=talent.black_arrow&talent.readiness&buff.trueshot.up\n# Hold Rapid Fire for up to 8s to proc Lunar Storm. Ignore Lunar Storm if Rapid Fire's cooldown can be reset with Wailing Arrow. Ignore all of this in Trueshot or as a Dark Ranger.\nactions.st+=/rapid_fire,if=!talent.lunar_storm||(!cooldown.lunar_storm.remains||cooldown.lunar_storm.remains>8||(action.wailing_arrow.ready&talent.readiness)||buff.trueshot.up)\n# With Wailing Arrow and Aimed Shot, target enemies without Serpent Sting or the enemy with the lowest remaining Serpent Sting.\nactions.st+=/wailing_arrow,cycle_targets=1\nactions.st+=/aimed_shot,cycle_targets=1\nactions.st+=/black_arrow\nactions.st+=/kill_shot\nactions.st+=/multishot,if=buff.precise_shot.up&active_enemies>1&(talent.symphonic_arsenal||talent.small_game_hunter)\nactions.st+=/arcane_shot,if=buff.precise_shot.up\nactions.st+=/trueshot,if=variable.trueshot_ready\nactions.st+=/volley\nactions.st+=/explosive_shot\nactions.st+=/steady_shot\n\nactions.trickshots+=/black_arrow,if=buff.trick_shots.remains>execute_time&buff.razor_fragments.up\nactions.trickshots+=/steady_shot,if=talent.steady_focus&buff.steady_focus.remains<execute_time&buff.trueshot.down\nactions.trickshots+=/explosive_shot\nactions.trickshots+=/volley\nactions.trickshots+=/black_arrow,if=!talent.razor_fragments&buff.trick_shots.remains>execute_time\nactions.trickshots+=/kill_shot,if=buff.razor_fragments.up\nactions.trickshots+=/trueshot,if=variable.trueshot_ready\nactions.trickshots+=/barrage,if=talent.rapid_fire_barrage&buff.trick_shots.remains>execute_time\n# Hold Rapid Fire for up to 5s to proc Lunar Storm. Ignore Lunar Storm if Rapid Fire's cooldown can be reset with Wailing Arrow. Ignore all of this in Trueshot or as a Dark Ranger.\nactions.trickshots+=/rapid_fire,if=buff.trick_shots.remains>execute_time&(!talent.lunar_storm||(!cooldown.lunar_storm.remains||cooldown.lunar_storm.remains>5||(action.wailing_arrow.ready&talent.readiness)||buff.trueshot.up))\n# With Wailing Arrow and Aimed Shot, target enemies without Serpent Sting or the enemy with the lowest remaining Serpent Sting.\nactions.trickshots+=/wailing_arrow,cycle_targets=1\nactions.trickshots+=/aimed_shot,cycle_targets=1,if=buff.trick_shots.remains>execute_time&buff.precise_shots.down\nactions.trickshots+=/multishot,if=buff.precise_shots.up||buff.trick_shots.down\nactions.trickshots+=/bag_of_tricks,if=buff.trueshot.down\nactions.trickshots+=/steady_shot\n\n# True if effects that are desirable to sync a trinket buff with are ready.\nactions.trinkets+=/variable,name=sync_ready,value=variable.trueshot_ready\n# True if effecs that are desirable to sync a trinket buff with are active.\nactions.trinkets+=/variable,name=sync_active,value=buff.trueshot.up\n# Time until the effects that are desirable to sync a trinket buff with will be ready.\nactions.trinkets+=/variable,name=sync_remains,value=cooldown.trueshot.remains_guess\n# Uses buff effect trinkets with cooldowns and is willing to delay usage up to half the trinket cooldown if it won't lose a usage in the fight. Fills in downtime with weaker buff effects if they won't also be saved for later cooldowns (happens if it won't delay over half the trinket cooldown and a stronger trinket won't be up in time) or damage effects if they won't inferfere with any buff effect usage. Intended to be slot-agnostic so that any order of the same trinket pair should result in the same usage.\nactions.trinkets+=/use_item,use_off_gcd=1,slot=trinket1,if=trinket.1.has_use_buff&(variable.sync_ready&(variable.trinket_1_stronger||trinket.2.cooldown.remains)||!variable.sync_ready&(variable.trinket_1_stronger&(variable.sync_remains>trinket.1.cooldown.duration%3&fight_remains>trinket.1.cooldown.duration+20||trinket.2.has_use_buff&trinket.2.cooldown.remains>variable.sync_remains-15&trinket.2.cooldown.remains-5<variable.sync_remains&variable.sync_remains+45>fight_remains)||variable.trinket_2_stronger&(trinket.2.cooldown.remains&(trinket.2.cooldown.remains-5<variable.sync_remains&variable.sync_remains>=20||trinket.2.cooldown.remains-5>=variable.sync_remains&(variable.sync_remains>trinket.1.cooldown.duration%3||trinket.1.cooldown.duration<fight_remains&(variable.sync_remains+trinket.1.cooldown.duration>fight_remains)))||trinket.2.cooldown.ready&variable.sync_remains>20&variable.sync_remains<trinket.2.cooldown.duration%3)))||!trinket.1.has_use_buff&(trinket.1.cast_time=0||!variable.sync_active)&(!trinket.2.has_use_buff&(variable.trinket_1_stronger||trinket.2.cooldown.remains)||trinket.2.has_use_buff&(variable.sync_remains>20||trinket.2.cooldown.remains>20))||boss&fight_remains<25&(variable.trinket_1_stronger||trinket.2.cooldown.remains)\nactions.trinkets+=/use_item,use_off_gcd=1,slot=trinket2,if=trinket.2.has_use_buff&(variable.sync_ready&(variable.trinket_2_stronger||trinket.1.cooldown.remains)||!variable.sync_ready&(variable.trinket_2_stronger&(variable.sync_remains>trinket.2.cooldown.duration%3&fight_remains>trinket.2.cooldown.duration+20||trinket.1.has_use_buff&trinket.1.cooldown.remains>variable.sync_remains-15&trinket.1.cooldown.remains-5<variable.sync_remains&variable.sync_remains+45>fight_remains)||variable.trinket_1_stronger&(trinket.1.cooldown.remains&(trinket.1.cooldown.remains-5<variable.sync_remains&variable.sync_remains>=20||trinket.1.cooldown.remains-5>=variable.sync_remains&(variable.sync_remains>trinket.2.cooldown.duration%3||trinket.2.cooldown.duration<fight_remains&(variable.sync_remains+trinket.2.cooldown.duration>fight_remains)))||trinket.1.cooldown.ready&variable.sync_remains>20&variable.sync_remains<trinket.1.cooldown.duration%3)))||!trinket.2.has_use_buff&(trinket.2.cast_time=0||!variable.sync_active)&(!trinket.1.has_use_buff&(variable.trinket_2_stronger||trinket.1.cooldown.remains)||trinket.1.has_use_buff&(variable.sync_remains>20||trinket.1.cooldown.remains>20))||boss&fight_remains<25&(variable.trinket_2_stronger||trinket.1.cooldown.remains)",
+["spec"] = 254,
+},
+["Beast Mastery"] = {
+["source"] = "# https://github.com/simulationcraft/simc/",
+["builtIn"] = true,
+["date"] = 20241103,
+["author"] = "SimC",
+["desc"] = "2024-11-03: SimC updates\n\n2024-10-26: SimC updates\n\n2024-10-23: 11.0.5\n\n2024-09-22: SimC update\n\n2024-08-22: SimC update\n\n2024-08-01: Respect Hunter's Mark setting\n\n2024-07-27: Add Call of the Wild talent checks; use Counter Shot; use Hunter's Mark\n\n2024-07-23: The War Within",
+["lists"] = {
+["default"] = {
+{
+["action"] = "counter_shot",
+["enabled"] = true,
+},
+{
+["action"] = "tranquilizing_shot",
+["enabled"] = true,
+},
+{
+["enabled"] = true,
+["criteria"] = "pet.health_pct < pet_healing",
+["action"] = "mend_pet",
+},
+{
+["enabled"] = true,
+["criteria"] = "( settings.mark_any || target.is_boss ) & active_dot.hunters_mark = 0 & target.time_to_pct_80 > 20",
+["action"] = "hunters_mark",
+},
+{
+["enabled"] = true,
+["action"] = "call_action_list",
+["list_name"] = "cds",
+},
+{
+["enabled"] = true,
+["action"] = "call_action_list",
+["list_name"] = "trinkets",
+},
+{
+["enabled"] = true,
+["criteria"] = "active_enemies < 2 || ! talent.beast_cleave.enabled & active_enemies < 3",
+["action"] = "call_action_list",
+["list_name"] = "st",
+},
+{
+["enabled"] = true,
+["criteria"] = "active_enemies > 2 || talent.beast_cleave.enabled & active_enemies > 1",
+["action"] = "call_action_list",
+["list_name"] = "cleave",
+},
+},
+["precombat"] = {
+{
+["action"] = "summon_pet",
+["enabled"] = true,
+},
+{
+["enabled"] = true,
+["op"] = "set",
+["action"] = "variable",
+["value"] = "! trinket.t2.has_cooldown || trinket.t1.has_use_buff & ( ! trinket.t2.has_use_buff || ! trinket.t1.is.mirror_of_fractured_tomorrows & ( trinket.t2.is.mirror_of_fractured_tomorrows || trinket.t2.cooldown.duration < trinket.t1.cooldown.duration || trinket.t2.cast_time < trinket.t1.cast_time || trinket.t2.cast_time = trinket.t1.cast_time & trinket.t2.cooldown.duration = trinket.t1.cooldown.duration ) ) || ! trinket.t1.has_use_buff & ( ! trinket.t2.has_use_buff & ( trinket.t2.cooldown.duration < trinket.t1.cooldown.duration || trinket.t2.cast_time < trinket.t1.cast_time || trinket.t2.cast_time = trinket.t1.cast_time & trinket.t2.cooldown.duration = trinket.t1.cooldown.duration ) )",
+["description"] = "Determine the stronger trinket to sync with cooldowns. In descending priority: buff effects > damage effects, longer > shorter cooldowns, longer > shorter cast times. Special case to consider Mirror of Fractured Tomorrows weaker than other buff effects since its power is split between the dmg effect and the buff effect.",
+["var_name"] = "trinket_1_stronger",
+},
+{
+["enabled"] = true,
+["op"] = "set",
+["action"] = "variable",
+["value"] = "! variable.trinket_1_stronger",
+["var_name"] = "trinket_2_stronger",
+},
+{
+["enabled"] = true,
+["criteria"] = "talent.vicious_hunt.enabled & talent.call_of_the_wild.enabled",
+["action"] = "bestial_wrath",
+},
+},
+["trinkets"] = {
+{
+["enabled"] = true,
+["op"] = "set",
+["action"] = "variable",
+["value"] = "talent.call_of_the_wild.enabled & ( prev_gcd.1.call_of_the_wild ) || talent.bloodshed.enabled & ( prev_gcd.1.bloodshed ) || ( ! talent.call_of_the_wild.enabled & ! talent.bloodshed.enabled ) & ( buff.bestial_wrath.up || cooldown.bestial_wrath.remains_guess < 5 )",
+["var_name"] = "sync_ready",
+},
+{
+["enabled"] = true,
+["op"] = "set",
+["action"] = "variable",
+["value"] = "talent.call_of_the_wild.enabled & buff.call_of_the_wild.up || talent.bloodshed.enabled & prev_gcd.1.bloodshed || ( ! talent.call_of_the_wild.enabled & ! talent.bloodshed.enabled ) & buff.bestial_wrath.up",
+["var_name"] = "sync_active",
+},
+{
+["enabled"] = true,
+["op"] = "setif",
+["action"] = "variable",
+["var_name"] = "sync_remains",
+["criteria"] = "! talent.call_of_the_wild.enabled & ! talent.bloodshed.enabled",
+["value_else"] = "cooldown.call_of_the_wild.remains || cooldown.bloodshed.remains",
+["value"] = "cooldown.bestial_wrath.remains_guess",
+},
+{
+["enabled"] = true,
+["action"] = "trinket1",
+["slot"] = "trinket1",
+["use_off_gcd"] = 1,
+["criteria"] = "trinket.t1.has_use_buff & ( variable.sync_ready & ( variable.trinket_1_stronger || trinket.t2.cooldown.remains ) || ! variable.sync_ready & ( variable.trinket_1_stronger & ( variable.sync_remains > trinket.t1.cooldown.duration / 3 & boss & fight_remains > trinket.t1.cooldown.duration + 20 || trinket.t2.has_use_buff & trinket.t2.cooldown.remains > variable.sync_remains - 15 & trinket.t2.cooldown.remains - 5 < variable.sync_remains & variable.sync_remains + 45 > fight_remains & boss ) || variable.trinket_2_stronger & ( trinket.t2.cooldown.remains & ( trinket.t2.cooldown.remains - 5 < variable.sync_remains & variable.sync_remains >= 20 || trinket.t2.cooldown.remains - 5 >= variable.sync_remains & ( variable.sync_remains > trinket.t1.cooldown.duration / 3 || trinket.t1.cooldown.duration < fight_remains & boss & ( variable.sync_remains + trinket.t1.cooldown.duration > fight_remains ) ) ) || trinket.t2.cooldown.ready & variable.sync_remains > 20 & variable.sync_remains < trinket.t2.cooldown.duration / 3 ) ) ) || ! trinket.t1.has_use_buff & ( trinket.t1.cast_time = 0 || ! variable.sync_active ) & ( ! trinket.t2.has_use_buff & ( variable.trinket_1_stronger || trinket.t2.cooldown.remains ) || trinket.t2.has_use_buff & ( ! variable.sync_active & variable.sync_remains > 20 || trinket.t2.cooldown.remains > 20 ) ) || boss & fight_remains < 25 & ( variable.trinket_1_stronger || trinket.t2.cooldown.remains )",
+},
+{
+["enabled"] = true,
+["action"] = "trinket2",
+["slot"] = "trinket2",
+["use_off_gcd"] = 1,
+["criteria"] = "trinket.t2.has_use_buff & ( variable.sync_ready & ( variable.trinket_2_stronger || trinket.t1.cooldown.remains ) || ! variable.sync_ready & ( variable.trinket_2_stronger & ( variable.sync_remains > trinket.t2.cooldown.duration / 3 & boss & fight_remains > trinket.t2.cooldown.duration + 20 || trinket.t1.has_use_buff & trinket.t1.cooldown.remains > variable.sync_remains - 15 & trinket.t1.cooldown.remains - 5 < variable.sync_remains & variable.sync_remains + 45 > fight_remains & boss ) || variable.trinket_1_stronger & ( trinket.t1.cooldown.remains & ( trinket.t1.cooldown.remains - 5 < variable.sync_remains & variable.sync_remains >= 20 || trinket.t1.cooldown.remains - 5 >= variable.sync_remains & ( variable.sync_remains > trinket.t2.cooldown.duration / 3 || trinket.t2.cooldown.duration < fight_remains & boss & ( variable.sync_remains + trinket.t2.cooldown.duration > fight_remains ) ) ) || trinket.t1.cooldown.ready & variable.sync_remains > 20 & variable.sync_remains < trinket.t1.cooldown.duration / 3 ) ) ) || ! trinket.t2.has_use_buff & ( trinket.t2.cast_time = 0 || ! variable.sync_active ) & ( ! trinket.t1.has_use_buff & ( variable.trinket_2_stronger || trinket.t1.cooldown.remains ) || trinket.t1.has_use_buff & ( ! variable.sync_active & variable.sync_remains > 20 || trinket.t1.cooldown.remains > 20 ) ) || boss & fight_remains < 25 & ( variable.trinket_2_stronger || trinket.t1.cooldown.remains )",
+},
+},
+["cds"] = {
+{
+["enabled"] = true,
+["criteria"] = "buff.call_of_the_wild.up || talent.bloodshed.enabled & ( prev_gcd.1.bloodshed ) || ! talent.call_of_the_wild.enabled & buff.bestial_wrath.up || boss & fight_remains < 13",
+["action"] = "berserking",
+},
+{
+["enabled"] = true,
+["criteria"] = "buff.call_of_the_wild.up || talent.bloodshed.enabled & ( prev_gcd.1.bloodshed ) || ! talent.call_of_the_wild.enabled & buff.bestial_wrath.up || boss & fight_remains < 16",
+["action"] = "blood_fury",
+},
+{
+["enabled"] = true,
+["criteria"] = "buff.call_of_the_wild.up || talent.bloodshed.enabled & ( prev_gcd.1.bloodshed ) || ! talent.call_of_the_wild.enabled & buff.bestial_wrath.up || boss & fight_remains < 16",
+["action"] = "ancestral_call",
+},
+{
+["enabled"] = true,
+["criteria"] = "buff.call_of_the_wild.up || talent.bloodshed.enabled & ( prev_gcd.1.bloodshed ) || ! talent.call_of_the_wild.enabled & buff.bestial_wrath.up || boss & fight_remains < 9",
+["action"] = "fireblood",
+},
+{
+["enabled"] = true,
+["criteria"] = "buff.call_of_the_wild.up || talent.bloodshed.enabled & ( prev_gcd.1.bloodshed ) || ! talent.call_of_the_wild.enabled & buff.bestial_wrath.up || boss & fight_remains < 31",
+["action"] = "potion",
+},
+},
+["st"] = {
+{
+["enabled"] = true,
+["action"] = "barbed_shot",
+["criteria"] = "buff.frenzy.up & buff.frenzy.remains <= gcd.max + barbed_shot_grace_period || buff.frenzy.stack < 3 & ( cooldown.bestial_wrath.ready & ( ! buff.frenzy.up || talent.scent_of_blood.enabled ) || talent.call_of_the_wild.enabled & cooldown.call_of_the_wild.ready )",
+["cycle_targets"] = 1,
+},
+{
+["action"] = "dire_beast",
+["enabled"] = true,
+},
+{
+["enabled"] = true,
+["criteria"] = "talent.call_of_the_wild.enabled & cooldown.call_of_the_wild.remains < gcd.max + 0.25",
+["action"] = "kill_command",
+},
+{
+["enabled"] = true,
+["action"] = "black_arrow",
+["criteria"] = "talent.venoms_bite.enabled & dot.serpent_sting.refreshable",
+["cycle_targets"] = 1,
+},
+{
+["enabled"] = true,
+["action"] = "kill_shot",
+["criteria"] = "talent.venoms_bite.enabled & dot.serpent_sting.refreshable",
+["cycle_targets"] = 1,
+},
+{
+["action"] = "call_of_the_wild",
+["enabled"] = true,
+},
+{
+["action"] = "bloodshed",
+["enabled"] = true,
+},
+{
+["action"] = "bestial_wrath",
+["enabled"] = true,
+},
+{
+["action"] = "kill_command",
+["enabled"] = true,
+},
+{
+["enabled"] = true,
+["action"] = "barbed_shot",
+["criteria"] = "talent.wild_call.enabled & charges_fractional > 1.4 || buff.call_of_the_wild.up || full_recharge_time < gcd.max & cooldown.bestial_wrath.remains || talent.scent_of_blood.enabled & ( cooldown.bestial_wrath.remains < 12 + gcd.max ) || talent.furious_assault.enabled || talent.black_arrow.enabled & ( talent.barbed_scales.enabled || talent.savagery.enabled ) || boss & fight_remains < 9",
+["cycle_targets"] = 1,
+},
+{
+["action"] = "black_arrow",
+["enabled"] = true,
+},
+{
+["action"] = "kill_shot",
+["enabled"] = true,
+},
+{
+["enabled"] = true,
+["criteria"] = "buff.bestial_wrath.down || target.time_to_die < 5",
+["action"] = "lights_judgment",
+},
+{
+["action"] = "cobra_shot",
+["enabled"] = true,
+},
+{
+["enabled"] = true,
+["criteria"] = "buff.bestial_wrath.down || target.time_to_die < 5",
+["action"] = "bag_of_tricks",
+},
+{
+["enabled"] = true,
+["criteria"] = "buff.bestial_wrath.down || target.time_to_die < 5",
+["action"] = "arcane_pulse",
+},
+{
+["enabled"] = true,
+["criteria"] = "( focus + focus.regen + 15 ) < focus.max",
+["action"] = "arcane_torrent",
+},
+},
+["cleave"] = {
+{
+["enabled"] = true,
+["action"] = "barbed_shot",
+["criteria"] = "buff.frenzy.up & buff.frenzy.remains <= gcd.max + 0.25 || buff.frenzy.stack < 3 & ( cooldown.bestial_wrath.ready & ( ! buff.frenzy.up || talent.scent_of_blood.enabled ) || talent.call_of_the_wild.enabled & cooldown.call_of_the_wild.ready ) || talent.wild_call.enabled & charges_fractional > 1.8",
+["cycle_targets"] = 1,
+},
+{
+["enabled"] = true,
+["criteria"] = "buff.beast_cleave.remains < 0.25 + gcd.max & ( ! talent.bloody_frenzy.enabled || cooldown.call_of_the_wild.remains )",
+["action"] = "multishot",
+},
+{
+["enabled"] = true,
+["criteria"] = "buff.beast_cleave.up",
+["action"] = "black_arrow",
+},
+{
+["enabled"] = true,
+["criteria"] = "talent.shadow_hounds.enabled",
+["action"] = "dire_beast",
+},
+{
+["action"] = "call_of_the_wild",
+["enabled"] = true,
+},
+{
+["action"] = "bestial_wrath",
+["enabled"] = true,
+},
+{
+["action"] = "bloodshed",
+["enabled"] = true,
+},
+{
+["enabled"] = true,
+["action"] = "kill_command",
+["cycle_targets"] = 1,
+},
+{
+["enabled"] = true,
+["action"] = "barbed_shot",
+["criteria"] = "buff.call_of_the_wild.up || talent.furious_assault.enabled || talent.black_arrow.enabled & ( talent.barbed_scales.enabled || talent.savagery.enabled ) || fight_remains < 9",
+["cycle_targets"] = 1,
+},
+{
+["action"] = "kill_shot",
+["enabled"] = true,
+},
+{
+["action"] = "explosive_shot",
+["enabled"] = true,
+},
+{
+["action"] = "dire_beast",
+["enabled"] = true,
+},
+{
+["enabled"] = true,
+["criteria"] = "buff.bestial_wrath.down || target.time_to_die < 5",
+["action"] = "lights_judgment",
+},
+{
+["enabled"] = true,
+["criteria"] = "focus.time_to_max < gcd.max * 2",
+["action"] = "cobra_shot",
+},
+{
+["enabled"] = true,
+["criteria"] = "buff.bestial_wrath.down || target.time_to_die < 5",
+["action"] = "bag_of_tricks",
+},
+{
+["enabled"] = true,
+["criteria"] = "( focus + focus.regen + 30 ) < focus.max",
+["action"] = "arcane_torrent",
+},
+},
+},
+["version"] = 20241103,
+["warnings"] = "The import for 'default' required some automated changes.\nLine 7: Converted 'talent.beast_cleave' to 'talent.beast_cleave.enabled' (1x).\nLine 8: Converted 'talent.beast_cleave' to 'talent.beast_cleave.enabled' (1x).\n\nThe import for 'precombat' required some automated changes.\nLine 2: Converted 'trinket.2.has_cooldown' to 'trinket.t2.has_cooldown' (1x).\nLine 2: Converted 'trinket.1.has_use_buff' to 'trinket.t1.has_use_buff' (1x).\nLine 2: Converted 'trinket.2.has_use_buff' to 'trinket.t2.has_use_buff' (1x).\nLine 2: Converted 'trinket.1.is.mirror_of_fractured_tomorrows' to 'trinket.t1.is.mirror_of_fractured_tomorrows' (1x).\nLine 2: Converted 'trinket.2.is.mirror_of_fractured_tomorrows' to 'trinket.t2.is.mirror_of_fractured_tomorrows' (1x).\nLine 2: Converted 'trinket.2.cooldown.duration' to 'trinket.t2.cooldown.duration' (1x).\nLine 2: Converted 'trinket.2.cooldown.duration' to 'trinket.t2.cooldown.duration'.\nLine 2: Converted 'trinket.1.cooldown.duration' to 'trinket.t1.cooldown.duration' (1x).\nLine 2: Converted 'trinket.1.cooldown.duration' to 'trinket.t1.cooldown.duration'.\nLine 2: Converted 'trinket.2.cast_time' to 'trinket.t2.cast_time' (1x).\nLine 2: Converted 'trinket.1.cast_time' to 'trinket.t1.cast_time' (1x).\nLine 2: Converted 'trinket.2.cast_time' to 'trinket.t2.cast_time' (1x).\nLine 2: Converted 'trinket.1.cast_time' to 'trinket.t1.cast_time' (1x).\nLine 2: Converted 'trinket.2.cooldown.duration' to 'trinket.t2.cooldown.duration' (1x).\nLine 2: Converted 'trinket.2.cooldown.duration' to 'trinket.t2.cooldown.duration'.\nLine 2: Converted 'trinket.1.cooldown.duration' to 'trinket.t1.cooldown.duration' (1x).\nLine 2: Converted 'trinket.1.cooldown.duration' to 'trinket.t1.cooldown.duration'.\nLine 2: Converted 'trinket.1.has_use_buff' to 'trinket.t1.has_use_buff' (1x).\nLine 2: Converted 'trinket.2.has_use_buff' to 'trinket.t2.has_use_buff' (1x).\nLine 2: Converted 'trinket.2.cooldown.duration' to 'trinket.t2.cooldown.duration' (1x).\nLine 2: Converted 'trinket.2.cooldown.duration' to 'trinket.t2.cooldown.duration'.\nLine 2: Converted 'trinket.1.cooldown.duration' to 'trinket.t1.cooldown.duration' (1x).\nLine 2: Converted 'trinket.1.cooldown.duration' to 'trinket.t1.cooldown.duration'.\nLine 2: Converted 'trinket.2.cast_time' to 'trinket.t2.cast_time' (1x).\nLine 2: Converted 'trinket.1.cast_time' to 'trinket.t1.cast_time' (1x).\nLine 2: Converted 'trinket.2.cast_time' to 'trinket.t2.cast_time' (1x).\nLine 2: Converted 'trinket.1.cast_time' to 'trinket.t1.cast_time' (1x).\nLine 2: Converted 'trinket.2.cooldown.duration' to 'trinket.t2.cooldown.duration' (1x).\nLine 2: Converted 'trinket.2.cooldown.duration' to 'trinket.t2.cooldown.duration'.\nLine 2: Converted 'trinket.1.cooldown.duration' to 'trinket.t1.cooldown.duration' (1x).\nLine 2: Converted 'trinket.1.cooldown.duration' to 'trinket.t1.cooldown.duration'.\nLine 4: Converted 'talent.vicious_hunt' to 'talent.vicious_hunt.enabled' (1x).\nLine 4: Converted 'talent.call_of_the_wild' to 'talent.call_of_the_wild.enabled' (1x).\n\nThe import for 'trinkets' required some automated changes.\nLine 1: Converted 'talent.call_of_the_wild' to 'talent.call_of_the_wild.enabled' (1x).\nLine 1: Converted 'talent.bloodshed' to 'talent.bloodshed.enabled' (1x).\nLine 1: Converted 'talent.call_of_the_wild' to 'talent.call_of_the_wild.enabled' (1x).\nLine 1: Converted 'talent.bloodshed' to 'talent.bloodshed.enabled' (1x).\nLine 2: Converted 'talent.call_of_the_wild' to 'talent.call_of_the_wild.enabled' (1x).\nLine 2: Converted 'talent.bloodshed' to 'talent.bloodshed.enabled' (1x).\nLine 2: Converted 'talent.call_of_the_wild' to 'talent.call_of_the_wild.enabled' (1x).\nLine 2: Converted 'talent.bloodshed' to 'talent.bloodshed.enabled' (1x).\nLine 3: Converted 'talent.call_of_the_wild' to 'talent.call_of_the_wild.enabled' (1x).\nLine 3: Converted 'talent.bloodshed' to 'talent.bloodshed.enabled' (1x).\nLine 4: Converted 'trinket.1.has_use_buff' to 'trinket.t1.has_use_buff' (1x).\nLine 4: Converted 'trinket.2.cooldown.remains' to 'trinket.t2.cooldown.remains' (1x).\nLine 4: Converted 'trinket.2.cooldown.remains' to 'trinket.t2.cooldown.remains'.\nLine 4: Converted 'trinket.1.cooldown.duration' to 'trinket.t1.cooldown.duration' (1x).\nLine 4: Converted 'trinket.1.cooldown.duration' to 'trinket.t1.cooldown.duration'.\nLine 4: Converted 'trinket.1.cooldown.duration' to 'trinket.t1.cooldown.duration' (1x).\nLine 4: Converted 'trinket.1.cooldown.duration' to 'trinket.t1.cooldown.duration'.\nLine 4: Converted 'trinket.2.has_use_buff' to 'trinket.t2.has_use_buff' (1x).\nLine 4: Converted 'trinket.2.cooldown.remains' to 'trinket.t2.cooldown.remains' (1x).\nLine 4: Converted 'trinket.2.cooldown.remains' to 'trinket.t2.cooldown.remains'.\nLine 4: Converted 'trinket.2.cooldown.remains' to 'trinket.t2.cooldown.remains' (1x).\nLine 4: Converted 'trinket.2.cooldown.remains' to 'trinket.t2.cooldown.remains'.\nLine 4: Converted 'trinket.2.cooldown.remains' to 'trinket.t2.cooldown.remains' (1x).\nLine 4: Converted 'trinket.2.cooldown.remains' to 'trinket.t2.cooldown.remains'.\nLine 4: Converted 'trinket.2.cooldown.remains' to 'trinket.t2.cooldown.remains' (1x).\nLine 4: Converted 'trinket.2.cooldown.remains' to 'trinket.t2.cooldown.remains'.\nLine 4: Converted 'trinket.2.cooldown.remains' to 'trinket.t2.cooldown.remains' (1x).\nLine 4: Converted 'trinket.2.cooldown.remains' to 'trinket.t2.cooldown.remains'.\nLine 4: Converted 'trinket.1.cooldown.duration' to 'trinket.t1.cooldown.duration' (1x).\nLine 4: Converted 'trinket.1.cooldown.duration' to 'trinket.t1.cooldown.duration'.\nLine 4: Converted 'trinket.1.cooldown.duration' to 'trinket.t1.cooldown.duration' (1x).\nLine 4: Converted 'trinket.1.cooldown.duration' to 'trinket.t1.cooldown.duration'.\nLine 4: Converted 'trinket.1.cooldown.duration' to 'trinket.t1.cooldown.duration' (1x).\nLine 4: Converted 'trinket.1.cooldown.duration' to 'trinket.t1.cooldown.duration'.\nLine 4: Converted 'trinket.2.cooldown.ready' to 'trinket.t2.cooldown.ready' (1x).\nLine 4: Converted 'trinket.2.cooldown.ready' to 'trinket.t2.cooldown.ready'.\nLine 4: Converted 'trinket.2.cooldown.duration' to 'trinket.t2.cooldown.duration' (1x).\nLine 4: Converted 'trinket.2.cooldown.duration' to 'trinket.t2.cooldown.duration'.\nLine 4: Converted 'trinket.1.has_use_buff' to 'trinket.t1.has_use_buff' (1x).\nLine 4: Converted 'trinket.1.cast_time' to 'trinket.t1.cast_time' (1x).\nLine 4: Converted 'trinket.2.has_use_buff' to 'trinket.t2.has_use_buff' (1x).\nLine 4: Converted 'trinket.2.cooldown.remains' to 'trinket.t2.cooldown.remains' (1x).\nLine 4: Converted 'trinket.2.cooldown.remains' to 'trinket.t2.cooldown.remains'.\nLine 4: Converted 'trinket.2.has_use_buff' to 'trinket.t2.has_use_buff' (1x).\nLine 4: Converted 'trinket.2.cooldown.remains' to 'trinket.t2.cooldown.remains' (1x).\nLine 4: Converted 'trinket.2.cooldown.remains' to 'trinket.t2.cooldown.remains'.\nLine 4: Converted 'trinket.2.cooldown.remains' to 'trinket.t2.cooldown.remains' (1x).\nLine 4: Converted 'trinket.2.cooldown.remains' to 'trinket.t2.cooldown.remains'.\nLine 4: Converted operations in 'trinket.t1.has_use_buff&(variable.sync_ready&(variable.trinket_1_stronger||trinket.t2.cooldown.remains)||!variable.sync_ready&(variable.trinket_1_stronger&(variable.sync_remains>trinket.t1.cooldown.duration%3&boss&fight_remains>trinket.t1.cooldown.duration+20||trinket.t2.has_use_buff&trinket.t2.cooldown.remains>variable.sync_remains-15&trinket.t2.cooldown.remains-5<variable.sync_remains&variable.sync_remains+45>fight_remains&boss)||variable.trinket_2_stronger&(trinket.t2.cooldown.remains&(trinket.t2.cooldown.remains-5<variable.sync_remains&variable.sync_remains>=20||trinket.t2.cooldown.remains-5>=variable.sync_remains&(variable.sync_remains>trinket.t1.cooldown.duration%3||trinket.t1.cooldown.duration<fight_remains&boss&(variable.sync_remains+trinket.t1.cooldown.duration>fight_remains)))||trinket.t2.cooldown.ready&variable.sync_remains>20&variable.sync_remains<trinket.t2.cooldown.duration%3)))||!trinket.t1.has_use_buff&(trinket.t1.cast_time=0||!variable.sync_active)&(!trinket.t2.has_use_buff&(variable.trinket_1_stronger||trinket.t2.cooldown.remains)||trinket.t2.has_use_buff&(!variable.sync_active&variable.sync_remains>20||trinket.t2.cooldown.remains>20))||boss&fight_remains<25&(variable.trinket_1_stronger||trinket.t2.cooldown.remains)' to 'trinket.t1.has_use_buff&(variable.sync_ready&(variable.trinket_1_stronger||trinket.t2.cooldown.remains)||!variable.sync_ready&(variable.trinket_1_stronger&(variable.sync_remains>trinket.t1.cooldown.duration/3&boss&fight_remains>trinket.t1.cooldown.duration+20||trinket.t2.has_use_buff&trinket.t2.cooldown.remains>variable.sync_remains-15&trinket.t2.cooldown.remains-5<variable.sync_remains&variable.sync_remains+45>fight_remains&boss)||variable.trinket_2_stronger&(trinket.t2.cooldown.remains&(trinket.t2.cooldown.remains-5<variable.sync_remains&variable.sync_remains>=20||trinket.t2.cooldown.remains-5>=variable.sync_remains&(variable.sync_remains>trinket.t1.cooldown.duration/3||trinket.t1.cooldown.duration<fight_remains&boss&(variable.sync_remains+trinket.t1.cooldown.duration>fight_remains)))||trinket.t2.cooldown.ready&variable.sync_remains>20&variable.sync_remains<trinket.t2.cooldown.duration/3)))||!trinket.t1.has_use_buff&(trinket.t1.cast_time=0||!variable.sync_active)&(!trinket.t2.has_use_buff&(variable.trinket_1_stronger||trinket.t2.cooldown.remains)||trinket.t2.has_use_buff&(!variable.sync_active&variable.sync_remains>20||trinket.t2.cooldown.remains>20))||boss&fight_remains<25&(variable.trinket_1_stronger||trinket.t2.cooldown.remains)'.\nLine 5: Converted 'trinket.2.has_use_buff' to 'trinket.t2.has_use_buff' (1x).\nLine 5: Converted 'trinket.1.cooldown.remains' to 'trinket.t1.cooldown.remains' (1x).\nLine 5: Converted 'trinket.1.cooldown.remains' to 'trinket.t1.cooldown.remains'.\nLine 5: Converted 'trinket.2.cooldown.duration' to 'trinket.t2.cooldown.duration' (1x).\nLine 5: Converted 'trinket.2.cooldown.duration' to 'trinket.t2.cooldown.duration'.\nLine 5: Converted 'trinket.2.cooldown.duration' to 'trinket.t2.cooldown.duration' (1x).\nLine 5: Converted 'trinket.2.cooldown.duration' to 'trinket.t2.cooldown.duration'.\nLine 5: Converted 'trinket.1.has_use_buff' to 'trinket.t1.has_use_buff' (1x).\nLine 5: Converted 'trinket.1.cooldown.remains' to 'trinket.t1.cooldown.remains' (1x).\nLine 5: Converted 'trinket.1.cooldown.remains' to 'trinket.t1.cooldown.remains'.\nLine 5: Converted 'trinket.1.cooldown.remains' to 'trinket.t1.cooldown.remains' (1x).\nLine 5: Converted 'trinket.1.cooldown.remains' to 'trinket.t1.cooldown.remains'.\nLine 5: Converted 'trinket.1.cooldown.remains' to 'trinket.t1.cooldown.remains' (1x).\nLine 5: Converted 'trinket.1.cooldown.remains' to 'trinket.t1.cooldown.remains'.\nLine 5: Converted 'trinket.1.cooldown.remains' to 'trinket.t1.cooldown.remains' (1x).\nLine 5: Converted 'trinket.1.cooldown.remains' to 'trinket.t1.cooldown.remains'.\nLine 5: Converted 'trinket.1.cooldown.remains' to 'trinket.t1.cooldown.remains' (1x).\nLine 5: Converted 'trinket.1.cooldown.remains' to 'trinket.t1.cooldown.remains'.\nLine 5: Converted 'trinket.2.cooldown.duration' to 'trinket.t2.cooldown.duration' (1x).\nLine 5: Converted 'trinket.2.cooldown.duration' to 'trinket.t2.cooldown.duration'.\nLine 5: Converted 'trinket.2.cooldown.duration' to 'trinket.t2.cooldown.duration' (1x).\nLine 5: Converted 'trinket.2.cooldown.duration' to 'trinket.t2.cooldown.duration'.\nLine 5: Converted 'trinket.2.cooldown.duration' to 'trinket.t2.cooldown.duration' (1x).\nLine 5: Converted 'trinket.2.cooldown.duration' to 'trinket.t2.cooldown.duration'.\nLine 5: Converted 'trinket.1.cooldown.ready' to 'trinket.t1.cooldown.ready' (1x).\nLine 5: Converted 'trinket.1.cooldown.ready' to 'trinket.t1.cooldown.ready'.\nLine 5: Converted 'trinket.1.cooldown.duration' to 'trinket.t1.cooldown.duration' (1x).\nLine 5: Converted 'trinket.1.cooldown.duration' to 'trinket.t1.cooldown.duration'.\nLine 5: Converted 'trinket.2.has_use_buff' to 'trinket.t2.has_use_buff' (1x).\nLine 5: Converted 'trinket.2.cast_time' to 'trinket.t2.cast_time' (1x).\nLine 5: Converted 'trinket.1.has_use_buff' to 'trinket.t1.has_use_buff' (1x).\nLine 5: Converted 'trinket.1.cooldown.remains' to 'trinket.t1.cooldown.remains' (1x).\nLine 5: Converted 'trinket.1.cooldown.remains' to 'trinket.t1.cooldown.remains'.\nLine 5: Converted 'trinket.1.has_use_buff' to 'trinket.t1.has_use_buff' (1x).\nLine 5: Converted 'trinket.1.cooldown.remains' to 'trinket.t1.cooldown.remains' (1x).\nLine 5: Converted 'trinket.1.cooldown.remains' to 'trinket.t1.cooldown.remains'.\nLine 5: Converted 'trinket.1.cooldown.remains' to 'trinket.t1.cooldown.remains' (1x).\nLine 5: Converted 'trinket.1.cooldown.remains' to 'trinket.t1.cooldown.remains'.\nLine 5: Converted operations in 'trinket.t2.has_use_buff&(variable.sync_ready&(variable.trinket_2_stronger||trinket.t1.cooldown.remains)||!variable.sync_ready&(variable.trinket_2_stronger&(variable.sync_remains>trinket.t2.cooldown.duration%3&boss&fight_remains>trinket.t2.cooldown.duration+20||trinket.t1.has_use_buff&trinket.t1.cooldown.remains>variable.sync_remains-15&trinket.t1.cooldown.remains-5<variable.sync_remains&variable.sync_remains+45>fight_remains&boss)||variable.trinket_1_stronger&(trinket.t1.cooldown.remains&(trinket.t1.cooldown.remains-5<variable.sync_remains&variable.sync_remains>=20||trinket.t1.cooldown.remains-5>=variable.sync_remains&(variable.sync_remains>trinket.t2.cooldown.duration%3||trinket.t2.cooldown.duration<fight_remains&boss&(variable.sync_remains+trinket.t2.cooldown.duration>fight_remains)))||trinket.t1.cooldown.ready&variable.sync_remains>20&variable.sync_remains<trinket.t1.cooldown.duration%3)))||!trinket.t2.has_use_buff&(trinket.t2.cast_time=0||!variable.sync_active)&(!trinket.t1.has_use_buff&(variable.trinket_2_stronger||trinket.t1.cooldown.remains)||trinket.t1.has_use_buff&(!variable.sync_active&variable.sync_remains>20||trinket.t1.cooldown.remains>20))||boss&fight_remains<25&(variable.trinket_2_stronger||trinket.t1.cooldown.remains)' to 'trinket.t2.has_use_buff&(variable.sync_ready&(variable.trinket_2_stronger||trinket.t1.cooldown.remains)||!variable.sync_ready&(variable.trinket_2_stronger&(variable.sync_remains>trinket.t2.cooldown.duration/3&boss&fight_remains>trinket.t2.cooldown.duration+20||trinket.t1.has_use_buff&trinket.t1.cooldown.remains>variable.sync_remains-15&trinket.t1.cooldown.remains-5<variable.sync_remains&variable.sync_remains+45>fight_remains&boss)||variable.trinket_1_stronger&(trinket.t1.cooldown.remains&(trinket.t1.cooldown.remains-5<variable.sync_remains&variable.sync_remains>=20||trinket.t1.cooldown.remains-5>=variable.sync_remains&(variable.sync_remains>trinket.t2.cooldown.duration/3||trinket.t2.cooldown.duration<fight_remains&boss&(variable.sync_remains+trinket.t2.cooldown.duration>fight_remains)))||trinket.t1.cooldown.ready&variable.sync_remains>20&variable.sync_remains<trinket.t1.cooldown.duration/3)))||!trinket.t2.has_use_buff&(trinket.t2.cast_time=0||!variable.sync_active)&(!trinket.t1.has_use_buff&(variable.trinket_2_stronger||trinket.t1.cooldown.remains)||trinket.t1.has_use_buff&(!variable.sync_active&variable.sync_remains>20||trinket.t1.cooldown.remains>20))||boss&fight_remains<25&(variable.trinket_2_stronger||trinket.t1.cooldown.remains)'.\n\nThe import for 'cds' required some automated changes.\nLine 1: Converted 'talent.bloodshed' to 'talent.bloodshed.enabled' (1x).\nLine 1: Converted 'talent.call_of_the_wild' to 'talent.call_of_the_wild.enabled' (1x).\nLine 2: Converted 'talent.bloodshed' to 'talent.bloodshed.enabled' (1x).\nLine 2: Converted 'talent.call_of_the_wild' to 'talent.call_of_the_wild.enabled' (1x).\nLine 3: Converted 'talent.bloodshed' to 'talent.bloodshed.enabled' (1x).\nLine 3: Converted 'talent.call_of_the_wild' to 'talent.call_of_the_wild.enabled' (1x).\nLine 4: Converted 'talent.bloodshed' to 'talent.bloodshed.enabled' (1x).\nLine 4: Converted 'talent.call_of_the_wild' to 'talent.call_of_the_wild.enabled' (1x).\nLine 5: Converted 'talent.bloodshed' to 'talent.bloodshed.enabled' (1x).\nLine 5: Converted 'talent.call_of_the_wild' to 'talent.call_of_the_wild.enabled' (1x).\n\nThe import for 'st' required some automated changes.\nLine 1: Converted 'pet.main.buff.frenzy.up' to 'buff.frenzy.up' (1x).\nLine 1: Converted 'pet.main.buff.frenzy.remains' to 'buff.frenzy.remains' (1x).\nLine 1: Converted 'pet.main.buff.frenzy.stack' to 'buff.frenzy.stack' (1x).\nLine 1: Converted 'pet.main.buff.frenzy.up' to 'buff.frenzy.up' (1x).\nLine 1: Converted 'talent.scent_of_blood' to 'talent.scent_of_blood.enabled' (1x).\nLine 1: Converted 'talent.call_of_the_wild' to 'talent.call_of_the_wild.enabled' (1x).\nLine 3: Converted 'talent.call_of_the_wild' to 'talent.call_of_the_wild.enabled' (1x).\nLine 4: Converted 'talent.venoms_bite' to 'talent.venoms_bite.enabled' (1x).\nLine 5: Converted 'talent.venoms_bite' to 'talent.venoms_bite.enabled' (1x).\nLine 10: Converted 'talent.wild_call' to 'talent.wild_call.enabled' (1x).\nLine 10: Converted 'talent.scent_of_blood' to 'talent.scent_of_blood.enabled' (1x).\nLine 10: Converted 'talent.furious_assault' to 'talent.furious_assault.enabled' (1x).\nLine 10: Converted 'talent.black_arrow' to 'talent.black_arrow.enabled' (1x).\nLine 10: Converted 'talent.barbed_scales' to 'talent.barbed_scales.enabled' (1x).\nLine 10: Converted 'talent.savagery' to 'talent.savagery.enabled' (1x).\n\nThe import for 'cleave' required some automated changes.\nLine 1: Converted 'pet.main.buff.frenzy.up' to 'buff.frenzy.up' (1x).\nLine 1: Converted 'pet.main.buff.frenzy.remains' to 'buff.frenzy.remains' (1x).\nLine 1: Converted 'pet.main.buff.frenzy.stack' to 'buff.frenzy.stack' (1x).\nLine 1: Converted 'pet.main.buff.frenzy.up' to 'buff.frenzy.up' (1x).\nLine 1: Converted 'talent.scent_of_blood' to 'talent.scent_of_blood.enabled' (1x).\nLine 1: Converted 'talent.call_of_the_wild' to 'talent.call_of_the_wild.enabled' (1x).\nLine 1: Converted 'talent.wild_call' to 'talent.wild_call.enabled' (1x).\nLine 2: Converted 'talent.bloody_frenzy' to 'talent.bloody_frenzy.enabled' (1x).\nLine 4: Converted 'talent.shadow_hounds' to 'talent.shadow_hounds.enabled' (1x).\nLine 9: Converted 'talent.furious_assault' to 'talent.furious_assault.enabled' (1x).\nLine 9: Converted 'talent.black_arrow' to 'talent.black_arrow.enabled' (1x).\nLine 9: Converted 'talent.barbed_scales' to 'talent.barbed_scales.enabled' (1x).\nLine 9: Converted 'talent.savagery' to 'talent.savagery.enabled' (1x).\n\nImported 6 action lists.\n",
+["spec"] = 253,
+["profile"] = "actions.precombat+=/summon_pet\n# Determine the stronger trinket to sync with cooldowns. In descending priority: buff effects > damage effects, longer > shorter cooldowns, longer > shorter cast times. Special case to consider Mirror of Fractured Tomorrows weaker than other buff effects since its power is split between the dmg effect and the buff effect.\nactions.precombat+=/variable,name=trinket_1_stronger,value=!trinket.2.has_cooldown||trinket.1.has_use_buff&(!trinket.2.has_use_buff||!trinket.1.is.mirror_of_fractured_tomorrows&(trinket.2.is.mirror_of_fractured_tomorrows||trinket.2.cooldown.duration<trinket.1.cooldown.duration||trinket.2.cast_time<trinket.1.cast_time||trinket.2.cast_time=trinket.1.cast_time&trinket.2.cooldown.duration=trinket.1.cooldown.duration))||!trinket.1.has_use_buff&(!trinket.2.has_use_buff&(trinket.2.cooldown.duration<trinket.1.cooldown.duration||trinket.2.cast_time<trinket.1.cast_time||trinket.2.cast_time=trinket.1.cast_time&trinket.2.cooldown.duration=trinket.1.cooldown.duration))\nactions.precombat+=/variable,name=trinket_2_stronger,value=!variable.trinket_1_stronger\nactions.precombat+=/bestial_wrath,if=talent.vicious_hunt&talent.call_of_the_wild\n\nactions+=/counter_shot\nactions+=/tranquilizing_shot\nactions+=/mend_pet,if=pet.health_pct<pet_healing\nactions+=/hunters_mark,if=(settings.mark_any||target.is_boss)&active_dot.hunters_mark=0&target.time_to_pct_80>20\nactions+=/call_action_list,name=cds\nactions+=/call_action_list,name=trinkets\nactions+=/call_action_list,name=st,if=active_enemies<2||!talent.beast_cleave&active_enemies<3\nactions+=/call_action_list,name=cleave,if=active_enemies>2||talent.beast_cleave&active_enemies>1\n\n## actions.cds+=/invoke_external_buff,name=power_infusion,if=buff.call_of_the_wild.up||talent.bloodshed&(prev_gcd.1.bloodshed)||!talent.call_of_the_wild&(buff.bestial_wrath.up||cooldown.bestial_wrath.remains<30)||fight_remains<16\nactions.cds+=/berserking,if=buff.call_of_the_wild.up||talent.bloodshed&(prev_gcd.1.bloodshed)||!talent.call_of_the_wild&buff.bestial_wrath.up||boss&fight_remains<13\nactions.cds+=/blood_fury,if=buff.call_of_the_wild.up||talent.bloodshed&(prev_gcd.1.bloodshed)||!talent.call_of_the_wild&buff.bestial_wrath.up||boss&fight_remains<16\nactions.cds+=/ancestral_call,if=buff.call_of_the_wild.up||talent.bloodshed&(prev_gcd.1.bloodshed)||!talent.call_of_the_wild&buff.bestial_wrath.up||boss&fight_remains<16\nactions.cds+=/fireblood,if=buff.call_of_the_wild.up||talent.bloodshed&(prev_gcd.1.bloodshed)||!talent.call_of_the_wild&buff.bestial_wrath.up||boss&fight_remains<9\nactions.cds+=/potion,if=buff.call_of_the_wild.up||talent.bloodshed&(prev_gcd.1.bloodshed)||!talent.call_of_the_wild&buff.bestial_wrath.up||boss&fight_remains<31\n\nactions.cleave+=/barbed_shot,cycle_targets=1,if=pet.main.buff.frenzy.up&pet.main.buff.frenzy.remains<=gcd+0.25||pet.main.buff.frenzy.stack<3&(cooldown.bestial_wrath.ready&(!pet.main.buff.frenzy.up||talent.scent_of_blood)||talent.call_of_the_wild&cooldown.call_of_the_wild.ready)||talent.wild_call&charges_fractional>1.8\nactions.cleave+=/multishot,if=buff.beast_cleave.remains<0.25+gcd&(!talent.bloody_frenzy||cooldown.call_of_the_wild.remains)\nactions.cleave+=/black_arrow,if=buff.beast_cleave.up\nactions.cleave+=/dire_beast,if=talent.shadow_hounds\nactions.cleave+=/call_of_the_wild\nactions.cleave+=/bestial_wrath\nactions.cleave+=/bloodshed\nactions.cleave+=/kill_command,cycle_targets=1\nactions.cleave+=/barbed_shot,cycle_targets=1,if=buff.call_of_the_wild.up||talent.furious_assault||talent.black_arrow&(talent.barbed_scales||talent.savagery)||fight_remains<9\nactions.cleave+=/kill_shot\nactions.cleave+=/explosive_shot\nactions.cleave+=/dire_beast\nactions.cleave+=/lights_judgment,if=buff.bestial_wrath.down||target.time_to_die<5\nactions.cleave+=/cobra_shot,if=focus.time_to_max<gcd*2\nactions.cleave+=/bag_of_tricks,if=buff.bestial_wrath.down||target.time_to_die<5\nactions.cleave+=/arcane_torrent,if=(focus+focus.regen+30)<focus.max\n\nactions.st+=/barbed_shot,cycle_targets=1,if=pet.main.buff.frenzy.up&pet.main.buff.frenzy.remains<=gcd+barbed_shot_grace_period||pet.main.buff.frenzy.stack<3&(cooldown.bestial_wrath.ready&(!pet.main.buff.frenzy.up||talent.scent_of_blood)||talent.call_of_the_wild&cooldown.call_of_the_wild.ready)\nactions.st+=/dire_beast\nactions.st+=/kill_command,if=talent.call_of_the_wild&cooldown.call_of_the_wild.remains<gcd+0.25\nactions.st+=/black_arrow,cycle_targets=1,if=talent.venoms_bite&dot.serpent_sting.refreshable\nactions.st+=/kill_shot,cycle_targets=1,if=talent.venoms_bite&dot.serpent_sting.refreshable\nactions.st+=/call_of_the_wild\nactions.st+=/bloodshed\nactions.st+=/bestial_wrath\nactions.st+=/kill_command\nactions.st+=/barbed_shot,cycle_targets=1,if=talent.wild_call&charges_fractional>1.4||buff.call_of_the_wild.up||full_recharge_time<gcd&cooldown.bestial_wrath.remains||talent.scent_of_blood&(cooldown.bestial_wrath.remains<12+gcd)||talent.furious_assault||talent.black_arrow&(talent.barbed_scales||talent.savagery)||boss&fight_remains<9\nactions.st+=/black_arrow\nactions.st+=/kill_shot\nactions.st+=/lights_judgment,if=buff.bestial_wrath.down||target.time_to_die<5\nactions.st+=/cobra_shot\nactions.st+=/bag_of_tricks,if=buff.bestial_wrath.down||target.time_to_die<5\nactions.st+=/arcane_pulse,if=buff.bestial_wrath.down||target.time_to_die<5\nactions.st+=/arcane_torrent,if=(focus+focus.regen+15)<focus.max\n\nactions.trinkets+=/variable,name=sync_ready,value=talent.call_of_the_wild&(prev_gcd.1.call_of_the_wild)||talent.bloodshed&(prev_gcd.1.bloodshed)||(!talent.call_of_the_wild&!talent.bloodshed)&(buff.bestial_wrath.up||cooldown.bestial_wrath.remains_guess<5)\nactions.trinkets+=/variable,name=sync_active,value=talent.call_of_the_wild&buff.call_of_the_wild.up||talent.bloodshed&prev_gcd.1.bloodshed||(!talent.call_of_the_wild&!talent.bloodshed)&buff.bestial_wrath.up\nactions.trinkets+=/variable,name=sync_remains,op=setif,value=cooldown.bestial_wrath.remains_guess,value_else=cooldown.call_of_the_wild.remains||cooldown.bloodshed.remains,condition=!talent.call_of_the_wild&!talent.bloodshed\nactions.trinkets+=/use_item,use_off_gcd=1,slot=trinket1,if=trinket.1.has_use_buff&(variable.sync_ready&(variable.trinket_1_stronger||trinket.2.cooldown.remains)||!variable.sync_ready&(variable.trinket_1_stronger&(variable.sync_remains>trinket.1.cooldown.duration%3&boss&fight_remains>trinket.1.cooldown.duration+20||trinket.2.has_use_buff&trinket.2.cooldown.remains>variable.sync_remains-15&trinket.2.cooldown.remains-5<variable.sync_remains&variable.sync_remains+45>fight_remains&boss)||variable.trinket_2_stronger&(trinket.2.cooldown.remains&(trinket.2.cooldown.remains-5<variable.sync_remains&variable.sync_remains>=20||trinket.2.cooldown.remains-5>=variable.sync_remains&(variable.sync_remains>trinket.1.cooldown.duration%3||trinket.1.cooldown.duration<fight_remains&boss&(variable.sync_remains+trinket.1.cooldown.duration>fight_remains)))||trinket.2.cooldown.ready&variable.sync_remains>20&variable.sync_remains<trinket.2.cooldown.duration%3)))||!trinket.1.has_use_buff&(trinket.1.cast_time=0||!variable.sync_active)&(!trinket.2.has_use_buff&(variable.trinket_1_stronger||trinket.2.cooldown.remains)||trinket.2.has_use_buff&(!variable.sync_active&variable.sync_remains>20||trinket.2.cooldown.remains>20))||boss&fight_remains<25&(variable.trinket_1_stronger||trinket.2.cooldown.remains)\nactions.trinkets+=/use_item,use_off_gcd=1,slot=trinket2,if=trinket.2.has_use_buff&(variable.sync_ready&(variable.trinket_2_stronger||trinket.1.cooldown.remains)||!variable.sync_ready&(variable.trinket_2_stronger&(variable.sync_remains>trinket.2.cooldown.duration%3&boss&fight_remains>trinket.2.cooldown.duration+20||trinket.1.has_use_buff&trinket.1.cooldown.remains>variable.sync_remains-15&trinket.1.cooldown.remains-5<variable.sync_remains&variable.sync_remains+45>fight_remains&boss)||variable.trinket_1_stronger&(trinket.1.cooldown.remains&(trinket.1.cooldown.remains-5<variable.sync_remains&variable.sync_remains>=20||trinket.1.cooldown.remains-5>=variable.sync_remains&(variable.sync_remains>trinket.2.cooldown.duration%3||trinket.2.cooldown.duration<fight_remains&boss&(variable.sync_remains+trinket.2.cooldown.duration>fight_remains)))||trinket.1.cooldown.ready&variable.sync_remains>20&variable.sync_remains<trinket.1.cooldown.duration%3)))||!trinket.2.has_use_buff&(trinket.2.cast_time=0||!variable.sync_active)&(!trinket.1.has_use_buff&(variable.trinket_2_stronger||trinket.1.cooldown.remains)||trinket.1.has_use_buff&(!variable.sync_active&variable.sync_remains>20||trinket.1.cooldown.remains>20))||boss&fight_remains<25&(variable.trinket_2_stronger||trinket.1.cooldown.remains)",
+},
+["Survival"] = {
+["source"] = "# https://github.com/simulationcraft/simc/",
+["builtIn"] = true,
+["date"] = 20241022,
+["author"] = "SimC",
+["desc"] = "2024-09-22, 10-21: SimC update\n\n2024-08-24, 09-08: SimC priority update\n\n2024-08-12: Fix Kill Command usage in AOE with maxed Focus\n\n2024-08-01: Respect Hunter's Mark setting\n\n2024-07-27: Minor sim update; use Hunter's Mark\n\n2024-07-23: The War Within",
+["lists"] = {
+["sentst"] = {
+{
+["enabled"] = true,
+["criteria"] = "! cooldown.lunar_storm.remains",
+["action"] = "wildfire_bomb",
+["description"] = "SENT  Further investigate negative Haste Breakpoints on Lunar Storm. SENTINEL || DEFAULT SINGLE TARGET ACTIONLIST.",
+},
+{
+["enabled"] = true,
+["action"] = "kill_command",
+["criteria"] = "( buff.relentless_primal_ferocity.up & buff.tip_of_the_spear.stack < 1 )",
+["cycle_targets"] = 1,
+},
+{
+["enabled"] = true,
+["criteria"] = "cooldown.coordinated_assault.remains",
+["action"] = "spearhead",
+},
+{
+["enabled"] = true,
+["action"] = "raptor_bite",
+["criteria"] = "! dot.serpent_sting.ticking & target.time_to_die > 12 & ( ! talent.contagious_reagents.enabled || active_dot.serpent_sting = 0 )",
+["cycle_targets"] = 1,
+},
+{
+["enabled"] = true,
+["action"] = "raptor_bite",
+["criteria"] = "talent.contagious_reagents.enabled & active_dot.serpent_sting < active_enemies & dot.serpent_sting.remains",
+["cycle_targets"] = 1,
+},
+{
+["enabled"] = true,
+["criteria"] = "buff.tip_of_the_spear.stack = 2 || buff.tip_of_the_spear.stack = 1",
+["action"] = "flanking_strike",
+},
+{
+["enabled"] = true,
+["criteria"] = "( cooldown.lunar_storm.remains > full_recharge_time - gcd.max ) & ( buff.tip_of_the_spear.stack > 0 & cooldown.wildfire_bomb.charges_fractional > 1.7 || cooldown.wildfire_bomb.charges_fractional > 1.9 ) || cooldown.coordinated_assault.remains < 2 * gcd.max",
+["action"] = "wildfire_bomb",
+},
+{
+["action"] = "butchery",
+["enabled"] = true,
+},
+{
+["enabled"] = true,
+["criteria"] = "! talent.bombardier.enabled || talent.bombardier.enabled & cooldown.wildfire_bomb.charges_fractional < 1",
+["action"] = "coordinated_assault",
+},
+{
+["action"] = "explosive_shot",
+["enabled"] = true,
+},
+{
+["enabled"] = true,
+["criteria"] = "buff.tip_of_the_spear.stack > 0",
+["action"] = "fury_of_the_eagle",
+},
+{
+["action"] = "kill_shot",
+["enabled"] = true,
+},
+{
+["enabled"] = true,
+["action"] = "kill_command",
+["criteria"] = "buff.tip_of_the_spear.stack < 1 & cooldown.flanking_strike.remains < gcd.max",
+["cycle_targets"] = 1,
+},
+{
+["enabled"] = true,
+["action"] = "kill_command",
+["criteria"] = "focus + cast_regen < focus.max & ( ! buff.relentless_primal_ferocity.up || ( buff.relentless_primal_ferocity.up & buff.tip_of_the_spear.stack < 2 ) )",
+["cycle_targets"] = 1,
+},
+{
+["enabled"] = true,
+["criteria"] = "buff.tip_of_the_spear.stack > 0 & cooldown.lunar_storm.remains > full_recharge_time & ( ! raid_event.adds.exists || raid_event.adds.exists & raid_event.adds.in > 15 )",
+["action"] = "wildfire_bomb",
+},
+{
+["enabled"] = true,
+["action"] = "raptor_bite",
+["criteria"] = "! talent.contagious_reagents.enabled",
+["cycle_targets"] = 1,
+},
+{
+["enabled"] = true,
+["action"] = "raptor_bite",
+["cycle_targets"] = 1,
+},
+},
+["default"] = {
+{
+["action"] = "muzzle",
+["enabled"] = true,
+},
+{
+["action"] = "tranquilizing_shot",
+["enabled"] = true,
+},
+{
+["enabled"] = true,
+["criteria"] = "( settings.mark_any || target.is_boss ) & active_dot.hunters_mark = 0 & target.time_to_pct_80 > 20",
+["action"] = "hunters_mark",
+},
+{
+["enabled"] = true,
+["criteria"] = "pet.health_pct < pet_healing",
+["action"] = "mend_pet",
+},
+{
+["enabled"] = true,
+["action"] = "call_action_list",
+["list_name"] = "cds",
+},
+{
+["enabled"] = true,
+["action"] = "call_action_list",
+["strict"] = 1,
+["criteria"] = "active_enemies < 3 & talent.vicious_hunt.enabled",
+["list_name"] = "plst",
+},
+{
+["enabled"] = true,
+["action"] = "call_action_list",
+["strict"] = 1,
+["criteria"] = "active_enemies > 2 & talent.vicious_hunt.enabled",
+["list_name"] = "plcleave",
+},
+{
+["enabled"] = true,
+["action"] = "call_action_list",
+["strict"] = 1,
+["criteria"] = "active_enemies < 3 & ! talent.vicious_hunt.enabled",
+["list_name"] = "sentst",
+},
+{
+["enabled"] = true,
+["action"] = "call_action_list",
+["strict"] = 1,
+["criteria"] = "active_enemies > 2 & ! talent.vicious_hunt.enabled",
+["list_name"] = "sentcleave",
+},
+{
+["enabled"] = true,
+["action"] = "kill_command",
+["description"] = "Use Kill Command if there's nothing else to press",
+["cycle_targets"] = 1,
+},
+{
+["action"] = "arcane_torrent",
+["enabled"] = true,
+},
+{
+["action"] = "bag_of_tricks",
+["enabled"] = true,
+},
+{
+["action"] = "lights_judgment",
+["enabled"] = true,
+},
+},
+["precombat"] = {
+{
+["action"] = "summon_pet",
+["enabled"] = true,
+},
+{
+["enabled"] = true,
+["name"] = "imperfect_ascendancy_serum",
+["action"] = "imperfect_ascendancy_serum",
+},
+{
+["enabled"] = true,
+["criteria"] = "( settings.mark_any || target.is_boss ) & active_dot.hunters_mark = 0 & target.time_to_pct_80 > 20",
+["action"] = "hunters_mark",
+},
+{
+["enabled"] = true,
+["name"] = "algethar_puzzle_box",
+["action"] = "algethar_puzzle_box",
+},
+},
+["plcleave"] = {
+{
+["enabled"] = true,
+["criteria"] = "cooldown.coordinated_assault.remains",
+["action"] = "spearhead",
+["description"] = "PACK LEADER AOE ACTIONLIST",
+},
+{
+["enabled"] = true,
+["action"] = "kill_command",
+["criteria"] = "buff.relentless_primal_ferocity.up & buff.tip_of_the_spear.stack < 1",
+["cycle_targets"] = 1,
+},
+{
+["enabled"] = true,
+["criteria"] = "buff.tip_of_the_spear.stack > 0 & cooldown.wildfire_bomb.charges_fractional > 1.7 || cooldown.wildfire_bomb.charges_fractional > 1.9 || cooldown.coordinated_assault.remains < 2 * gcd.max",
+["action"] = "wildfire_bomb",
+},
+{
+["enabled"] = true,
+["criteria"] = "buff.tip_of_the_spear.stack = 2 || buff.tip_of_the_spear.stack = 1",
+["action"] = "flanking_strike",
+},
+{
+["action"] = "butchery",
+["enabled"] = true,
+},
+{
+["action"] = "explosive_shot",
+["enabled"] = true,
+},
+{
+["enabled"] = true,
+["criteria"] = "! talent.bombardier.enabled || talent.bombardier.enabled & cooldown.wildfire_bomb.charges_fractional < 1",
+["action"] = "coordinated_assault",
+},
+{
+["enabled"] = true,
+["criteria"] = "buff.tip_of_the_spear.stack > 0",
+["action"] = "fury_of_the_eagle",
+},
+{
+["enabled"] = true,
+["criteria"] = "buff.deathblow.remains",
+["action"] = "kill_shot",
+},
+{
+["enabled"] = true,
+["criteria"] = "focus + cast_regen < focus.max",
+["action"] = "kill_command",
+},
+{
+["enabled"] = true,
+["criteria"] = "buff.tip_of_the_spear.stack > 0",
+["action"] = "wildfire_bomb",
+},
+{
+["action"] = "kill_shot",
+["enabled"] = true,
+},
+{
+["enabled"] = true,
+["action"] = "kill_command",
+["cycle_targets"] = 1,
+},
+{
+["action"] = "raptor_bite",
+["enabled"] = true,
+},
+},
+["cds"] = {
+{
+["enabled"] = true,
+["criteria"] = "settings.use_harpoon",
+["action"] = "harpoon",
+["description"] = "COOLDOWNS ACTIONLIST",
+},
+{
+["enabled"] = true,
+["criteria"] = "buff.coordinated_assault.up || ! talent.coordinated_assault.enabled & cooldown.spearhead.remains || ! talent.spearhead.enabled & ! talent.coordinated_assault.enabled",
+["action"] = "blood_fury",
+},
+{
+["enabled"] = true,
+["criteria"] = "buff.coordinated_assault.up || ! talent.coordinated_assault.enabled & cooldown.spearhead.remains || ! talent.spearhead.enabled & ! talent.coordinated_assault.enabled",
+["action"] = "ancestral_call",
+},
+{
+["enabled"] = true,
+["criteria"] = "buff.coordinated_assault.up || ! talent.coordinated_assault.enabled & cooldown.spearhead.remains || ! talent.spearhead.enabled & ! talent.coordinated_assault.enabled",
+["action"] = "fireblood",
+},
+{
+["enabled"] = true,
+["criteria"] = "buff.coordinated_assault.up || ! talent.coordinated_assault.enabled & cooldown.spearhead.remains || ! talent.spearhead.enabled & ! talent.coordinated_assault.enabled || time_to_die < 13",
+["action"] = "berserking",
+},
+{
+["enabled"] = true,
+["criteria"] = "boss & fight_remains < 25 || buff.coordinated_assault.up || ! talent.coordinated_assault.enabled & cooldown.spearhead.remains || ! talent.spearhead.enabled & ! talent.coordinated_assault.enabled",
+["action"] = "potion",
+},
+{
+["enabled"] = true,
+["action"] = "imperfect_ascendancy_serum",
+["use_off_gcd"] = 1,
+["name"] = "imperfect_ascendancy_serum",
+["criteria"] = "gcd.remains > gcd.max - 0.1",
+},
+{
+["enabled"] = true,
+["criteria"] = "cooldown.coordinated_assault.remains || cooldown.spearhead.remains",
+["action"] = "use_items",
+},
+{
+["enabled"] = true,
+["criteria"] = "target.distance >= 6",
+["action"] = "aspect_of_the_eagle",
+},
+},
+["plst"] = {
+{
+["enabled"] = true,
+["action"] = "raptor_bite",
+["cycle_targets"] = 1,
+["criteria"] = "buff.howl_of_the_pack.up & buff.pack_coordination.up & buff.howl_of_the_pack.remains < gcd.max",
+["description"] = "PL ST is currently optimised for KCspam, if the playstyle ends up fixed it is likely better to entirely redo and take the sentactionlist as a baseline. PACK LEADER SINGLE TARGET ACTIONLIST.",
+},
+{
+["enabled"] = true,
+["action"] = "kill_command",
+["criteria"] = "( buff.relentless_primal_ferocity.up & buff.tip_of_the_spear.stack < 1 )",
+["cycle_targets"] = 1,
+},
+{
+["enabled"] = true,
+["criteria"] = "cooldown.coordinated_assault.remains",
+["action"] = "spearhead",
+},
+{
+["enabled"] = true,
+["action"] = "raptor_bite",
+["criteria"] = "! dot.serpent_sting.ticking & target.time_to_die > 12 & ( ! talent.contagious_reagents.enabled || active_dot.serpent_sting = 0 )",
+["cycle_targets"] = 1,
+},
+{
+["enabled"] = true,
+["action"] = "raptor_bite",
+["criteria"] = "talent.contagious_reagents.enabled & active_dot.serpent_sting < active_enemies & dot.serpent_sting.remains",
+["cycle_targets"] = 1,
+},
+{
+["action"] = "butchery",
+["enabled"] = true,
+},
+{
+["enabled"] = true,
+["criteria"] = "buff.tip_of_the_spear.stack = 2 || buff.tip_of_the_spear.stack = 1",
+["action"] = "flanking_strike",
+},
+{
+["enabled"] = true,
+["criteria"] = "buff.tip_of_the_spear.stack > 0",
+["action"] = "kill_shot",
+},
+{
+["enabled"] = true,
+["criteria"] = "buff.tip_of_the_spear.stack > 0 & cooldown.wildfire_bomb.charges_fractional > 1.7 || cooldown.wildfire_bomb.charges_fractional > 1.9 || cooldown.coordinated_assault.remains < 2 * gcd.max",
+["action"] = "wildfire_bomb",
+},
+{
+["action"] = "explosive_shot",
+["enabled"] = true,
+},
+{
+["enabled"] = true,
+["criteria"] = "! talent.bombardier.enabled || talent.bombardier.enabled & cooldown.wildfire_bomb.charges_fractional < 1",
+["action"] = "coordinated_assault",
+},
+{
+["enabled"] = true,
+["criteria"] = "buff.tip_of_the_spear.stack > 0 & ( ! raid_event.adds.exists || raid_event.adds.exists & raid_event.adds.in > 40 )",
+["action"] = "fury_of_the_eagle",
+},
+{
+["enabled"] = true,
+["criteria"] = "buff.furious_assault.up",
+["action"] = "raptor_bite",
+},
+{
+["enabled"] = true,
+["criteria"] = "focus + cast_regen < focus.max & ( ! buff.relentless_primal_ferocity.up || ( buff.relentless_primal_ferocity.up & buff.tip_of_the_spear.stack < 1 || focus < 30 ) )",
+["action"] = "kill_command",
+},
+{
+["enabled"] = true,
+["criteria"] = "buff.tip_of_the_spear.stack > 0 & ( ! raid_event.adds.exists || raid_event.adds.exists & raid_event.adds.in > 15 )",
+["action"] = "wildfire_bomb",
+},
+{
+["enabled"] = true,
+["criteria"] = "! talent.contagious_reagents.enabled",
+["action"] = "raptor_bite",
+},
+{
+["action"] = "raptor_bite",
+["enabled"] = true,
+},
+},
+["sentcleave"] = {
+{
+["enabled"] = true,
+["criteria"] = "! cooldown.lunar_storm.remains",
+["action"] = "wildfire_bomb",
+["description"] = "SENTINEL || DEFAULT AOE ACTIONLIST",
+},
+{
+["enabled"] = true,
+["action"] = "kill_command",
+["criteria"] = "buff.relentless_primal_ferocity.up & buff.tip_of_the_spear.stack < 1",
+["cycle_targets"] = 1,
+},
+{
+["enabled"] = true,
+["criteria"] = "buff.tip_of_the_spear.stack > 0 & cooldown.wildfire_bomb.charges_fractional > 1.7 || cooldown.wildfire_bomb.charges_fractional > 1.9 || ( talent.bombardier.enabled & cooldown.coordinated_assault.remains < 2 * gcd.max ) || talent.butchery.enabled & cooldown.butchery.remains < gcd.max",
+["action"] = "wildfire_bomb",
+},
+{
+["action"] = "butchery",
+["enabled"] = true,
+},
+{
+["action"] = "explosive_shot",
+["enabled"] = true,
+},
+{
+["enabled"] = true,
+["criteria"] = "! talent.bombardier.enabled || talent.bombardier.enabled & cooldown.wildfire_bomb.charges_fractional < 1",
+["action"] = "coordinated_assault",
+},
+{
+["enabled"] = true,
+["criteria"] = "buff.tip_of_the_spear.stack > 0",
+["action"] = "fury_of_the_eagle",
+},
+{
+["enabled"] = true,
+["criteria"] = "( buff.tip_of_the_spear.stack = 2 || buff.tip_of_the_spear.stack = 1 )",
+["action"] = "flanking_strike",
+},
+{
+["enabled"] = true,
+["criteria"] = "buff.deathblow.remains & talent.sic_em.enabled",
+["action"] = "kill_shot",
+},
+{
+["enabled"] = true,
+["action"] = "kill_command",
+["criteria"] = "focus + cast_regen < focus.max",
+["cycle_targets"] = 1,
+},
+{
+["enabled"] = true,
+["criteria"] = "buff.tip_of_the_spear.stack > 0",
+["action"] = "wildfire_bomb",
+},
+{
+["enabled"] = true,
+["action"] = "kill_command",
+["cycle_targets"] = 1,
+},
+{
+["enabled"] = true,
+["action"] = "raptor_bite",
+["criteria"] = "! talent.contagious_reagents.enabled",
+["cycle_targets"] = 1,
+},
+{
+["enabled"] = true,
+["action"] = "raptor_bite",
+["cycle_targets"] = 1,
+},
+},
+},
+["version"] = 20241022,
+["warnings"] = "The import for 'sentcleave' required some automated changes.\nLine 3: Converted 'talent.bombardier' to 'talent.bombardier.enabled' (1x).\nLine 3: Converted 'talent.butchery' to 'talent.butchery.enabled' (1x).\nLine 6: Converted 'talent.bombardier' to 'talent.bombardier.enabled' (1x).\nLine 6: Converted 'talent.bombardier' to 'talent.bombardier.enabled' (1x).\nLine 9: Converted 'talent.sic_em' to 'talent.sic_em.enabled' (1x).\nLine 13: Converted 'talent.contagious_reagents' to 'talent.contagious_reagents.enabled' (1x).\n\nThe import for 'default' required some automated changes.\nLine 6: Converted 'talent.vicious_hunt' to 'talent.vicious_hunt.enabled' (1x).\nLine 7: Converted 'talent.vicious_hunt' to 'talent.vicious_hunt.enabled' (1x).\nLine 8: Converted 'talent.vicious_hunt' to 'talent.vicious_hunt.enabled' (1x).\nLine 9: Converted 'talent.vicious_hunt' to 'talent.vicious_hunt.enabled' (1x).\n\nThe import for 'plst' required some automated changes.\nLine 4: Converted 'talent.contagious_reagents' to 'talent.contagious_reagents.enabled' (1x).\nLine 5: Converted 'talent.contagious_reagents' to 'talent.contagious_reagents.enabled' (1x).\nLine 11: Converted 'talent.bombardier' to 'talent.bombardier.enabled' (1x).\nLine 11: Converted 'talent.bombardier' to 'talent.bombardier.enabled' (1x).\nLine 16: Converted 'talent.contagious_reagents' to 'talent.contagious_reagents.enabled' (1x).\nThe following auras were used in the action list but were not found in the addon database:\n - pack_coordination\n\nThe import for 'cds' required some automated changes.\nLine 2: Converted 'talent.coordinated_assault' to 'talent.coordinated_assault.enabled' (1x).\nLine 2: Converted 'talent.spearhead' to 'talent.spearhead.enabled' (1x).\nLine 2: Converted 'talent.coordinated_assault' to 'talent.coordinated_assault.enabled' (1x).\nLine 3: Converted 'talent.coordinated_assault' to 'talent.coordinated_assault.enabled' (1x).\nLine 3: Converted 'talent.spearhead' to 'talent.spearhead.enabled' (1x).\nLine 3: Converted 'talent.coordinated_assault' to 'talent.coordinated_assault.enabled' (1x).\nLine 4: Converted 'talent.coordinated_assault' to 'talent.coordinated_assault.enabled' (1x).\nLine 4: Converted 'talent.spearhead' to 'talent.spearhead.enabled' (1x).\nLine 4: Converted 'talent.coordinated_assault' to 'talent.coordinated_assault.enabled' (1x).\nLine 5: Converted 'talent.coordinated_assault' to 'talent.coordinated_assault.enabled' (1x).\nLine 5: Converted 'talent.spearhead' to 'talent.spearhead.enabled' (1x).\nLine 5: Converted 'talent.coordinated_assault' to 'talent.coordinated_assault.enabled' (1x).\nLine 6: Converted 'talent.coordinated_assault' to 'talent.coordinated_assault.enabled' (1x).\nLine 6: Converted 'talent.spearhead' to 'talent.spearhead.enabled' (1x).\nLine 6: Converted 'talent.coordinated_assault' to 'talent.coordinated_assault.enabled' (1x).\n\nThe import for 'plcleave' required some automated changes.\nLine 7: Converted 'talent.bombardier' to 'talent.bombardier.enabled' (1x).\nLine 7: Converted 'talent.bombardier' to 'talent.bombardier.enabled' (1x).\n\nThe import for 'sentst' required some automated changes.\nLine 4: Converted 'talent.contagious_reagents' to 'talent.contagious_reagents.enabled' (1x).\nLine 5: Converted 'talent.contagious_reagents' to 'talent.contagious_reagents.enabled' (1x).\nLine 9: Converted 'talent.bombardier' to 'talent.bombardier.enabled' (1x).\nLine 9: Converted 'talent.bombardier' to 'talent.bombardier.enabled' (1x).\nLine 16: Converted 'talent.contagious_reagents' to 'talent.contagious_reagents.enabled' (1x).\n\nImported 7 action lists.\n",
+["spec"] = 255,
+["profile"] = "actions.precombat+=/summon_pet\nactions.precombat+=/use_item,name=imperfect_ascendancy_serum\nactions.precombat+=/hunters_mark,if=(settings.mark_any||target.is_boss)&active_dot.hunters_mark=0&target.time_to_pct_80>20\nactions.precombat+=/use_item,name=algethar_puzzle_box\n\nactions+=/muzzle\nactions+=/tranquilizing_shot\nactions+=/hunters_mark,if=(settings.mark_any||target.is_boss)&active_dot.hunters_mark=0&target.time_to_pct_80>20\nactions+=/mend_pet,if=pet.health_pct<pet_healing\nactions+=/call_action_list,name=cds\nactions+=/call_action_list,name=plst,strict=1,if=active_enemies<3&talent.vicious_hunt\nactions+=/call_action_list,name=plcleave,strict=1,if=active_enemies>2&talent.vicious_hunt\nactions+=/call_action_list,name=sentst,strict=1,if=active_enemies<3&!talent.vicious_hunt\nactions+=/call_action_list,name=sentcleave,strict=1,if=active_enemies>2&!talent.vicious_hunt\n# Use Kill Command if there's nothing else to press\nactions+=/kill_command,cycle_targets=1\nactions+=/arcane_torrent\nactions+=/bag_of_tricks\nactions+=/lights_judgment\n\n# COOLDOWNS ACTIONLIST\nactions.cds+=/harpoon,if=settings.use_harpoon\nactions.cds+=/blood_fury,if=buff.coordinated_assault.up||!talent.coordinated_assault&cooldown.spearhead.remains||!talent.spearhead&!talent.coordinated_assault\n## actions.cds+=/invoke_external_buff,name=power_infusion,if=buff.coordinated_assault.up||!talent.coordinated_assault&cooldown.spearhead.remains||!talent.spearhead&!talent.coordinated_assault\nactions.cds+=/ancestral_call,if=buff.coordinated_assault.up||!talent.coordinated_assault&cooldown.spearhead.remains||!talent.spearhead&!talent.coordinated_assault\nactions.cds+=/fireblood,if=buff.coordinated_assault.up||!talent.coordinated_assault&cooldown.spearhead.remains||!talent.spearhead&!talent.coordinated_assault\nactions.cds+=/berserking,if=buff.coordinated_assault.up||!talent.coordinated_assault&cooldown.spearhead.remains||!talent.spearhead&!talent.coordinated_assault||time_to_die<13\nactions.cds+=/potion,if=boss&fight_remains<25||buff.coordinated_assault.up||!talent.coordinated_assault&cooldown.spearhead.remains||!talent.spearhead&!talent.coordinated_assault\nactions.cds+=/use_item,name=imperfect_ascendancy_serum,use_off_gcd=1,if=gcd.remains>gcd.max-0.1\nactions.cds+=/use_items,if=cooldown.coordinated_assault.remains||cooldown.spearhead.remains\nactions.cds+=/aspect_of_the_eagle,if=target.distance>=6\n\n# PL ST is currently optimised for KCspam, if the playstyle ends up fixed it is likely better to entirely redo and take the sentactionlist as a baseline. PACK LEADER SINGLE TARGET ACTIONLIST.\nactions.plst+=/raptor_bite,cycle_targets=1,if=buff.howl_of_the_pack.up&buff.pack_coordination.up&buff.howl_of_the_pack.remains<gcd\nactions.plst+=/kill_command,cycle_targets=1,if=(buff.relentless_primal_ferocity.up&buff.tip_of_the_spear.stack<1)\nactions.plst+=/spearhead,if=cooldown.coordinated_assault.remains\nactions.plst+=/raptor_bite,cycle_targets=1,if=!dot.serpent_sting.ticking&target.time_to_die>12&(!talent.contagious_reagents||active_dot.serpent_sting=0)\nactions.plst+=/raptor_bite,cycle_targets=1,if=talent.contagious_reagents&active_dot.serpent_sting<active_enemies&dot.serpent_sting.remains\nactions.plst+=/butchery\nactions.plst+=/flanking_strike,if=buff.tip_of_the_spear.stack=2||buff.tip_of_the_spear.stack=1\nactions.plst+=/kill_shot,if=buff.tip_of_the_spear.stack>0\nactions.plst+=/wildfire_bomb,if=buff.tip_of_the_spear.stack>0&cooldown.wildfire_bomb.charges_fractional>1.7||cooldown.wildfire_bomb.charges_fractional>1.9||cooldown.coordinated_assault.remains<2*gcd\nactions.plst+=/explosive_shot\nactions.plst+=/coordinated_assault,if=!talent.bombardier||talent.bombardier&cooldown.wildfire_bomb.charges_fractional<1\nactions.plst+=/fury_of_the_eagle,if=buff.tip_of_the_spear.stack>0&(!raid_event.adds.exists||raid_event.adds.exists&raid_event.adds.in>40)\nactions.plst+=/raptor_bite,if=buff.furious_assault.up\nactions.plst+=/kill_command,if=focus+cast_regen<focus.max&(!buff.relentless_primal_ferocity.up||(buff.relentless_primal_ferocity.up&buff.tip_of_the_spear.stack<1||focus<30))\nactions.plst+=/wildfire_bomb,if=buff.tip_of_the_spear.stack>0&(!raid_event.adds.exists||raid_event.adds.exists&raid_event.adds.in>15)\nactions.plst+=/raptor_bite,if=!talent.contagious_reagents\nactions.plst+=/raptor_bite\n\n\n# PACK LEADER AOE ACTIONLIST\nactions.plcleave+=/spearhead,if=cooldown.coordinated_assault.remains\nactions.plcleave+=/kill_command,cycle_targets=1,if=buff.relentless_primal_ferocity.up&buff.tip_of_the_spear.stack<1\nactions.plcleave+=/wildfire_bomb,if=buff.tip_of_the_spear.stack>0&cooldown.wildfire_bomb.charges_fractional>1.7||cooldown.wildfire_bomb.charges_fractional>1.9||cooldown.coordinated_assault.remains<2*gcd\nactions.plcleave+=/flanking_strike,if=buff.tip_of_the_spear.stack=2||buff.tip_of_the_spear.stack=1\nactions.plcleave+=/butchery\nactions.plcleave+=/explosive_shot\nactions.plcleave+=/coordinated_assault,if=!talent.bombardier||talent.bombardier&cooldown.wildfire_bomb.charges_fractional<1\nactions.plcleave+=/fury_of_the_eagle,if=buff.tip_of_the_spear.stack>0\nactions.plcleave+=/kill_shot,if=buff.deathblow.remains\nactions.plcleave+=/kill_command,if=focus+cast_regen<focus.max\nactions.plcleave+=/wildfire_bomb,if=buff.tip_of_the_spear.stack>0\nactions.plcleave+=/kill_shot\nactions.plcleave+=/kill_command,cycle_targets=1\nactions.plcleave+=/raptor_bite\n\n# SENT  Further investigate negative Haste Breakpoints on Lunar Storm. SENTINEL || DEFAULT SINGLE TARGET ACTIONLIST.\nactions.sentst+=/wildfire_bomb,if=!cooldown.lunar_storm.remains\nactions.sentst+=/kill_command,cycle_targets=1,if=(buff.relentless_primal_ferocity.up&buff.tip_of_the_spear.stack<1)\nactions.sentst+=/spearhead,if=cooldown.coordinated_assault.remains\nactions.sentst+=/raptor_bite,cycle_targets=1,if=!dot.serpent_sting.ticking&target.time_to_die>12&(!talent.contagious_reagents||active_dot.serpent_sting=0)\nactions.sentst+=/raptor_bite,cycle_targets=1,if=talent.contagious_reagents&active_dot.serpent_sting<active_enemies&dot.serpent_sting.remains\nactions.sentst+=/flanking_strike,if=buff.tip_of_the_spear.stack=2||buff.tip_of_the_spear.stack=1\nactions.sentst+=/wildfire_bomb,if=(cooldown.lunar_storm.remains>full_recharge_time-gcd)&(buff.tip_of_the_spear.stack>0&cooldown.wildfire_bomb.charges_fractional>1.7||cooldown.wildfire_bomb.charges_fractional>1.9)||cooldown.coordinated_assault.remains<2*gcd\nactions.sentst+=/butchery\nactions.sentst+=/coordinated_assault,if=!talent.bombardier||talent.bombardier&cooldown.wildfire_bomb.charges_fractional<1\nactions.sentst+=/explosive_shot\nactions.sentst+=/fury_of_the_eagle,if=buff.tip_of_the_spear.stack>0\nactions.sentst+=/kill_shot\nactions.sentst+=/kill_command,cycle_targets=1,if=buff.tip_of_the_spear.stack<1&cooldown.flanking_strike.remains<gcd\nactions.sentst+=/kill_command,cycle_targets=1,if=focus+cast_regen<focus.max&(!buff.relentless_primal_ferocity.up||(buff.relentless_primal_ferocity.up&buff.tip_of_the_spear.stack<2))\nactions.sentst+=/wildfire_bomb,if=buff.tip_of_the_spear.stack>0&cooldown.lunar_storm.remains>full_recharge_time&(!raid_event.adds.exists||raid_event.adds.exists&raid_event.adds.in>15)\nactions.sentst+=/raptor_bite,cycle_targets=1,if=!talent.contagious_reagents\nactions.sentst+=/raptor_bite,cycle_targets=1\n\n# SENTINEL || DEFAULT AOE ACTIONLIST\nactions.sentcleave+=/wildfire_bomb,if=!cooldown.lunar_storm.remains\nactions.sentcleave+=/kill_command,cycle_targets=1,if=buff.relentless_primal_ferocity.up&buff.tip_of_the_spear.stack<1\nactions.sentcleave+=/wildfire_bomb,if=buff.tip_of_the_spear.stack>0&cooldown.wildfire_bomb.charges_fractional>1.7||cooldown.wildfire_bomb.charges_fractional>1.9||(talent.bombardier&cooldown.coordinated_assault.remains<2*gcd)||talent.butchery&cooldown.butchery.remains<gcd\nactions.sentcleave+=/butchery\nactions.sentcleave+=/explosive_shot\nactions.sentcleave+=/coordinated_assault,if=!talent.bombardier||talent.bombardier&cooldown.wildfire_bomb.charges_fractional<1\nactions.sentcleave+=/fury_of_the_eagle,if=buff.tip_of_the_spear.stack>0\nactions.sentcleave+=/flanking_strike,if=(buff.tip_of_the_spear.stack=2||buff.tip_of_the_spear.stack=1)\nactions.sentcleave+=/kill_shot,if=buff.deathblow.remains&talent.sic_em\nactions.sentcleave+=/kill_command,cycle_targets=1,if=focus+cast_regen<focus.max\nactions.sentcleave+=/wildfire_bomb,if=buff.tip_of_the_spear.stack>0\nactions.sentcleave+=/kill_command,cycle_targets=1\nactions.sentcleave+=/raptor_bite,cycle_targets=1,if=!talent.contagious_reagents\nactions.sentcleave+=/raptor_bite,cycle_targets=1",
+},
+},
+},
+},
+}

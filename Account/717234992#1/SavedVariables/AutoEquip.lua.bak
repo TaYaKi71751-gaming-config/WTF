@@ -1,0 +1,2 @@
+
+AutoEquipDB = nil
