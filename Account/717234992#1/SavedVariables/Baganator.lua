@@ -1,5 +1,20 @@
 
 BAGANATOR_CONFIG = {
+["Version"] = 1,
+["CharacterSpecific"] = {
+["sort_ignore_bank_slots_count"] = {
+},
+["sort_ignore_slots_count_2"] = {
+},
+["currencies_tracked"] = {
+["Taogi-아즈샤라"] = {
+},
+},
+["currencies_tracked_imported"] = {
+},
+},
+["Profiles"] = {
+["DEFAULT"] = {
 ["guild_view_width"] = 14,
 ["empty_slot_background"] = false,
 ["junk_plugin"] = "poor_quality",
@@ -149,10 +164,10 @@ BAGANATOR_CONFIG = {
 ["custom_categories"] = {
 },
 ["sort_start_at_bottom"] = false,
-["category_migration"] = 5,
-["lock_frames"] = false,
 ["saved_searches"] = {
 },
+["lock_frames"] = false,
+["category_migration"] = 5,
 ["category_section_toggled"] = {
 },
 ["category_modifications"] = {
@@ -185,8 +200,8 @@ BAGANATOR_CONFIG = {
 ["icon_text_font_size"] = 14,
 ["bag_view_position"] = {
 "BOTTOMRIGHT",
--105,
-78.99988555908203,
+0,
+0,
 },
 ["disabled_skins"] = {
 },
@@ -219,6 +234,7 @@ BAGANATOR_CONFIG = {
 },
 },
 ["show_buttons_on_alt"] = false,
+["debug_keywords"] = false,
 ["skins"] = {
 ["blizzard"] = {
 ["no_frame_borders"] = false,
@@ -231,20 +247,6 @@ BAGANATOR_CONFIG = {
 ["view_transparency"] = 0.3,
 ["empty_slot_background"] = false,
 },
-},
-["recent_characters_main_view"] = {
-"Taogi-아즈샤라",
-"Tayaki-아즈샤라",
-"스팀덱유저-아즈샤라",
-"Taogo-아즈샤라",
-"꼬우면님이해-아즈샤라",
-"이재명지지자-아즈샤라",
-"김대중지지자-아즈샤라",
-"박근혜지지자-아즈샤라",
-"Takebi-아즈샤라",
-"Tayuki-아즈샤라",
-"Taiki-아즈샤라",
-"Tayoki-아즈샤라",
 },
 ["junk_plugin_ignored"] = {
 },
@@ -261,7 +263,20 @@ BAGANATOR_CONFIG = {
 0,
 0,
 },
-["debug_keywords"] = false,
+["recent_characters_main_view"] = {
+"Taogi-아즈샤라",
+"Tayaki-아즈샤라",
+"스팀덱유저-아즈샤라",
+"Taogo-아즈샤라",
+"꼬우면님이해-아즈샤라",
+"이재명지지자-아즈샤라",
+"김대중지지자-아즈샤라",
+"박근혜지지자-아즈샤라",
+"Takebi-아즈샤라",
+"Tayuki-아즈샤라",
+"Taiki-아즈샤라",
+"Tayoki-아즈샤라",
+},
 ["sort_ignore_bank_slots_count"] = {
 ["Tayaki-아즈샤라"] = 0,
 },
@@ -291,5 +306,7 @@ BAGANATOR_CONFIG = {
 ["currency_headers_collapsed"] = {
 },
 ["migrated_sort_method"] = true,
+},
+},
 }
 BAGANATOR_DATA = nil

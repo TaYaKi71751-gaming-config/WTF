@@ -3,6 +3,20 @@ WeakAurasSaved = {
 ["dynamicIconCache"] = {
 },
 ["editor_tab_spaces"] = 4,
+["editor_font_size"] = 12,
+["lastArchiveClear"] = 1747476013,
+["minimap"] = {
+["hide"] = false,
+},
+["lastUpgrade"] = 1743908469,
+["dbVersion"] = 84,
+["migrationCutoff"] = 730,
+["features"] = {
+},
+["login_squelch_time"] = 10,
+["registered"] = {
+},
+["historyCutoff"] = 730,
 ["displays"] = {
 ["회복"] = {
 ["iconSource"] = -1,
@@ -163,15 +177,15 @@ WeakAurasSaved = {
 },
 ["preferToUpdate"] = false,
 ["uid"] = "I98W3kXFKBn",
-["zoom"] = 0,
 ["cooldownTextDisabled"] = false,
+["zoom"] = 0,
 ["anchorFrameType"] = "SCREEN",
 ["tocversion"] = 110100,
 ["id"] = "회복",
 ["alpha"] = 1,
-["useCooldownModRate"] = true,
-["width"] = 60,
 ["frameStrata"] = 4,
+["width"] = 60,
+["useCooldownModRate"] = true,
 ["config"] = {
 },
 ["inverse"] = false,
@@ -327,15 +341,15 @@ WeakAurasSaved = {
 },
 ["preferToUpdate"] = false,
 ["uid"] = "tp6ix757Zmd",
-["zoom"] = 0,
 ["cooldownTextDisabled"] = false,
+["zoom"] = 0,
 ["anchorFrameType"] = "SCREEN",
 ["tocversion"] = 110100,
 ["id"] = "우르솔 쿨알림",
 ["alpha"] = 0.5,
-["useCooldownModRate"] = true,
-["width"] = 64,
 ["frameStrata"] = 1,
+["width"] = 64,
+["useCooldownModRate"] = true,
 ["config"] = {
 },
 ["inverse"] = false,
@@ -412,52 +426,7 @@ WeakAurasSaved = {
 },
 ["columnSpace"] = 1,
 ["radius"] = 200,
-["rowSpace"] = 1,
-["selfPoint"] = "TOP",
-["align"] = "CENTER",
-["gridWidth"] = 5,
-["sortHybridTable"] = {
-["MKPT_Cells"] = false,
-["MKPT_Description"] = false,
-},
-["desc"] = "번역 : 익명의드래곤",
-["stagger"] = 0,
-["rotation"] = 0,
-["version"] = 8,
-["subRegions"] = {
-},
-["internalVersion"] = 84,
-["borderColor"] = {
-0,
-0,
-0,
-1,
-},
-["load"] = {
-["size"] = {
-["multi"] = {
-},
-},
-["spec"] = {
-["multi"] = {
-},
-},
-["class"] = {
-["multi"] = {
-},
-},
-["talent"] = {
-["multi"] = {
-},
-},
-},
-["gridType"] = "RD",
-["backdropColor"] = {
-0,
-0,
-0,
-1,
-},
+["useLimit"] = false,
 ["animation"] = {
 ["start"] = {
 ["easeStrength"] = 3,
@@ -478,6 +447,49 @@ WeakAurasSaved = {
 ["easeType"] = "none",
 },
 },
+["align"] = "CENTER",
+["gridWidth"] = 5,
+["selfPoint"] = "TOP",
+["desc"] = "번역 : 익명의드래곤",
+["stagger"] = 0,
+["internalVersion"] = 84,
+["version"] = 8,
+["subRegions"] = {
+},
+["rowSpace"] = 1,
+["authorOptions"] = {
+},
+["load"] = {
+["size"] = {
+["multi"] = {
+},
+},
+["spec"] = {
+["multi"] = {
+},
+},
+["class"] = {
+["multi"] = {
+},
+},
+["talent"] = {
+["multi"] = {
+},
+},
+},
+["frameStrata"] = 1,
+["backdropColor"] = {
+0,
+0,
+0,
+1,
+},
+["borderColor"] = {
+0,
+0,
+0,
+1,
+},
 ["source"] = "import",
 ["uid"] = "mKIjaGe4TVx",
 ["scale"] = 1,
@@ -496,19 +508,21 @@ WeakAurasSaved = {
 ["semver"] = "1.1.4",
 ["tocversion"] = 110105,
 ["id"] = "내부 전쟁 전문기술 지식 트래커",
-["grow"] = "DOWN",
+["gridType"] = "RD",
 ["alpha"] = 1,
 ["anchorFrameType"] = "SCREEN",
 ["stepAngle"] = 15,
 ["borderInset"] = 1,
-["authorOptions"] = {
-},
-["useLimit"] = false,
+["rotation"] = 0,
+["grow"] = "DOWN",
 ["conditions"] = {
 },
 ["information"] = {
 },
-["frameStrata"] = 1,
+["sortHybridTable"] = {
+["MKPT_Cells"] = false,
+["MKPT_Description"] = false,
+},
 },
 ["수드 2종"] = {
 ["controlledChildren"] = {
@@ -555,7 +569,26 @@ WeakAurasSaved = {
 },
 },
 ["internalVersion"] = 84,
-["selfPoint"] = "CENTER",
+["animation"] = {
+["start"] = {
+["easeStrength"] = 3,
+["type"] = "none",
+["duration_type"] = "seconds",
+["easeType"] = "none",
+},
+["main"] = {
+["easeStrength"] = 3,
+["type"] = "none",
+["duration_type"] = "seconds",
+["easeType"] = "none",
+},
+["finish"] = {
+["easeStrength"] = 3,
+["type"] = "none",
+["duration_type"] = "seconds",
+["easeType"] = "none",
+},
+},
 ["subRegions"] = {
 },
 ["load"] = {
@@ -590,33 +623,14 @@ WeakAurasSaved = {
 ["borderOffset"] = 4,
 ["tocversion"] = 110100,
 ["id"] = "수드 2종",
-["animation"] = {
-["start"] = {
-["easeStrength"] = 3,
-["type"] = "none",
-["duration_type"] = "seconds",
-["easeType"] = "none",
-},
-["main"] = {
-["easeStrength"] = 3,
-["type"] = "none",
-["duration_type"] = "seconds",
-["easeType"] = "none",
-},
-["finish"] = {
-["easeStrength"] = 3,
-["type"] = "none",
-["duration_type"] = "seconds",
-["easeType"] = "none",
-},
-},
+["selfPoint"] = "CENTER",
 ["alpha"] = 1,
 ["anchorFrameType"] = "SCREEN",
 ["frameStrata"] = 1,
-["borderInset"] = 1,
-["xOffset"] = 0,
 ["config"] = {
 },
+["xOffset"] = 0,
+["borderInset"] = 1,
 ["conditions"] = {
 },
 ["information"] = {
@@ -985,7 +999,7 @@ WeakAurasSaved = {
 ["anchorFrameType"] = "SCREEN",
 ["semver"] = "1.1.4",
 ["useCooldownModRate"] = true,
-["sparkHidden"] = "NEVER",
+["id"] = "MKPT_Cells",
 ["backgroundColor"] = {
 0,
 0,
@@ -994,7 +1008,7 @@ WeakAurasSaved = {
 },
 ["frameStrata"] = 1,
 ["width"] = 319.99990844727,
-["id"] = "MKPT_Cells",
+["sparkHidden"] = "NEVER",
 ["authorOptions"] = {
 {
 ["type"] = "toggle",
@@ -1158,13 +1172,13 @@ WeakAurasSaved = {
 },
 },
 },
+["cooldown"] = true,
 ["barColor2"] = {
 0.49019610881805,
 0.49019610881805,
 0.49019610881805,
 1,
 },
-["cooldown"] = true,
 },
 ["수드"] = {
 ["controlledChildren"] = {
@@ -1213,26 +1227,7 @@ WeakAurasSaved = {
 },
 },
 ["internalVersion"] = 84,
-["animation"] = {
-["start"] = {
-["easeStrength"] = 3,
-["type"] = "none",
-["duration_type"] = "seconds",
-["easeType"] = "none",
-},
-["main"] = {
-["easeStrength"] = 3,
-["type"] = "none",
-["duration_type"] = "seconds",
-["easeType"] = "none",
-},
-["finish"] = {
-["easeStrength"] = 3,
-["type"] = "none",
-["duration_type"] = "seconds",
-["easeType"] = "none",
-},
-},
+["selfPoint"] = "CENTER",
 ["subRegions"] = {
 },
 ["load"] = {
@@ -1267,15 +1262,34 @@ WeakAurasSaved = {
 ["borderOffset"] = 4,
 ["tocversion"] = 110100,
 ["id"] = "수드",
-["selfPoint"] = "CENTER",
+["animation"] = {
+["start"] = {
+["easeStrength"] = 3,
+["type"] = "none",
+["duration_type"] = "seconds",
+["easeType"] = "none",
+},
+["main"] = {
+["easeStrength"] = 3,
+["type"] = "none",
+["duration_type"] = "seconds",
+["easeType"] = "none",
+},
+["finish"] = {
+["easeStrength"] = 3,
+["type"] = "none",
+["duration_type"] = "seconds",
+["easeType"] = "none",
+},
+},
 ["alpha"] = 1,
 ["anchorFrameType"] = "SCREEN",
 ["frameStrata"] = 1,
-["borderInset"] = 1,
-["authorOptions"] = {
-},
 ["config"] = {
 },
+["authorOptions"] = {
+},
+["borderInset"] = 1,
 ["conditions"] = {
 },
 ["information"] = {
@@ -1311,10 +1325,10 @@ WeakAurasSaved = {
 ["debuffType"] = "HELPFUL",
 ["event"] = "Health",
 ["unit"] = "player",
-["custom"] = "function(event, ...)\n    if event == \"MKPT_UPDATE_DESCRIPTION\" then\n        local description, _ = ...\n        aura_env.description = description\n    end\n    \n    return true\nend\n\n\n",
-["customName"] = "function()   \n    return aura_env.description or \"Click on an item to track\\n{rt6} 주간 - {rt3} 일회성\"\nend",
 ["spellIds"] = {
 },
+["customName"] = "function()   \n    return aura_env.description or \"Click on an item to track\\n{rt6} 주간 - {rt3} 일회성\"\nend",
+["custom"] = "function(event, ...)\n    if event == \"MKPT_UPDATE_DESCRIPTION\" then\n        local description, _ = ...\n        aura_env.description = description\n    end\n    \n    return true\nend\n\n\n",
 ["custom_type"] = "event",
 ["names"] = {
 },
@@ -1373,7 +1387,12 @@ WeakAurasSaved = {
 ["source"] = "import",
 ["displayText_format_n_format"] = "none",
 ["shadowXOffset"] = 1,
+["url"] = "",
 ["preferToUpdate"] = false,
+["regionType"] = "text",
+["displayText_format_p_time_legacy_floor"] = false,
+["conditions"] = {
+},
 ["animation"] = {
 ["start"] = {
 ["easeStrength"] = 3,
@@ -1394,12 +1413,7 @@ WeakAurasSaved = {
 ["easeType"] = "none",
 },
 },
-["regionType"] = "text",
-["shadowYOffset"] = -1,
-["conditions"] = {
-},
 ["displayText_format_p_time_mod_rate"] = true,
-["url"] = "",
 ["displayText_format_p_time_precision"] = 1,
 ["config"] = {
 ["minimized"] = true,
@@ -1429,8 +1443,8 @@ WeakAurasSaved = {
 ["anchorFrameType"] = "SCREEN",
 ["xOffset"] = 0,
 ["uid"] = "fC7aPnUEPPg",
-["selfPoint"] = "BOTTOM",
 ["displayText"] = "%n",
+["shadowYOffset"] = -1,
 ["shadowColor"] = {
 0,
 0,
@@ -1443,7 +1457,7 @@ WeakAurasSaved = {
 ["forceEvents"] = false,
 ["ignoreOptionsEventErrors"] = false,
 },
-["displayText_format_p_time_legacy_floor"] = false,
+["selfPoint"] = "BOTTOM",
 },
 ["화신"] = {
 ["iconSource"] = -1,
@@ -1585,15 +1599,15 @@ WeakAurasSaved = {
 },
 ["preferToUpdate"] = false,
 ["uid"] = "vh0)Ay0tsTK",
-["zoom"] = 0,
 ["cooldownTextDisabled"] = false,
+["zoom"] = 0,
 ["anchorFrameType"] = "SCREEN",
 ["tocversion"] = 110100,
 ["id"] = "화신",
 ["alpha"] = 0.5,
-["useCooldownModRate"] = true,
-["width"] = 64,
 ["frameStrata"] = 1,
+["width"] = 64,
+["useCooldownModRate"] = true,
 ["config"] = {
 },
 ["inverse"] = false,
@@ -1768,15 +1782,15 @@ WeakAurasSaved = {
 },
 ["preferToUpdate"] = false,
 ["uid"] = "KKPEXM054xg",
-["zoom"] = 0,
 ["cooldownTextDisabled"] = false,
+["zoom"] = 0,
 ["anchorFrameType"] = "SCREEN",
 ["tocversion"] = 110100,
 ["id"] = "태풍 쿨알림",
 ["alpha"] = 0.5,
-["useCooldownModRate"] = true,
-["width"] = 64,
 ["frameStrata"] = 1,
+["width"] = 64,
+["useCooldownModRate"] = true,
 ["config"] = {
 },
 ["inverse"] = false,
@@ -1975,15 +1989,15 @@ WeakAurasSaved = {
 },
 ["config"] = {
 },
-["cooldownTextDisabled"] = false,
 ["zoom"] = 0,
+["cooldownTextDisabled"] = false,
 ["width"] = 64,
 ["tocversion"] = 110100,
 ["id"] = "야생의 징표",
 ["frameStrata"] = 1,
-["alpha"] = 1,
-["anchorFrameType"] = "SCREEN",
 ["useCooldownModRate"] = true,
+["anchorFrameType"] = "SCREEN",
+["alpha"] = 1,
 ["uid"] = "B99k5Eem98r",
 ["inverse"] = false,
 ["keepAspectRatio"] = false,
@@ -2197,15 +2211,15 @@ WeakAurasSaved = {
 },
 },
 ["uid"] = "ojCt3SoSGJ6",
-["zoom"] = 0,
 ["cooldownTextDisabled"] = false,
+["zoom"] = 0,
 ["width"] = 64,
 ["tocversion"] = 110100,
 ["id"] = "무쇠가죽 2",
 ["frameStrata"] = 1,
-["useCooldownModRate"] = true,
-["anchorFrameType"] = "SCREEN",
 ["alpha"] = 1,
+["anchorFrameType"] = "SCREEN",
+["useCooldownModRate"] = true,
 ["config"] = {
 },
 ["inverse"] = false,
@@ -2341,10 +2355,10 @@ WeakAurasSaved = {
 },
 ["spellIds"] = {
 },
-["events"] = "",
+["custom"] = "function(as)\n    local now = time()\n    \n    if aura_env.autoReset then\n        aura_env.doAutoReset();\n    end\n    \n    if GetTime() - aura_env.lastDisplayUpdate >= aura_env.config.updateInterval then\n        local thisToon = UnitName(\"player\") .. \"%s%p%s\" .. GetRealmName();\n        local s = {};\n        s.changed = true;\n        \n        local count = 0;\n        \n        for k,v in pairs(aura_env.db.History) do\n            if not (now > v.last + 3600 or v.last > now + 3600) then\n                count = count + 1; \n            end\n        end\n        \n        s.name = \"Instance History\";\n        \n        s.progressType = \"static\";\n        \n        s.additionalProgress = {};\n        local now = time();\n        \n        local czk = aura_env.histZoneKey();\n        \n        local ordered = {};\n        \n        local dayCount = 0;\n        for k,v in pairs(aura_env.db.HistoryDay) do\n            if string.match(k, thisToon) then\n                if not (now > v.last + 86400 or v.last > now + 86400) then\n                    dayCount = dayCount + 1;\n                end\n            end\n        end\n        \n        s.show = count >= aura_env.config.displayMin or dayCount >= aura_env.config.displayMin;\n        \n        if count > 0 then\n            s.value = 3600;\n            s.total = 3600;\n            local start = now-3600;\n            \n            for k,v in pairs(aura_env.db.History) do\n                if k == czk then\n                    v.last = now; \n                end\n                table.insert(ordered, {k, v.create});\n            end\n            \n            table.sort(ordered, function(a,b) return a[2]<b[2] end);\n            \n            for idx,t in pairs(ordered) do\n                local k = t[1];\n                local v = aura_env.db.History[k];\n                \n                if v.last >= start then\n                    \n                    local o = {};\n                    --o.max = math.min(3600, v.create - start);\n                    --o.min = math.max(0, math.min(v.last - start, o.max-25));\n                    \n                    o.max = math.max(0, math.min(3600, v.last - start));\n                    \n                    local prev = #s.additionalProgress > 0 and s.additionalProgress[#s.additionalProgress].max or 0;\n                    \n                    o.min = math.max(0, math.min(3600, math.min(math.max(prev+25, v.create - start), o.max-25)));\n                    \n                    --print(o.max, o.min)\n                    table.insert(s.additionalProgress, o);\n                end\n            end\n        elseif dayCount > 0 then\n            s.value = 86400;\n            s.total = 86400;\n            local start = now-86400;\n            \n            for k,v in pairs(aura_env.db.HistoryDay) do\n                if string.match(k, thisToon) then\n                    if k == czk then\n                        v.last = now; \n                    end\n                    table.insert(ordered, {k, v.create});\n                end\n            end\n            \n            table.sort(ordered, function(a,b) return a[2]<b[2] end);\n            \n            for idx,t in pairs(ordered) do\n                local k = t[1];\n                local v = aura_env.db.HistoryDay[k];\n                \n                if v.last >= start then\n                    \n                    local o = {};\n                    --o.max = math.min(86400, v.create - start);\n                    --o.min = math.max(0, math.min(v.last - start, o.max-25));\n                    \n                    o.max = math.max(0, math.min(86400, v.last - start));\n                    \n                    local prev = #s.additionalProgress > 0 and s.additionalProgress[#s.additionalProgress].max or 0;\n                    \n                    o.min = math.max(0, math.min(86400, math.min(math.max(prev+25, v.create - start), o.max-25)));\n                    \n                    --print(o.max, o.min)\n                    table.insert(s.additionalProgress, o);\n                end\n            end\n        end\n        \n        \n        --DevTools_Dump(s.additionalProgress)\n        \n        as[1] = s;\n        \n        aura_env.lastDisplayUpdate = GetTime();\n        return true;\n    else\n        return false;\n    end\nend",
 ["subeventPrefix"] = "SPELL",
 ["check"] = "update",
-["custom"] = "function(as)\n    local now = time()\n    \n    if aura_env.autoReset then\n        aura_env.doAutoReset();\n    end\n    \n    if GetTime() - aura_env.lastDisplayUpdate >= aura_env.config.updateInterval then\n        local thisToon = UnitName(\"player\") .. \"%s%p%s\" .. GetRealmName();\n        local s = {};\n        s.changed = true;\n        \n        local count = 0;\n        \n        for k,v in pairs(aura_env.db.History) do\n            if not (now > v.last + 3600 or v.last > now + 3600) then\n                count = count + 1; \n            end\n        end\n        \n        s.name = \"Instance History\";\n        \n        s.progressType = \"static\";\n        \n        s.additionalProgress = {};\n        local now = time();\n        \n        local czk = aura_env.histZoneKey();\n        \n        local ordered = {};\n        \n        local dayCount = 0;\n        for k,v in pairs(aura_env.db.HistoryDay) do\n            if string.match(k, thisToon) then\n                if not (now > v.last + 86400 or v.last > now + 86400) then\n                    dayCount = dayCount + 1;\n                end\n            end\n        end\n        \n        s.show = count >= aura_env.config.displayMin or dayCount >= aura_env.config.displayMin;\n        \n        if count > 0 then\n            s.value = 3600;\n            s.total = 3600;\n            local start = now-3600;\n            \n            for k,v in pairs(aura_env.db.History) do\n                if k == czk then\n                    v.last = now; \n                end\n                table.insert(ordered, {k, v.create});\n            end\n            \n            table.sort(ordered, function(a,b) return a[2]<b[2] end);\n            \n            for idx,t in pairs(ordered) do\n                local k = t[1];\n                local v = aura_env.db.History[k];\n                \n                if v.last >= start then\n                    \n                    local o = {};\n                    --o.max = math.min(3600, v.create - start);\n                    --o.min = math.max(0, math.min(v.last - start, o.max-25));\n                    \n                    o.max = math.max(0, math.min(3600, v.last - start));\n                    \n                    local prev = #s.additionalProgress > 0 and s.additionalProgress[#s.additionalProgress].max or 0;\n                    \n                    o.min = math.max(0, math.min(3600, math.min(math.max(prev+25, v.create - start), o.max-25)));\n                    \n                    --print(o.max, o.min)\n                    table.insert(s.additionalProgress, o);\n                end\n            end\n        elseif dayCount > 0 then\n            s.value = 86400;\n            s.total = 86400;\n            local start = now-86400;\n            \n            for k,v in pairs(aura_env.db.HistoryDay) do\n                if string.match(k, thisToon) then\n                    if k == czk then\n                        v.last = now; \n                    end\n                    table.insert(ordered, {k, v.create});\n                end\n            end\n            \n            table.sort(ordered, function(a,b) return a[2]<b[2] end);\n            \n            for idx,t in pairs(ordered) do\n                local k = t[1];\n                local v = aura_env.db.HistoryDay[k];\n                \n                if v.last >= start then\n                    \n                    local o = {};\n                    --o.max = math.min(86400, v.create - start);\n                    --o.min = math.max(0, math.min(v.last - start, o.max-25));\n                    \n                    o.max = math.max(0, math.min(86400, v.last - start));\n                    \n                    local prev = #s.additionalProgress > 0 and s.additionalProgress[#s.additionalProgress].max or 0;\n                    \n                    o.min = math.max(0, math.min(86400, math.min(math.max(prev+25, v.create - start), o.max-25)));\n                    \n                    --print(o.max, o.min)\n                    table.insert(s.additionalProgress, o);\n                end\n            end\n        end\n        \n        \n        --DevTools_Dump(s.additionalProgress)\n        \n        as[1] = s;\n        \n        aura_env.lastDisplayUpdate = GetTime();\n        return true;\n    else\n        return false;\n    end\nend",
+["events"] = "",
 ["custom_type"] = "stateupdate",
 ["customVariables"] = "\n\n",
 },
@@ -2358,14 +2372,14 @@ WeakAurasSaved = {
 ["event"] = "Health",
 ["subeventPrefix"] = "SPELL",
 ["custom_hide"] = "timed",
+["events"] = "CHAT_MSG_SYSTEM,INSTANCE_BOOT_START, INSTANCE_BOOT_STOP, GROUP_ROSTER_UPDATE, PLAYER_ENTERING_WORLD, ZONE_CHANGED_NEW_AREA, RAID_INSTANCE_WELCOME, PLAYER_LEAVING_WORLD, PLAYER_CAMPING, CHAT_MSG_ADDON, SEND_INSTANCE_RESET_REQUEST",
 ["custom"] = "function(event, ...)\n    if aura_env[event] then\n        aura_env[event](...) \n    end\nend",
-["spellIds"] = {
-},
 ["unit"] = "player",
 ["names"] = {
 },
 ["subeventSuffix"] = "_CAST_START",
-["events"] = "CHAT_MSG_SYSTEM,INSTANCE_BOOT_START, INSTANCE_BOOT_STOP, GROUP_ROSTER_UPDATE, PLAYER_ENTERING_WORLD, ZONE_CHANGED_NEW_AREA, RAID_INSTANCE_WELCOME, PLAYER_LEAVING_WORLD, PLAYER_CAMPING, CHAT_MSG_ADDON, SEND_INSTANCE_RESET_REQUEST",
+["spellIds"] = {
+},
 ["debuffType"] = "HELPFUL",
 },
 ["untrigger"] = {
@@ -2413,7 +2427,7 @@ WeakAurasSaved = {
 },
 },
 ["height"] = 15.000008583069,
-["textureSource"] = "LSM",
+["rotate"] = true,
 ["width"] = 300,
 ["sparkBlendMode"] = "ADD",
 ["backdropColor"] = {
@@ -2434,8 +2448,8 @@ WeakAurasSaved = {
 ["useAdjustedMin"] = false,
 ["icon_side"] = "LEFT",
 ["uid"] = "zl9mw8DzKKO",
-["sparkHeight"] = 30,
 ["displayText_format_p_time_precision"] = 1,
+["sparkHeight"] = 30,
 ["backgroundColor"] = {
 0.10196078431373,
 0.10196078431373,
@@ -2455,7 +2469,7 @@ WeakAurasSaved = {
 },
 ["frameStrata"] = 1,
 ["anchorFrameType"] = "SCREEN",
-["rotate"] = true,
+["textureSource"] = "LSM",
 ["displayText_format_p_time_dynamic_threshold"] = 60,
 ["inverse"] = false,
 ["displayText"] = "%p",
@@ -2750,15 +2764,15 @@ WeakAurasSaved = {
 },
 ["config"] = {
 },
-["zoom"] = 0,
 ["cooldownTextDisabled"] = false,
+["zoom"] = 0,
 ["width"] = 64,
 ["tocversion"] = 110100,
 ["id"] = "광포한 재생력",
 ["frameStrata"] = 1,
-["alpha"] = 1,
-["anchorFrameType"] = "SCREEN",
 ["useCooldownModRate"] = true,
+["anchorFrameType"] = "SCREEN",
+["alpha"] = 1,
 ["uid"] = "SukPOoZxtmG",
 ["inverse"] = false,
 ["icon"] = true,
@@ -2927,15 +2941,15 @@ WeakAurasSaved = {
 },
 ["preferToUpdate"] = false,
 ["uid"] = "tLBSroLvPhY",
-["zoom"] = 0,
 ["cooldownTextDisabled"] = false,
+["zoom"] = 0,
 ["anchorFrameType"] = "SCREEN",
 ["tocversion"] = 110100,
 ["id"] = "무쇠가죽",
 ["alpha"] = 1,
-["useCooldownModRate"] = true,
-["width"] = 60,
 ["frameStrata"] = 4,
+["width"] = 60,
+["useCooldownModRate"] = true,
 ["config"] = {
 },
 ["inverse"] = false,
@@ -3109,15 +3123,15 @@ WeakAurasSaved = {
 },
 ["preferToUpdate"] = false,
 ["uid"] = "FA8sibAGxmh",
-["zoom"] = 0,
 ["cooldownTextDisabled"] = false,
+["zoom"] = 0,
 ["anchorFrameType"] = "SCREEN",
 ["tocversion"] = 110100,
 ["id"] = "재생",
 ["alpha"] = 1,
-["useCooldownModRate"] = true,
-["width"] = 60,
 ["frameStrata"] = 4,
+["width"] = 60,
+["useCooldownModRate"] = true,
 ["config"] = {
 },
 ["inverse"] = false,
@@ -3132,19 +3146,5 @@ WeakAurasSaved = {
 1,
 },
 },
-},
-["editor_font_size"] = 12,
-["lastArchiveClear"] = 1747476013,
-["minimap"] = {
-["hide"] = false,
-},
-["lastUpgrade"] = 1743908469,
-["dbVersion"] = 84,
-["migrationCutoff"] = 730,
-["features"] = {
-},
-["login_squelch_time"] = 10,
-["historyCutoff"] = 730,
-["registered"] = {
 },
 }

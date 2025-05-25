@@ -66,10 +66,6 @@ VER 3 0000000000000006 "리셋" "132150"
 /script ResetInstances();
 /print 리셋완료
 END
-VER 3 0000000000000012 "변신" "132144"
-#showtooltip
-/시전 [spec:1,outdoors,nostance:3,nocombat] 날쌘 동물 변신; [spec:1,nostance:4,outdoors] 표범 변신;[spec:1,indoors,stance:0/4] 표범 변신; [spec:1,indoors] 표범 변신; [spec:1,outdoors,nostance:3] 날쌘 동물 변신;
-END
 VER 3 0000000000000011 "손인사" "136078"
 /손인사
 END
@@ -83,6 +79,5 @@ VER 3 000000000000001D "앨랠래" "6124644"
 /s 앨랠래
 END
 VER 3 000000000000001B "죄송합니다" "132091"
-/i
-죄송합니다
+/p 죄송합니다
 END

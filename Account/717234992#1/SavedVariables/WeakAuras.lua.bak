@@ -3,6 +3,20 @@ WeakAurasSaved = {
 ["dynamicIconCache"] = {
 },
 ["editor_tab_spaces"] = 4,
+["login_squelch_time"] = 10,
+["lastArchiveClear"] = 1747476013,
+["minimap"] = {
+["hide"] = false,
+},
+["historyCutoff"] = 730,
+["dbVersion"] = 84,
+["migrationCutoff"] = 730,
+["features"] = {
+},
+["editor_font_size"] = 12,
+["registered"] = {
+},
+["lastUpgrade"] = 1743908469,
 ["displays"] = {
 ["회복"] = {
 ["iconSource"] = -1,
@@ -161,15 +175,15 @@ WeakAurasSaved = {
 },
 ["config"] = {
 },
-["useCooldownModRate"] = true,
-["cooldownTextDisabled"] = false,
+["frameStrata"] = 4,
+["zoom"] = 0,
 ["width"] = 60,
 ["tocversion"] = 110100,
 ["id"] = "회복",
-["frameStrata"] = 4,
+["useCooldownModRate"] = true,
 ["alpha"] = 1,
 ["anchorFrameType"] = "SCREEN",
-["zoom"] = 0,
+["cooldownTextDisabled"] = false,
 ["uid"] = "I98W3kXFKBn",
 ["inverse"] = false,
 ["actions"] = {
@@ -351,15 +365,15 @@ WeakAurasSaved = {
 },
 ["config"] = {
 },
-["useCooldownModRate"] = true,
-["cooldownTextDisabled"] = false,
+["frameStrata"] = 1,
+["zoom"] = 0,
 ["width"] = 64,
 ["tocversion"] = 110100,
 ["id"] = "우르솔 쿨알림",
-["frameStrata"] = 1,
+["useCooldownModRate"] = true,
 ["alpha"] = 0.5,
 ["anchorFrameType"] = "SCREEN",
-["zoom"] = 0,
+["cooldownTextDisabled"] = false,
 ["uid"] = "tp6ix757Zmd",
 ["inverse"] = false,
 ["keepAspectRatio"] = false,
@@ -413,76 +427,6 @@ WeakAurasSaved = {
 ["columnSpace"] = 1,
 ["radius"] = 200,
 ["regionType"] = "dynamicgroup",
-["selfPoint"] = "TOP",
-["align"] = "CENTER",
-["alpha"] = 1,
-["frameStrata"] = 1,
-["desc"] = "번역 : 익명의드래곤",
-["stagger"] = 0,
-["internalVersion"] = 84,
-["version"] = 8,
-["subRegions"] = {
-},
-["borderColor"] = {
-0,
-0,
-0,
-1,
-},
-["sortHybridTable"] = {
-["MKPT_Cells"] = false,
-["MKPT_Description"] = false,
-},
-["load"] = {
-["talent"] = {
-["multi"] = {
-},
-},
-["spec"] = {
-["multi"] = {
-},
-},
-["class"] = {
-["multi"] = {
-},
-},
-["size"] = {
-["multi"] = {
-},
-},
-},
-["useLimit"] = false,
-["backdropColor"] = {
-0,
-0,
-0,
-1,
-},
-["authorOptions"] = {
-},
-["source"] = "import",
-["borderInset"] = 1,
-["scale"] = 1,
-["centerType"] = "LR",
-["border"] = true,
-["borderEdge"] = "None",
-["stepAngle"] = 15,
-["borderSize"] = 120,
-["limit"] = 5,
-["animate"] = false,
-["grow"] = "DOWN",
-["constantFactor"] = "RADIUS",
-["config"] = {
-},
-["borderOffset"] = 4,
-["semver"] = "1.1.4",
-["tocversion"] = 110105,
-["id"] = "내부 전쟁 전문기술 지식 트래커",
-["rowSpace"] = 1,
-["gridWidth"] = 5,
-["anchorFrameType"] = "SCREEN",
-["sort"] = "none",
-["uid"] = "mKIjaGe4TVx",
 ["animation"] = {
 ["start"] = {
 ["type"] = "none",
@@ -503,12 +447,82 @@ WeakAurasSaved = {
 ["easeType"] = "none",
 },
 },
+["align"] = "CENTER",
+["alpha"] = 1,
+["sortHybridTable"] = {
+["MKPT_Cells"] = false,
+["MKPT_Description"] = false,
+},
+["desc"] = "번역 : 익명의드래곤",
+["stagger"] = 0,
+["rowSpace"] = 1,
+["version"] = 8,
+["subRegions"] = {
+},
+["authorOptions"] = {
+},
+["selfPoint"] = "TOP",
+["load"] = {
+["talent"] = {
+["multi"] = {
+},
+},
+["spec"] = {
+["multi"] = {
+},
+},
+["class"] = {
+["multi"] = {
+},
+},
+["size"] = {
+["multi"] = {
+},
+},
+},
+["grow"] = "DOWN",
+["backdropColor"] = {
+0,
+0,
+0,
+1,
+},
+["rotation"] = 0,
+["source"] = "import",
+["borderInset"] = 1,
+["scale"] = 1,
+["centerType"] = "LR",
+["border"] = true,
+["borderEdge"] = "None",
+["stepAngle"] = 15,
+["borderSize"] = 120,
+["limit"] = 5,
+["animate"] = false,
 ["gridType"] = "RD",
+["constantFactor"] = "RADIUS",
+["config"] = {
+},
+["borderOffset"] = 4,
+["semver"] = "1.1.4",
+["tocversion"] = 110105,
+["id"] = "내부 전쟁 전문기술 지식 트래커",
+["useLimit"] = false,
+["gridWidth"] = 5,
+["anchorFrameType"] = "SCREEN",
+["sort"] = "none",
+["uid"] = "mKIjaGe4TVx",
+["borderColor"] = {
+0,
+0,
+0,
+1,
+},
+["frameStrata"] = 1,
 ["conditions"] = {
 },
 ["information"] = {
 },
-["rotation"] = 0,
+["internalVersion"] = 84,
 },
 ["재생"] = {
 ["iconSource"] = -1,
@@ -667,15 +681,15 @@ WeakAurasSaved = {
 },
 ["config"] = {
 },
-["useCooldownModRate"] = true,
-["cooldownTextDisabled"] = false,
+["frameStrata"] = 4,
+["zoom"] = 0,
 ["width"] = 60,
 ["tocversion"] = 110100,
 ["id"] = "재생",
-["frameStrata"] = 4,
+["useCooldownModRate"] = true,
 ["alpha"] = 1,
 ["anchorFrameType"] = "SCREEN",
-["zoom"] = 0,
+["cooldownTextDisabled"] = false,
 ["uid"] = "FA8sibAGxmh",
 ["inverse"] = false,
 ["actions"] = {
@@ -1015,13 +1029,13 @@ WeakAurasSaved = {
 ["sparkBlendMode"] = "ADD",
 ["useAdjustededMax"] = false,
 ["source"] = "import",
+["cooldown"] = true,
 ["barColor2"] = {
 0.49019610881805,
 0.49019610881805,
 0.49019610881805,
 1,
 },
-["cooldown"] = true,
 ["sparkTexture"] = "Interface\\CastingBar\\UI-CastingBar-Spark",
 ["uid"] = "A0S6sUqaC5O",
 ["icon_side"] = "LEFT",
@@ -1056,11 +1070,11 @@ WeakAurasSaved = {
 ["width"] = 1,
 },
 },
-["sparkHidden"] = "NEVER",
+["id"] = "MKPT_Cells",
 ["width"] = 319.99990844727,
 ["semver"] = "1.1.4",
 ["frameStrata"] = 1,
-["id"] = "MKPT_Cells",
+["sparkHidden"] = "NEVER",
 ["backgroundColor"] = {
 0,
 0,
@@ -1283,26 +1297,7 @@ WeakAurasSaved = {
 },
 },
 ["internalVersion"] = 84,
-["animation"] = {
-["start"] = {
-["type"] = "none",
-["easeStrength"] = 3,
-["duration_type"] = "seconds",
-["easeType"] = "none",
-},
-["main"] = {
-["type"] = "none",
-["easeStrength"] = 3,
-["duration_type"] = "seconds",
-["easeType"] = "none",
-},
-["finish"] = {
-["type"] = "none",
-["easeStrength"] = 3,
-["duration_type"] = "seconds",
-["easeType"] = "none",
-},
-},
+["selfPoint"] = "CENTER",
 ["subRegions"] = {
 },
 ["load"] = {
@@ -1337,14 +1332,33 @@ WeakAurasSaved = {
 ["borderOffset"] = 4,
 ["tocversion"] = 110100,
 ["id"] = "수드",
-["borderInset"] = 1,
+["config"] = {
+},
 ["alpha"] = 1,
 ["anchorFrameType"] = "SCREEN",
 ["uid"] = "N(NNfM3cf1z",
-["config"] = {
-},
+["borderInset"] = 1,
 ["xOffset"] = 0,
-["selfPoint"] = "CENTER",
+["animation"] = {
+["start"] = {
+["type"] = "none",
+["easeStrength"] = 3,
+["duration_type"] = "seconds",
+["easeType"] = "none",
+},
+["main"] = {
+["type"] = "none",
+["easeStrength"] = 3,
+["duration_type"] = "seconds",
+["easeType"] = "none",
+},
+["finish"] = {
+["type"] = "none",
+["easeStrength"] = 3,
+["duration_type"] = "seconds",
+["easeType"] = "none",
+},
+},
 ["conditions"] = {
 },
 ["information"] = {
@@ -1515,15 +1529,15 @@ WeakAurasSaved = {
 },
 ["config"] = {
 },
-["useCooldownModRate"] = true,
-["cooldownTextDisabled"] = false,
+["frameStrata"] = 1,
+["zoom"] = 0,
 ["width"] = 64,
 ["tocversion"] = 110100,
 ["id"] = "화신",
-["frameStrata"] = 1,
+["useCooldownModRate"] = true,
 ["alpha"] = 0.5,
 ["anchorFrameType"] = "SCREEN",
-["zoom"] = 0,
+["cooldownTextDisabled"] = false,
 ["uid"] = "vh0)Ay0tsTK",
 ["inverse"] = false,
 ["keepAspectRatio"] = false,
@@ -1564,13 +1578,13 @@ WeakAurasSaved = {
 ["unit"] = "player",
 ["subeventPrefix"] = "SPELL",
 ["customName"] = "function()   \n    return aura_env.description or \"Click on an item to track\\n{rt6} 주간 - {rt3} 일회성\"\nend",
-["spellIds"] = {
-},
+["custom"] = "function(event, ...)\n    if event == \"MKPT_UPDATE_DESCRIPTION\" then\n        local description, _ = ...\n        aura_env.description = description\n    end\n    \n    return true\nend\n\n\n",
 ["events"] = "MKPT_UPDATE_DESCRIPTION",
 ["names"] = {
 },
 ["custom_type"] = "event",
-["custom"] = "function(event, ...)\n    if event == \"MKPT_UPDATE_DESCRIPTION\" then\n        local description, _ = ...\n        aura_env.description = description\n    end\n    \n    return true\nend\n\n\n",
+["spellIds"] = {
+},
 ["debuffType"] = "HELPFUL",
 },
 ["untrigger"] = {
@@ -1624,13 +1638,32 @@ WeakAurasSaved = {
 ["source"] = "import",
 ["displayText_format_n_format"] = "none",
 ["shadowXOffset"] = 1,
-["displayText_format_p_time_legacy_floor"] = false,
-["shadowYOffset"] = -1,
-["regionType"] = "text",
-["displayText_format_p_time_mod_rate"] = true,
-["fixedWidth"] = 200,
-["displayText"] = "%n",
 ["selfPoint"] = "BOTTOM",
+["displayText_format_p_time_legacy_floor"] = false,
+["regionType"] = "text",
+["animation"] = {
+["start"] = {
+["type"] = "none",
+["easeStrength"] = 3,
+["duration_type"] = "seconds",
+["easeType"] = "none",
+},
+["main"] = {
+["type"] = "none",
+["easeStrength"] = 3,
+["duration_type"] = "seconds",
+["easeType"] = "none",
+},
+["finish"] = {
+["type"] = "none",
+["easeStrength"] = 3,
+["duration_type"] = "seconds",
+["easeType"] = "none",
+},
+},
+["fixedWidth"] = 200,
+["shadowYOffset"] = -1,
+["displayText"] = "%n",
 ["displayText_format_p_time_precision"] = 1,
 ["uid"] = "fC7aPnUEPPg",
 ["xOffset"] = 0,
@@ -1660,8 +1693,8 @@ WeakAurasSaved = {
 ["config"] = {
 ["minimized"] = true,
 },
-["preferToUpdate"] = false,
 ["url"] = "",
+["displayText_format_p_time_mod_rate"] = true,
 ["shadowColor"] = {
 0,
 0,
@@ -1675,26 +1708,7 @@ WeakAurasSaved = {
 ["forceEvents"] = false,
 ["debugLog"] = false,
 },
-["animation"] = {
-["start"] = {
-["type"] = "none",
-["easeStrength"] = 3,
-["duration_type"] = "seconds",
-["easeType"] = "none",
-},
-["main"] = {
-["type"] = "none",
-["easeStrength"] = 3,
-["duration_type"] = "seconds",
-["easeType"] = "none",
-},
-["finish"] = {
-["type"] = "none",
-["easeStrength"] = 3,
-["duration_type"] = "seconds",
-["easeType"] = "none",
-},
-},
+["preferToUpdate"] = false,
 },
 ["태풍 쿨알림"] = {
 ["iconSource"] = -1,
@@ -1861,15 +1875,15 @@ WeakAurasSaved = {
 },
 ["config"] = {
 },
-["useCooldownModRate"] = true,
-["cooldownTextDisabled"] = false,
+["frameStrata"] = 1,
+["zoom"] = 0,
 ["width"] = 64,
 ["tocversion"] = 110100,
 ["id"] = "태풍 쿨알림",
-["frameStrata"] = 1,
+["useCooldownModRate"] = true,
 ["alpha"] = 0.5,
 ["anchorFrameType"] = "SCREEN",
-["zoom"] = 0,
+["cooldownTextDisabled"] = false,
 ["uid"] = "KKPEXM054xg",
 ["inverse"] = false,
 ["keepAspectRatio"] = false,
@@ -2043,15 +2057,15 @@ WeakAurasSaved = {
 },
 ["icon"] = true,
 ["uid"] = "B99k5Eem98r",
-["alpha"] = 1,
-["zoom"] = 0,
+["useCooldownModRate"] = true,
+["cooldownTextDisabled"] = false,
 ["anchorFrameType"] = "SCREEN",
 ["tocversion"] = 110100,
 ["id"] = "야생의 징표",
-["useCooldownModRate"] = true,
+["alpha"] = 1,
 ["frameStrata"] = 1,
 ["width"] = 64,
-["cooldownTextDisabled"] = false,
+["zoom"] = 0,
 ["config"] = {
 },
 ["inverse"] = false,
@@ -2266,15 +2280,15 @@ WeakAurasSaved = {
 },
 ["config"] = {
 },
-["useCooldownModRate"] = true,
-["cooldownTextDisabled"] = false,
+["alpha"] = 1,
+["zoom"] = 0,
 ["anchorFrameType"] = "SCREEN",
 ["tocversion"] = 110100,
 ["id"] = "무쇠가죽 2",
-["alpha"] = 1,
+["useCooldownModRate"] = true,
 ["frameStrata"] = 1,
 ["width"] = 64,
-["zoom"] = 0,
+["cooldownTextDisabled"] = false,
 ["uid"] = "ojCt3SoSGJ6",
 ["inverse"] = false,
 ["parent"] = "수드 2종",
@@ -2459,8 +2473,8 @@ WeakAurasSaved = {
 ["custom_type"] = "stateupdate",
 ["event"] = "Health",
 ["unit"] = "player",
-["events"] = "",
 ["custom"] = "function(as)\n    local now = time()\n    \n    if aura_env.autoReset then\n        aura_env.doAutoReset();\n    end\n    \n    if GetTime() - aura_env.lastDisplayUpdate >= aura_env.config.updateInterval then\n        local thisToon = UnitName(\"player\") .. \"%s%p%s\" .. GetRealmName();\n        local s = {};\n        s.changed = true;\n        \n        local count = 0;\n        \n        for k,v in pairs(aura_env.db.History) do\n            if not (now > v.last + 3600 or v.last > now + 3600) then\n                count = count + 1; \n            end\n        end\n        \n        s.name = \"Instance History\";\n        \n        s.progressType = \"static\";\n        \n        s.additionalProgress = {};\n        local now = time();\n        \n        local czk = aura_env.histZoneKey();\n        \n        local ordered = {};\n        \n        local dayCount = 0;\n        for k,v in pairs(aura_env.db.HistoryDay) do\n            if string.match(k, thisToon) then\n                if not (now > v.last + 86400 or v.last > now + 86400) then\n                    dayCount = dayCount + 1;\n                end\n            end\n        end\n        \n        s.show = count >= aura_env.config.displayMin or dayCount >= aura_env.config.displayMin;\n        \n        if count > 0 then\n            s.value = 3600;\n            s.total = 3600;\n            local start = now-3600;\n            \n            for k,v in pairs(aura_env.db.History) do\n                if k == czk then\n                    v.last = now; \n                end\n                table.insert(ordered, {k, v.create});\n            end\n            \n            table.sort(ordered, function(a,b) return a[2]<b[2] end);\n            \n            for idx,t in pairs(ordered) do\n                local k = t[1];\n                local v = aura_env.db.History[k];\n                \n                if v.last >= start then\n                    \n                    local o = {};\n                    --o.max = math.min(3600, v.create - start);\n                    --o.min = math.max(0, math.min(v.last - start, o.max-25));\n                    \n                    o.max = math.max(0, math.min(3600, v.last - start));\n                    \n                    local prev = #s.additionalProgress > 0 and s.additionalProgress[#s.additionalProgress].max or 0;\n                    \n                    o.min = math.max(0, math.min(3600, math.min(math.max(prev+25, v.create - start), o.max-25)));\n                    \n                    --print(o.max, o.min)\n                    table.insert(s.additionalProgress, o);\n                end\n            end\n        elseif dayCount > 0 then\n            s.value = 86400;\n            s.total = 86400;\n            local start = now-86400;\n            \n            for k,v in pairs(aura_env.db.HistoryDay) do\n                if string.match(k, thisToon) then\n                    if k == czk then\n                        v.last = now; \n                    end\n                    table.insert(ordered, {k, v.create});\n                end\n            end\n            \n            table.sort(ordered, function(a,b) return a[2]<b[2] end);\n            \n            for idx,t in pairs(ordered) do\n                local k = t[1];\n                local v = aura_env.db.HistoryDay[k];\n                \n                if v.last >= start then\n                    \n                    local o = {};\n                    --o.max = math.min(86400, v.create - start);\n                    --o.min = math.max(0, math.min(v.last - start, o.max-25));\n                    \n                    o.max = math.max(0, math.min(86400, v.last - start));\n                    \n                    local prev = #s.additionalProgress > 0 and s.additionalProgress[#s.additionalProgress].max or 0;\n                    \n                    o.min = math.max(0, math.min(86400, math.min(math.max(prev+25, v.create - start), o.max-25)));\n                    \n                    --print(o.max, o.min)\n                    table.insert(s.additionalProgress, o);\n                end\n            end\n        end\n        \n        \n        --DevTools_Dump(s.additionalProgress)\n        \n        as[1] = s;\n        \n        aura_env.lastDisplayUpdate = GetTime();\n        return true;\n    else\n        return false;\n    end\nend",
+["events"] = "",
 ["spellIds"] = {
 },
 ["subeventPrefix"] = "SPELL",
@@ -2480,14 +2494,14 @@ WeakAurasSaved = {
 ["event"] = "Health",
 ["subeventPrefix"] = "SPELL",
 ["debuffType"] = "HELPFUL",
+["custom"] = "function(event, ...)\n    if aura_env[event] then\n        aura_env[event](...) \n    end\nend",
 ["spellIds"] = {
 },
-["events"] = "CHAT_MSG_SYSTEM,INSTANCE_BOOT_START, INSTANCE_BOOT_STOP, GROUP_ROSTER_UPDATE, PLAYER_ENTERING_WORLD, ZONE_CHANGED_NEW_AREA, RAID_INSTANCE_WELCOME, PLAYER_LEAVING_WORLD, PLAYER_CAMPING, CHAT_MSG_ADDON, SEND_INSTANCE_RESET_REQUEST",
 ["subeventSuffix"] = "_CAST_START",
 ["names"] = {
 },
 ["unit"] = "player",
-["custom"] = "function(event, ...)\n    if aura_env[event] then\n        aura_env[event](...) \n    end\nend",
+["events"] = "CHAT_MSG_SYSTEM,INSTANCE_BOOT_START, INSTANCE_BOOT_STOP, GROUP_ROSTER_UPDATE, PLAYER_ENTERING_WORLD, ZONE_CHANGED_NEW_AREA, RAID_INSTANCE_WELCOME, PLAYER_LEAVING_WORLD, PLAYER_CAMPING, CHAT_MSG_ADDON, SEND_INSTANCE_RESET_REQUEST",
 ["custom_hide"] = "timed",
 },
 ["untrigger"] = {
@@ -2527,7 +2541,7 @@ WeakAurasSaved = {
 ["displayText_format_p_time_dynamic_threshold"] = 60,
 ["stickyDuration"] = false,
 ["discrete_rotation"] = 0,
-["textureSource"] = "LSM",
+["rotate"] = true,
 ["version"] = 6,
 ["subRegions"] = {
 {
@@ -2535,7 +2549,7 @@ WeakAurasSaved = {
 },
 },
 ["height"] = 15.000008583069,
-["rotate"] = true,
+["textureSource"] = "LSM",
 ["anchorFrameType"] = "SCREEN",
 ["sparkBlendMode"] = "ADD",
 ["backdropColor"] = {
@@ -2567,8 +2581,8 @@ WeakAurasSaved = {
 0.10196078431373,
 1,
 },
-["displayText_format_p_time_precision"] = 1,
 ["sparkHeight"] = 30,
+["displayText_format_p_time_precision"] = 1,
 ["uid"] = "zl9mw8DzKKO",
 ["useAdjustedMin"] = false,
 ["justify"] = "LEFT",
@@ -2800,15 +2814,15 @@ WeakAurasSaved = {
 },
 ["keepAspectRatio"] = false,
 ["uid"] = "SukPOoZxtmG",
-["alpha"] = 1,
-["cooldownTextDisabled"] = false,
+["useCooldownModRate"] = true,
+["zoom"] = 0,
 ["anchorFrameType"] = "SCREEN",
 ["tocversion"] = 110100,
 ["id"] = "광포한 재생력",
-["useCooldownModRate"] = true,
+["alpha"] = 1,
 ["frameStrata"] = 1,
 ["width"] = 64,
-["zoom"] = 0,
+["cooldownTextDisabled"] = false,
 ["config"] = {
 },
 ["inverse"] = false,
@@ -2994,15 +3008,15 @@ WeakAurasSaved = {
 },
 ["config"] = {
 },
-["useCooldownModRate"] = true,
-["cooldownTextDisabled"] = false,
+["frameStrata"] = 4,
+["zoom"] = 0,
 ["width"] = 60,
 ["tocversion"] = 110100,
 ["id"] = "무쇠가죽",
-["frameStrata"] = 4,
+["useCooldownModRate"] = true,
 ["alpha"] = 1,
 ["anchorFrameType"] = "SCREEN",
-["zoom"] = 0,
+["cooldownTextDisabled"] = false,
 ["uid"] = "tLBSroLvPhY",
 ["inverse"] = false,
 ["actions"] = {
@@ -3063,7 +3077,26 @@ WeakAurasSaved = {
 },
 },
 ["internalVersion"] = 84,
-["selfPoint"] = "CENTER",
+["animation"] = {
+["start"] = {
+["type"] = "none",
+["easeStrength"] = 3,
+["duration_type"] = "seconds",
+["easeType"] = "none",
+},
+["main"] = {
+["type"] = "none",
+["easeStrength"] = 3,
+["duration_type"] = "seconds",
+["easeType"] = "none",
+},
+["finish"] = {
+["type"] = "none",
+["easeStrength"] = 3,
+["duration_type"] = "seconds",
+["easeType"] = "none",
+},
+},
 ["subRegions"] = {
 },
 ["load"] = {
@@ -3098,34 +3131,15 @@ WeakAurasSaved = {
 ["borderOffset"] = 4,
 ["tocversion"] = 110100,
 ["id"] = "수드 2종",
-["borderInset"] = 1,
+["config"] = {
+},
 ["alpha"] = 1,
 ["anchorFrameType"] = "SCREEN",
 ["uid"] = "(dqrF79QGRR",
-["config"] = {
-},
+["borderInset"] = 1,
 ["authorOptions"] = {
 },
-["animation"] = {
-["start"] = {
-["type"] = "none",
-["easeStrength"] = 3,
-["duration_type"] = "seconds",
-["easeType"] = "none",
-},
-["main"] = {
-["type"] = "none",
-["easeStrength"] = 3,
-["duration_type"] = "seconds",
-["easeType"] = "none",
-},
-["finish"] = {
-["type"] = "none",
-["easeStrength"] = 3,
-["duration_type"] = "seconds",
-["easeType"] = "none",
-},
-},
+["selfPoint"] = "CENTER",
 ["conditions"] = {
 },
 ["information"] = {
@@ -3133,18 +3147,4 @@ WeakAurasSaved = {
 ["frameStrata"] = 1,
 },
 },
-["features"] = {
-},
-["lastArchiveClear"] = 1747476013,
-["minimap"] = {
-["hide"] = false,
-},
-["lastUpgrade"] = 1743908469,
-["dbVersion"] = 84,
-["migrationCutoff"] = 730,
-["registered"] = {
-},
-["editor_font_size"] = 12,
-["historyCutoff"] = 730,
-["login_squelch_time"] = 10,
 }

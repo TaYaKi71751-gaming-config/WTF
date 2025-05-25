@@ -211,10 +211,10 @@
         },
         {
             "separator": "================================================================================",
-            "comment": "Default Configuration for a 10462:4607 'SDL Steam Virtual Gamepad'",
-            "labelStyle": "Generic",
-            "vendorID": 10462,
-            "productID": 4607,
+            "comment": "Default Configuration for a 1118:654 'Xbox 360 Controller'",
+            "labelStyle": "Letters",
+            "vendorID": 1118,
+            "productID": 654,
             "rawButtonMappings": [
                 {
                     "rawIndex": 0,

@@ -1,5 +1,20 @@
 
 BAGANATOR_CONFIG = {
+["CharacterSpecific"] = {
+["sort_ignore_bank_slots_count"] = {
+},
+["currencies_tracked_imported"] = {
+},
+["currencies_tracked"] = {
+["Taogi-아즈샤라"] = {
+},
+},
+["sort_ignore_slots_count_2"] = {
+},
+},
+["Version"] = 1,
+["Profiles"] = {
+["DEFAULT"] = {
 ["guild_view_width"] = 14,
 ["empty_slot_background"] = false,
 ["junk_plugin"] = "poor_quality",
@@ -158,8 +173,7 @@ BAGANATOR_CONFIG = {
 },
 ["bag_empty_space_at_top"] = false,
 ["icon_equipment_set_border"] = true,
-["saved_searches"] = {
-},
+["category_migration"] = 5,
 ["sort_ignore_slots_at_end"] = false,
 ["category_modifications"] = {
 ["default_itemenhancement"] = {
@@ -200,6 +214,19 @@ BAGANATOR_CONFIG = {
 ["sort_ignore_bank_slots_count"] = {
 ["Tayaki-아즈샤라"] = 0,
 },
+["skins"] = {
+["blizzard"] = {
+["no_frame_borders"] = false,
+["view_transparency"] = 0,
+["empty_slot_background"] = false,
+},
+["dark"] = {
+["no_frame_borders"] = false,
+["square_icons"] = false,
+["view_transparency"] = 0.3,
+["empty_slot_background"] = false,
+},
+},
 ["recent_characters_main_view"] = {
 "Taogi-아즈샤라",
 "Tayaki-아즈샤라",
@@ -214,7 +241,6 @@ BAGANATOR_CONFIG = {
 "Taiki-아즈샤라",
 "Tayoki-아즈샤라",
 },
-["debug_keywords"] = false,
 ["junk_plugin_ignored"] = {
 },
 ["auto_sort_on_open"] = false,
@@ -230,19 +256,7 @@ BAGANATOR_CONFIG = {
 0,
 0,
 },
-["skins"] = {
-["blizzard"] = {
-["no_frame_borders"] = false,
-["view_transparency"] = 0,
-["empty_slot_background"] = false,
-},
-["dark"] = {
-["no_frame_borders"] = false,
-["square_icons"] = false,
-["view_transparency"] = 0.3,
-["empty_slot_background"] = false,
-},
-},
+["debug_keywords"] = false,
 ["show_buttons_on_alt"] = false,
 ["currencies_tracked"] = {
 ["Taogo-아즈샤라"] = {
@@ -273,8 +287,8 @@ BAGANATOR_CONFIG = {
 ["show_sort_button_2"] = true,
 ["bag_view_position"] = {
 "BOTTOMRIGHT",
--105,
-78.99988555908203,
+0,
+0,
 },
 ["currencies_tracked_imported"] = {
 },
@@ -286,10 +300,13 @@ BAGANATOR_CONFIG = {
 0,
 },
 ["lock_frames"] = false,
-["category_migration"] = 5,
+["saved_searches"] = {
+},
 ["sort_start_at_bottom"] = false,
 ["custom_categories"] = {
 },
 ["category_group_empty_slots"] = true,
+},
+},
 }
 BAGANATOR_DATA = nil
