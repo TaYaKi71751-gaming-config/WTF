@@ -1,18 +1,27 @@
 
 BAGANATOR_CONFIG = {
-["Version"] = 1,
 ["CharacterSpecific"] = {
 ["sort_ignore_bank_slots_count"] = {
 },
-["sort_ignore_slots_count_2"] = {
+["currencies_tracked_imported"] = {
 },
 ["currencies_tracked"] = {
 ["Taogi-아즈샤라"] = {
+{
+["currencyID"] = 3028,
+},
+{
+["currencyID"] = 3109,
+},
+{
+["currencyID"] = 3110,
 },
 },
-["currencies_tracked_imported"] = {
+},
+["sort_ignore_slots_count_2"] = {
 },
 },
+["Version"] = 1,
 ["Profiles"] = {
 ["DEFAULT"] = {
 ["guild_view_width"] = 14,
@@ -31,20 +40,20 @@ BAGANATOR_CONFIG = {
 ["default_battlepet"] = true,
 ["default_food"] = true,
 ["default_reagent"] = true,
-["default_weapon"] = true,
+["default_junk"] = true,
 ["default_special_empty"] = true,
-["default_recipe"] = true,
-["default_gem"] = true,
+["default_miscellaneous"] = true,
+["default_key"] = true,
 ["default_consumable"] = true,
 ["default_tradegoods"] = true,
-["default_potion"] = true,
-["default_keystone"] = true,
-["default_profession"] = true,
-["default_auto_equipment_sets"] = true,
 ["default_container"] = true,
-["default_key"] = true,
-["default_miscellaneous"] = true,
-["default_junk"] = true,
+["default_keystone"] = true,
+["default_auto_equipment_sets"] = true,
+["default_profession"] = true,
+["default_potion"] = true,
+["default_gem"] = true,
+["default_recipe"] = true,
+["default_weapon"] = true,
 },
 ["show_search_box"] = true,
 ["debug_categories_search"] = false,
@@ -57,7 +66,7 @@ BAGANATOR_CONFIG = {
 ["auction_house"] = true,
 ["void_storage"] = false,
 ["guild_bank"] = false,
-["trade_partner"] = false,
+["forge_of_bonds"] = false,
 ["tradeskill"] = false,
 ["item_upgrade"] = true,
 ["character_panel"] = false,
@@ -65,13 +74,13 @@ BAGANATOR_CONFIG = {
 ["item_interaction"] = true,
 ["mail"] = false,
 ["sockets"] = false,
-["forge_of_bonds"] = false,
+["trade_partner"] = false,
 ["bank"] = true,
 },
 ["icon_corners_auto_insert_applied"] = {
 ["battle_pet_level"] = true,
-["keystone_level"] = true,
 ["bag_type"] = true,
+["keystone_level"] = true,
 },
 ["show_recents_tabs_main_view"] = false,
 ["bag_view_show_bag_slots"] = false,
@@ -160,25 +169,30 @@ BAGANATOR_CONFIG = {
 ["category_horizontal_spacing_2"] = 0.3,
 ["category_default_import"] = 2,
 ["debug_categories"] = false,
-["category_group_empty_slots"] = true,
-["custom_categories"] = {
+["migrated_sort_method"] = true,
+["currency_headers_collapsed"] = {
 },
-["sort_start_at_bottom"] = false,
-["saved_searches"] = {
+["category_sections"] = {
+["1"] = {
+["name"] = "EQUIPMENT",
 },
-["lock_frames"] = false,
+["2"] = {
+["name"] = "CRAFTING",
+},
+},
+["bag_empty_space_at_top"] = false,
+["icon_equipment_set_border"] = true,
 ["category_migration"] = 5,
-["category_section_toggled"] = {
-},
+["sort_ignore_slots_at_end"] = false,
 ["category_modifications"] = {
-["default_gem"] = {
-["addedItems"] = {
-["i:228640"] = true,
-},
-},
 ["default_itemenhancement"] = {
 ["addedItems"] = {
 ["i:192055"] = true,
+},
+},
+["default_gem"] = {
+["addedItems"] = {
+["i:228640"] = true,
 },
 },
 ["default_toy"] = {
@@ -190,78 +204,24 @@ BAGANATOR_CONFIG = {
 },
 },
 ["warband_bank_view_width"] = 14,
-["sort_ignore_slots_at_end"] = false,
+["category_section_toggled"] = {
+},
 ["add_to_category_buttons_2"] = "drag",
 ["view_type"] = "unset",
 ["bank_current_tab"] = 2,
 ["icon_text_quality_colors"] = false,
-["currencies_tracked_imported"] = {
-},
+["bag_icon_size"] = 37,
 ["icon_text_font_size"] = 14,
-["bag_view_position"] = {
-"BOTTOMRIGHT",
-0,
-0,
-},
+["icon_context_fading"] = true,
+["view_alpha"] = 1,
 ["disabled_skins"] = {
 },
-["view_alpha"] = 1,
 ["bag_view_width"] = 12,
-["currencies_tracked"] = {
-["Taogo-아즈샤라"] = {
+["sort_ignore_slots_count_2"] = {
+["Tayaki-아즈샤라"] = 0,
 },
-["Tayaki-아즈샤라"] = {
-},
-["Taogi-아즈샤라"] = {
-},
-["Tayoki-아즈샤라"] = {
-},
-["김대중지지자-아즈샤라"] = {
-},
-["스팀덱유저-아즈샤라"] = {
-},
-["이재명지지자-아즈샤라"] = {
-},
-["박근혜지지자-아즈샤라"] = {
-},
-["Tayuki-아즈샤라"] = {
-},
-["Takebi-아즈샤라"] = {
-},
-["꼬우면님이해-아즈샤라"] = {
-},
-["Taiki-아즈샤라"] = {
-},
-},
-["show_buttons_on_alt"] = false,
-["debug_keywords"] = false,
-["skins"] = {
-["blizzard"] = {
-["no_frame_borders"] = false,
-["view_transparency"] = 0,
-["empty_slot_background"] = false,
-},
-["dark"] = {
-["no_frame_borders"] = false,
-["square_icons"] = false,
-["view_transparency"] = 0.3,
-["empty_slot_background"] = false,
-},
-},
-["junk_plugin_ignored"] = {
-},
-["auto_sort_on_open"] = false,
-["setting_anchors"] = false,
-["upgrade_plugin_ignored"] = {
-},
-["guild_current_tab"] = 1,
-["upgrade_plugin"] = "none",
-["guild_view_dialog_position"] = {
-"BOTTOM",
-"Baganator_GuildViewFrame",
-"TOP",
-0,
-0,
+["sort_ignore_bank_slots_count"] = {
+["Tayaki-아즈샤라"] = 0,
 },
 ["recent_characters_main_view"] = {
 "Taogi-아즈샤라",
@@ -277,15 +237,70 @@ BAGANATOR_CONFIG = {
 "Taiki-아즈샤라",
 "Tayoki-아즈샤라",
 },
-["sort_ignore_bank_slots_count"] = {
-["Tayaki-아즈샤라"] = 0,
+["debug_keywords"] = false,
+["junk_plugin_ignored"] = {
 },
-["sort_ignore_slots_count_2"] = {
-["Tayaki-아즈샤라"] = 0,
+["auto_sort_on_open"] = false,
+["upgrade_plugin"] = "none",
+["guild_current_tab"] = 1,
+["upgrade_plugin_ignored"] = {
+},
+["setting_anchors"] = false,
+["guild_view_dialog_position"] = {
+"BOTTOM",
+"Baganator_GuildViewFrame",
+"TOP",
+0,
+0,
+},
+["skins"] = {
+["blizzard"] = {
+["no_frame_borders"] = false,
+["view_transparency"] = 0,
+["empty_slot_background"] = false,
+},
+["dark"] = {
+["no_frame_borders"] = false,
+["square_icons"] = false,
+["view_transparency"] = 0.3,
+["empty_slot_background"] = false,
+},
+},
+["show_buttons_on_alt"] = false,
+["currencies_tracked"] = {
+["Taogo-아즈샤라"] = {
+},
+["Tayaki-아즈샤라"] = {
+},
+["Taogi-아즈샤라"] = {
+},
+["Tayoki-아즈샤라"] = {
+},
+["Taiki-아즈샤라"] = {
+},
+["박근혜지지자-아즈샤라"] = {
+},
+["이재명지지자-아즈샤라"] = {
+},
+["스팀덱유저-아즈샤라"] = {
+},
+["Tayuki-아즈샤라"] = {
+},
+["Takebi-아즈샤라"] = {
+},
+["꼬우면님이해-아즈샤라"] = {
+},
+["김대중지지자-아즈샤라"] = {
+},
 },
 ["show_sort_button_2"] = true,
-["icon_context_fading"] = true,
-["bag_icon_size"] = 37,
+["bag_view_position"] = {
+"BOTTOMRIGHT",
+0,
+0,
+},
+["currencies_tracked_imported"] = {
+},
 ["currency_panel_position"] = {
 "RIGHT",
 "Baganator_CategoryViewBackpackViewFramedark",
@@ -293,19 +308,13 @@ BAGANATOR_CONFIG = {
 0,
 0,
 },
-["icon_equipment_set_border"] = true,
-["bag_empty_space_at_top"] = false,
-["category_sections"] = {
-["1"] = {
-["name"] = "EQUIPMENT",
+["lock_frames"] = false,
+["saved_searches"] = {
 },
-["2"] = {
-["name"] = "CRAFTING",
+["sort_start_at_bottom"] = false,
+["custom_categories"] = {
 },
-},
-["currency_headers_collapsed"] = {
-},
-["migrated_sort_method"] = true,
+["category_group_empty_slots"] = true,
 },
 },
 }

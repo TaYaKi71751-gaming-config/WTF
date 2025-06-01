@@ -1,0 +1,8 @@
+Version: 1
+Frame: ConsolePortSpellMenu
+FrameLevel: 1
+Anchor: BOTTOM
+X: -6
+Y: 52
+W: 440
+H: 130

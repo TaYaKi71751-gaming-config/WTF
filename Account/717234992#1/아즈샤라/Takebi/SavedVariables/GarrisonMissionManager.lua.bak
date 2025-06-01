@@ -1,0 +1,2 @@
+
+SVPC_GarrisonMissionManager = nil

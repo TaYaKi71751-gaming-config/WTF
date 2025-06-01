@@ -1,0 +1,32 @@
+
+ConsolePortCharacterSettings = nil
+ConsolePortUtility = {
+{
+{
+["type"] = "action",
+["action"] = 217,
+["autoassigned"] = true,
+},
+{
+["type"] = "spell",
+["autoassigned"] = true,
+["spell"] = 161691,
+},
+{
+["type"] = "spell",
+["autoassigned"] = true,
+["spell"] = 441963,
+},
+{
+["type"] = "spell",
+["autoassigned"] = true,
+["spell"] = 426756,
+},
+{
+["questID"] = 81930,
+["type"] = "item",
+["autoassigned"] = true,
+["item"] = "|cffffffff|Hitem:227669::::::::80:253::11::1:28:2967:::::|h[순간이동 두루마리]|h|r",
+},
+},
+}
